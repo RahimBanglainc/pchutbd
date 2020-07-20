@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home2/tronixbd/test5.tronixbd.com/
-    - /bin/cp -R * $DEPLOYPATH
