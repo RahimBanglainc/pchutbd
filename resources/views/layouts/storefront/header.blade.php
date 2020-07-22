@@ -40,7 +40,7 @@
                 </a>
 
                 @else
-                    <a href="{{ __('home') }}">
+                    <a href="{{ route('login') }}">
                         <div class="main-header-login-link">Home</div>
                     </a>
                 @endguest

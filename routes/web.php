@@ -27,6 +27,7 @@ Auth::routes();
 Route::group(['as'=>'admin.','prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>['auth','admin']], function () {
 
     Route::get('dashboard','DeshboardController@index')->name('dashboard');
+    Route::get('users','DeshboardController@users')->name('users');
 
 
 });

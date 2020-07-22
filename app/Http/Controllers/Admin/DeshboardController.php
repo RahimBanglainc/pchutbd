@@ -11,4 +11,8 @@ class DeshboardController extends Controller
     {
         return view('admin.deshboard');
     }
+    public function users()
+    {
+        return view('admin.users');
+    }
 }

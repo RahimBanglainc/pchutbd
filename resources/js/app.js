@@ -31,4 +31,9 @@ Vue.component('storefront', require('./components/storefront/index'));
 
 const app = new Vue({
     el: '#app',
+    data() {
+        return {
+            infos:'data here'
+        };
+    },
 });
