@@ -3,7 +3,7 @@
         display: none
     }
 </style>
-<link rel="stylesheet" href="{{ asset('assets/storefront/css/tiny-slider.css') }}">
+<link rel="stylesheet" href="{{ asset('storefront/assets/css/tiny-slider.css') }}">
 
 <div class="slider-section">
     <div class="container">

@@ -1,7 +1,8 @@
-@extends('storefront.layouts.layout')
+@extends('layouts.storefront.layout')
+
+@section('title','Home')
 
 @section('main')
-
 
 @include('storefront.components.slide')
 
@@ -47,10 +48,10 @@
                     <img src="{{asset('img/picture.jpg')}}">
                 </div>
                 <div class="product-box-item-type">
-                    KN95 Non-Medical Kids 
+                    KN95 Non-Medical Kids
                 </div>
                 <div class="product-box-price">
-                    ৳ 1,200 
+                    ৳ 1,200
                 </div>
             </a>
         </div>
@@ -62,11 +63,11 @@
                     <img src="{{asset('img/picture.jpg')}}">
                 </div>
                 <div class="product-box-item-type">
-                    Saif Power STB-150 
+                    Saif Power STB-150
                 </div>
 
                 <div class="product-box-price">
-                    ৳ 26,500 
+                    ৳ 26,500
                 </div>
             </a>
         </div>
@@ -80,11 +81,11 @@
                     <img src="{{asset('img/picture.jpg')}}">
                 </div>
                 <div class="product-box-item-type">
-                    3M VFlex 1805 N95 
+                    3M VFlex 1805 N95
                 </div>
 
                 <div class="product-box-price">
-                    ৳ 800 
+                    ৳ 800
                 </div>
             </a>
         </div>

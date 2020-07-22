@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('storefront/home');
-});
+    return view('storefront.home');
+})->name('index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
+
+
+// this is admin route
+Route::group(['as'=>'admin.','prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>['auth','admin']], function () {
+
+    Route::get('dashboard','DeshboardController@index')->name('dashboard');
+
+
+});
+
+
+
+// this is client route
+Route::group(['as'=>'client.','prefix' => 'client', 'namespace'=>'Storefront', 'middleware'=>['auth','client']], function () {
+
+    Route::get('dashboard','DeshboardController@index')->name('dashboard');
+    // Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+});
