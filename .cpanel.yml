@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/tronixbd/test5.tronixbd.com/
+    - export DEPLOYPATH=/home/elecolab/test2.elecolab.com/
     - /bin/cp -R * $DEPLOYPATH

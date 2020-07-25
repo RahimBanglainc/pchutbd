@@ -28,6 +28,7 @@ Route::group(['as'=>'admin.','prefix' => 'admin', 'namespace'=>'Admin', 'middlew
 
     Route::get('dashboard','DeshboardController@index')->name('dashboard');
     Route::get('users','DeshboardController@users')->name('users');
+    Route::get('category','CategoryController@index')->name('category');
 
 
 });

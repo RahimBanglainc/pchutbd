@@ -2221,6 +2221,328 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Category.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/Category.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -20997,6 +21319,1149 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Category.vue?vue&type=template&id=d1b3502e&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/Category.vue?vue&type=template&id=d1b3502e& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "dropdown float-right" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-toggle arrow-none card-drop",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "dropdown",
+                    "aria-expanded": "false"
+                  }
+                },
+                [_c("i", { staticClass: "mdi mdi-dots-vertical" })]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "dropdown-menu dropdown-menu-right" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: { href: "javascript:void(0);" }
+                  },
+                  [_vm._v("Sales Report")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: { href: "javascript:void(0);" }
+                  },
+                  [_vm._v("Export Report")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: { href: "javascript:void(0);" }
+                  },
+                  [_vm._v("Profit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: { href: "javascript:void(0);" }
+                  },
+                  [_vm._v("Action")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("h4", { staticClass: "card-title mb-4" }, [
+              _vm._v("Latest Transactions")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-centered datatable dt-responsive nowrap",
+                  staticStyle: {
+                    "border-collapse": "collapse",
+                    "border-spacing": "0",
+                    width: "100%"
+                  },
+                  attrs: { "data-page-length": "10" }
+                },
+                [
+                  _c("thead", { staticClass: "thead-light" }, [
+                    _c("tr", [
+                      _c("th", { staticStyle: { width: "20px" } }, [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Order ID")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Date")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Billing Name")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Total")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Payment Status")]),
+                      _vm._v(" "),
+                      _c("th", { staticStyle: { width: "120px" } }, [
+                        _vm._v("Action")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody", [
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck1" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck1" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1572")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                04 Apr, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Walter Brown")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $172\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-success font-size-12"
+                          },
+                          [_vm._v("Paid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck2" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck2" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1571")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                03 Apr, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Jimmy Barker")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $165\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-warning font-size-12"
+                          },
+                          [_vm._v("unpaid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck3" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck3" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1570")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                03 Apr, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Donald Bailey")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $146\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-success font-size-12"
+                          },
+                          [_vm._v("Paid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck4" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck4" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1569")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                02 Apr, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Paul Jones")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $183\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-success font-size-12"
+                          },
+                          [_vm._v("Paid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck5" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck5" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1568")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                01 Apr, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Jefferson Allen")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $160\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-danger font-size-12"
+                          },
+                          [_vm._v("Chargeback")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck6" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck6" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1567")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                31 Mar, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Jeffrey Waltz")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $105\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-warning font-size-12"
+                          },
+                          [_vm._v("unpaid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck7" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck7" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1566")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                30 Mar, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Jewel Buckley")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $112\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-success font-size-12"
+                          },
+                          [_vm._v("Paid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck8" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck8" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1565")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                29 Mar, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Jamison Clark")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $123\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-success font-size-12"
+                          },
+                          [_vm._v("Paid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck9" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck9" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1564")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                28 Mar, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Eddy Torres")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $141\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-success font-size-12"
+                          },
+                          [_vm._v("Paid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticClass: "custom-control custom-checkbox" },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "checkbox", id: "ordercheck10" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "ordercheck10" }
+                              },
+                              [_vm._v(" ")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-dark font-weight-bold",
+                            attrs: { href: "javascript: void(0);" }
+                          },
+                          [_vm._v("#NZ1563")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                28 Mar, 2020\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Frank Dean")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                                $164\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "badge badge-soft-warning font-size-12"
+                          },
+                          [_vm._v("unpaid")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-3 text-primary",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Edit"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-pencil font-size-18"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-danger",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              "data-toggle": "tooltip",
+                              "data-placement": "top",
+                              title: "",
+                              "data-original-title": "Delete"
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mdi mdi-trash-can font-size-18"
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -33185,8 +34650,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component('admin', __webpack_require__(/*! ./components/admin/index */ "./resources/js/components/admin/index.js"));
-Vue.component('storefront', __webpack_require__(/*! ./components/storefront/index */ "./resources/js/components/storefront/index.js"));
+Vue.component('admin', __webpack_require__(/*! ./components/admin/index */ "./resources/js/components/admin/index.js")["default"]);
+Vue.component('storefront', __webpack_require__(/*! ./components/storefront/index */ "./resources/js/components/storefront/index.js")["default"]);
+Vue.component('category', __webpack_require__(/*! ./components/admin/Category */ "./resources/js/components/admin/Category.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -33311,6 +34777,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Category.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/admin/Category.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Category_vue_vue_type_template_id_d1b3502e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Category.vue?vue&type=template&id=d1b3502e& */ "./resources/js/components/admin/Category.vue?vue&type=template&id=d1b3502e&");
+/* harmony import */ var _Category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Category.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/Category.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Category_vue_vue_type_template_id_d1b3502e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Category_vue_vue_type_template_id_d1b3502e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/Category.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Category.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/admin/Category.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Category.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Category.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Category.vue?vue&type=template&id=d1b3502e&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/admin/Category.vue?vue&type=template&id=d1b3502e& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_template_id_d1b3502e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Category.vue?vue&type=template&id=d1b3502e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Category.vue?vue&type=template&id=d1b3502e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_template_id_d1b3502e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_template_id_d1b3502e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

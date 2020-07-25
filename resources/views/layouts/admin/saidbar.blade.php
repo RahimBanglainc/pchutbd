@@ -25,7 +25,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="#">Products</a></li>
                         <li><a href="#">Product Detail</a></li>
-                        <li><a href="#">Orders</a></li>
+                        <li><a href="{{route('admin.category')}}">Category</a></li>
                         <li><a href="#">Customers</a></li>
                         <li><a href="#">Cart</a></li>
                         <li><a href="#">Checkout</a></li>

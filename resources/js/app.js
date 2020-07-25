@@ -20,8 +20,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('admin', require('./components/admin/index'));
-Vue.component('storefront', require('./components/storefront/index'));
+Vue.component('admin', require('./components/admin/index').default);
+Vue.component('storefront', require('./components/storefront/index').default);
+Vue.component('category', require('./components/admin/Category').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
