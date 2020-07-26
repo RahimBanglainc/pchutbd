@@ -28,6 +28,7 @@
     <link href="{{asset('storefront/assets/css/r-com-min-v56.css')}}" rel="stylesheet" type="text/css">
 
 
+
     <link rel="icon" type="image/png" href="#asset/static-image/favicon-bdstall.png">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,7 +90,6 @@
 
 
     </div>
-
 
 <!-- vue Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>

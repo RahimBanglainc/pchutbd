@@ -24,34 +24,28 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico') }}">
 
-    <!-- jquery.vectormap css -->
-    <link
-        href="{{ asset('admin/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}"
-        rel="stylesheet" type="text/css" />
+    {{-- toster  --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{route('admin/assets/libs/toastr/build/toastr.min.css')}}"> --}}
 
-    <!-- DataTables -->
-    <link
-        href="{{ asset('admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
-        rel="stylesheet" type="text/css" />
 
-    <!-- Responsive datatable examples -->
-    <link
-        href="{{ asset('admin/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
-        rel="stylesheet" type="text/css" />
+
+    @stack('css')
+
 
     <!-- Bootstrap Css -->
-    <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" id="bootstrap-style"
-        rel="stylesheet" type="text/css" />
-    {{-- <link href="{{ asset('admin/assets/css/bootstrap-dark.min.css') }}"
-    id="bootstrap-style" rel="stylesheet" type="text/css" /> --}}
+    {{-- <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" id="bootstrap-style"
+        rel="stylesheet" type="text/css" /> --}}
+    <link href="{{ asset('admin/assets/css/bootstrap-dark.min.css') }}"
+ rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('admin/assets/css/icons.min.css') }}" rel="stylesheet"
         type="text/css" />
     <!-- App Css-->
-    <link href="{{ asset('admin/assets/css/app.min.css') }}" id="app-style" rel="stylesheet"
-        type="text/css" />
-    {{-- <link href="{{ asset('admin/assets/css/app-dark.min.css') }}"
-    id="app-style" rel="stylesheet" type="text/css" /> --}}
+    {{-- <link href="{{ asset('admin/assets/css/app.min.css') }}" id="app-style" rel="stylesheet"
+        type="text/css" /> --}}
+    <link href="{{ asset('admin/assets/css/app-dark.min.css') }}"
+     rel="stylesheet" type="text/css" />
+
 
 </head>
 
@@ -91,46 +85,26 @@
 
             @include('layouts.admin.footer')
 
+
+
             <!-- JAVASCRIPT -->
             <script src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}"></script>
             <script
-                src="{{ asset('admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">
+            src="{{ asset('admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}">
             </script>
             <script src="{{ asset('admin/assets/libs/metismenu/metisMenu.min.js') }}">
             </script>
             <script src="{{ asset('admin/assets/libs/simplebar/simplebar.min.js') }}">
             </script>
             <script src="{{ asset('admin/assets/libs/node-waves/waves.min.js') }}"></script>
+            {{-- toster  --}}
+             <!-- toastr plugin -->
+            {{-- <script src="{{ asset('admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
 
-            <!-- apexcharts -->
-            <script src="{{ asset('admin/assets/libs/apexcharts/apexcharts.min.js') }}">
-            </script>
+            <!-- toastr init -->
+            <script src="{{ asset('admin/assets/js/pages/toastr.init.js') }}"></script> --}}
 
-            <!-- jquery.vectormap map -->
-            <script
-                src="{{ asset('admin/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}">
-            </script>
-            <script
-                src="{{ asset('admin/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js') }}">
-            </script>
-
-            <!-- Required datatable js -->
-            <script
-                src="{{ asset('admin/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}">
-            </script>
-            <script
-                src="{{ asset('admin/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}">
-            </script>
-
-            <!-- Responsive examples -->
-            <script
-                src="{{ asset('admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}">
-            </script>
-            <script
-                src="{{ asset('admin/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}">
-            </script>
-
-            <script src="{{ asset('admin/assets/js/pages/dashboard.init.js') }}"></script>
+            @stack('js')
 
             <script src="{{ asset('admin/assets/js/app.js') }}"></script>
 

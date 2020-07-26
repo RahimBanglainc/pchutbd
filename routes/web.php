@@ -24,21 +24,20 @@ Auth::routes();
 
 
 // this is admin route
-Route::group(['as'=>'admin.','prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>['auth','admin']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
 
-    Route::get('dashboard','DeshboardController@index')->name('dashboard');
-    Route::get('users','DeshboardController@users')->name('users');
-    Route::get('category','CategoryController@index')->name('category');
-
-
+    Route::get('dashboard', 'DeshboardController@index')->name('dashboard');
+    Route::get('users', 'DeshboardController@users')->name('users');
+    Route::get('category', 'CategoryController@index')->name('category');
+    Route::resource('blog', 'BlogController');
 });
 
 
 
 // this is client route
-Route::group(['as'=>'client.','prefix' => 'client', 'namespace'=>'Storefront', 'middleware'=>['auth','client']], function () {
+Route::group(['as' => 'client.', 'prefix' => 'client', 'namespace' => 'Storefront', 'middleware' => ['auth', 'client']], function () {
 
-    Route::get('dashboard','DeshboardController@index')->name('dashboard');
+    Route::get('dashboard', 'DeshboardController@index')->name('dashboard');
     // Route::get('/home', 'HomeController@index')->name('home');
 
 

@@ -37,11 +37,11 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>
-                        <span>Email</span>
+                        <span>All Blogs</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Inbox</a></li>
-                        <li><a href="#">Read Email</a></li>
+                        <li><a href="{{route('admin.blog.index')}}">Blogs</a></li>
+                        <li><a href="{{route('admin.blog.create')}}">Add Blog</a></li>
                     </ul>
                 </li>
 
