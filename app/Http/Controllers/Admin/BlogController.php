@@ -45,21 +45,21 @@ class BlogController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'img' => 'image|mimes:jpeg,bmp,png,jpg,gif',
+            'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
         ]);
         // get image from form
         $img = $request->file('img');
-        $slug = Str::slug($request->title);
+        $slug = Str::slug($request->title).uniqid();
         if(isset($img))
         {
             $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'-'.$img->getClientOriginalExtension();
             if(!Storage::disk('public')->exists('blog'))
             {
                 Storage::disk('public')->makeDirectory('blog');
             }
 
-            $blogImg = Image::make($img)->resize(500, null)->save($imageName, 90);
+            $blogImg = Image::make($img)->resize(500, 350)->save($imageName, 90);
             Storage::disk('public')->put('blog/'.$imageName,$blogImg);
         }else{
             $imageName = "blog.png";
@@ -92,7 +92,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        // return $blog;
+        return view('admin.blog.show', compact('blog'));
     }
 
     /**
@@ -115,7 +116,49 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+            'img' => 'image|mimes:jpeg,bmp,png,jpg,gif',
+        ]);
+        // get image from form
+        $img = $request->file('img');
+        $slug = Str::slug($request->title).uniqid();
+        if(isset($img))
+        {
+            $currentDate = Carbon::now()->toDateString();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
+            if(!Storage::disk('public')->exists('blog'))
+            {
+                Storage::disk('public')->makeDirectory('blog');
+            }
+
+            // delete old image here
+            if(Storage::disk('public')->exists('blog/'.$blog->img))
+            {
+                Storage::disk('public')->delete('blog/'.$blog->img);
+            }
+            $blogImg = Image::make($img)->resize(500, 350)->save($imageName, 90);
+            Storage::disk('public')->put('blog/'.$imageName,$blogImg);
+        }else{
+            $imageName = $blog->img;
+        }
+
+        $blog->title = $request->title;
+        $blog->slug = $blog->slug;
+        $blog->img = $imageName;
+        $blog->body = $request->body;
+        if(isset($request->status))
+        {
+            $blog->status = true;
+        }else{
+            $blog->status = false;
+        }
+        $blog->save();
+
+        // Toastr::Success('Blog Update Successfully');
+
+        return redirect()->route('admin.blog.index');
     }
 
     /**
@@ -126,6 +169,19 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        // return $blog;
+
+            if(Storage::disk('public')->exists('blog/'.$blog->img))
+            {
+                Storage::disk('public')->delete('blog/'.$blog->img);
+            }
+
+        $blog->delete();
+
+       // Toastr::Success('Blog Delete Successfully');
+
+       return redirect()->route('admin.blog.index');
+
+
     }
 }

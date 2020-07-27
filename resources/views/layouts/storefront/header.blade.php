@@ -46,7 +46,7 @@
                 @endguest
 
 
-                <div class="main-header-desk-link"><a href="#blog/list/">Blog</a></div>
+                <div class="main-header-desk-link"><a href="{{route('blog')}}">Blog</a></div>
             </div>
 
 

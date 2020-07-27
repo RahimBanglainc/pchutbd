@@ -64,7 +64,8 @@
 
     </script>
 
-    <style></style>
+@stack('css')
+
 </head>
 
 
@@ -91,6 +92,7 @@
 
     </div>
 
+    @stack('js')
 <!-- vue Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
 </body>

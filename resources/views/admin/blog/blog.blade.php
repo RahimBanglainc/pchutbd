@@ -89,11 +89,13 @@ rel="stylesheet" type="text/css" />
 
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">{{ $key + 1 }}</a> </td>
                                 <td>
-                                    {{ \Illuminate\Support\Str::limit($blog->title, 30) }}
-                                    {{-- {{ $blog->title }} --}}
+                                <a href="{{ route('admin.blog.show', $blog->id) }}">
+                                        {{ \Illuminate\Support\Str::limit($blog->title, 30) }}
+                                        {{-- {{ $blog->title }} --}}
+                                    </a>
                                 </td>
                                 <td>
-                                    {{ \Illuminate\Support\str::limit($blog->body, 50) }}
+                                    {!! \Illuminate\Support\str::limit($blog->body, 50) !!}
                                     {{-- {{ $blog->body }} --}}
                                 </td>
 
@@ -113,9 +115,16 @@ rel="stylesheet" type="text/css" />
                                     <a href="{{route('admin.blog.edit', $blog->id)}}" class="mr-3 text-primary" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"><i
                                             class="mdi mdi-pencil font-size-18"></i></a>
+
                                     <a class="text-danger" data-toggle="tooltip"
-                                        data-placement="top" title="" data-original-title="Delete" id="sa-warning"><i
-                                            class="mdi mdi-trash-can font-size-18"></i></a>
+                                        data-placement="top" title="" data-original-title="Delete"  onclick="blogDelete({{ $blog->id }})"><i
+                                            class="mdi mdi-trash-can font-size-18"></i>
+                                    </a>
+                                        <form method="POST" style="display: none;" action="{{route('admin.blog.destroy', $blog->id)}}" id="delete-form-{{$blog->id}}">
+                                            @csrf
+
+                                            @method('DELETE')
+                                        </form>
                                 </td>
                             </tr>
 
@@ -168,26 +177,44 @@ rel="stylesheet" type="text/css" />
     <script src="{{ asset('admin/assets/js/pages/sweet-alerts.init.js') }}"></script>
 
    <script>
-        Swal.fire({
+
+function blogDelete(id){
+    const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
   title: 'Are you sure?',
   text: "You won't be able to revert this!",
   icon: 'warning',
   showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: 'Yes, delete it!',
+  cancelButtonText: 'No, cancel!',
+  reverseButtons: true
 }).then((result) => {
   if (result.value) {
-    Swal.fire(
-      'Deleted!',
-      'Your file has been deleted.',
-      'success'
+    event.preventDefault();
+    document.getElementById('delete-form-'+id).submit();
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelled',
+      'Your Blog Data is safe :)',
+      'error'
     )
   }
 })
+    }
+</script>
 
 @endpush
 
 
-<!-- end main content-->
 @endsection
+

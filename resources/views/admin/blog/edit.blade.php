@@ -55,8 +55,7 @@
                         </div>
                         <br><br>
                         <div class="custom-control custom-switch mb-2" dir="ltr">
-                            <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" value="1"
-                                {{ $blog->status == true ?'checked' : '' }} >
+                            <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" value="1" {{ $blog->status == true ?'checked' : '' }} >
                             <label class="custom-control-label" for="customSwitch1">Active/Inactive</label>
                         </div>
                     </div>
@@ -81,7 +80,7 @@
                         Back
                     </a>
                     <button type="submit" class="btn btn-primary waves-effect waves-light">
-                        Submit <i class="ri-arrow-right-line align-middle ml-2"></i>
+                        Update <i class="ri-arrow-right-line align-middle ml-2"></i>
                     </button>
 
                 </div>
