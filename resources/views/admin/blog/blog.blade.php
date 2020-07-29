@@ -95,7 +95,7 @@ rel="stylesheet" type="text/css" />
                                     </a>
                                 </td>
                                 <td>
-                                    {!! \Illuminate\Support\str::limit($blog->body, 50) !!}
+                                    {!! \Illuminate\Support\str::limit(strip_tags($blog->body), 50) !!}
                                     {{-- {{ $blog->body }} --}}
                                 </td>
 

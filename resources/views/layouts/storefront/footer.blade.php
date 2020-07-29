@@ -184,7 +184,7 @@
 
             <div class="three columns m-top">
                 <label>Knowledge Base</label>
-                <div><a href="#blog/list/">Blog</a></div>
+                <div><a href="{{route('blog')}}">Blog</a></div>
                 <div><a href="#faq/bn/">FAQ</a></div>
             </div>
 

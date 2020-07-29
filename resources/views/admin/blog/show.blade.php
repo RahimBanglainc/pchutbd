@@ -53,7 +53,7 @@
 
             </div>
             <div class="card-footer text-muted">
-                Updated On {{$blog->updated_at->toFormattedDateString()}}
+                Updated On {{Carbon\Carbon::parse($blog->updated_at)->diffInDays(Carbon\Carbon::now())}}
             </div>
         </div>
     </div>

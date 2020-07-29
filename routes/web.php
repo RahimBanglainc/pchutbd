@@ -38,8 +38,27 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 Route::group(['as' => 'client.', 'prefix' => 'client', 'namespace' => 'Storefront', 'middleware' => ['auth', 'client']], function () {
 
     Route::get('dashboard', 'DeshboardController@index')->name('dashboard');
-    // Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('userStallRequest', 'DeshboardController@stallshaw')->name('stallreq');
+    Route::post('userStallPost', 'DeshboardController@stallcreate')->name('stallpost');
+
+    Route::get('userProfile', 'DeshboardController@profile')->name('profile');
+    Route::put('userProfilePost', 'DeshboardController@profileupdate')->name('profilepost');
 
 
+    Route::get('userPassword', 'DeshboardController@passchange')->name('Passwordshow');
+    Route::put('userPasswordPost', 'DeshboardController@passupdate')->name('passwordpost');
+
+    Route::get('editstall', 'DeshboardController@editstall')->name('editstall');
+    Route::put('editstallPost', 'DeshboardController@editstallpost')->name('editstallpost');
+
+    // only get here
+    Route::get('postitem', 'DeshboardController@postitem')->name('postitem');
+    Route::get('payment', 'DeshboardController@payment')->name('payment');
+    Route::get('order', 'DeshboardController@order')->name('order');
+    Route::get('myorder', 'DeshboardController@myorder')->name('myorder');
+    Route::get('invoice', 'DeshboardController@invoice')->name('invoice');
+    Route::get('item', 'DeshboardController@item')->name('item');
+    Route::get('favourite', 'DeshboardController@favourite')->name('favourite');
 
 });

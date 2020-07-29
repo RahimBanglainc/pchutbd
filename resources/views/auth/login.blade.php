@@ -82,7 +82,7 @@
 
         <div class="b-bottom">
 
-            <a href="#"><img src="./assets/storefront/img/facebook_connect.jpg" alt="Facebook Login" title="Facebook Login"></a>
+            <a href="#"><img src="{{ asset('img/facebook_connect.jpg')}}" alt="Facebook Login" title="Facebook Login"></a>
 
         </div>
 

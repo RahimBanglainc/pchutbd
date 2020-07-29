@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -30,9 +31,27 @@ class HomeController extends Controller
 
     public function blogshow($slug)
     {
+        $count = Blog::where('status', '=', true);
+
         $blog = Blog::where('slug', $slug)->first();
 
-        $rblogs = Blog::all()->where('status', '=', true)->random(8);
+        $blogKey = 'blog_'.$blog->id;
+
+        if(!Session::has($blogKey))
+        {
+            $blog->increment('view_count');
+            Session::put($blogKey,1);
+        }
+
+        if($count->count() < 8)
+        {
+
+            $rblogs = Blog::all()->where('status', '=', true)->random($count->count());
+
+        }else{
+
+            $rblogs = Blog::all()->where('status', '=', true)->random(8);
+        }
 
         return view('blog.show', compact('blog','rblogs'));
     }

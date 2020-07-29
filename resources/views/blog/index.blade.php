@@ -151,7 +151,8 @@
 
                             <p>
 
-                                {!! \Illuminate\Support\str::limit($blog->body, 200) !!}
+
+                                {!! \Illuminate\Support\str::limit(strip_tags($blog->body), 250) !!}
 
                             </p>
 
