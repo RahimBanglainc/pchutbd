@@ -30,6 +30,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('users', 'DeshboardController@users')->name('users');
     Route::get('category', 'CategoryController@index')->name('category');
     Route::resource('blog', 'BlogController');
+    Route::resource('stall', 'StallController');
 });
 
 

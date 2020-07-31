@@ -161,7 +161,7 @@
                             <div>
                                 <b>Personal</b><br>
                                 If you don't have any shop but you're a genuine seller then
-                                <a href="">complete your profile</a> and
+                            <a href="{{route('client.profile')}}">complete your profile</a> and
                                 submit the request.
                                 <br><br>
                                 <b>Business</b><br>

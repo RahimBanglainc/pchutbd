@@ -29,8 +29,8 @@
                         <li><a href="#">Customers</a></li>
                         <li><a href="#">Cart</a></li>
                         <li><a href="#">Checkout</a></li>
-                        <li><a href="#">Shops</a></li>
                         <li><a href="#">Add Product</a></li>
+                        <li><a href="{{route('admin.stall.index')}}">Store</a></li>
                     </ul>
                 </li>
 

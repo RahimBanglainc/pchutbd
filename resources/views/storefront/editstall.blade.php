@@ -1,6 +1,6 @@
 @extends('layouts.storefront.layout')
 
-@section('title','Deshboard')
+@section('title','Stall Update')
 
 
 @section('main')
@@ -39,88 +39,88 @@
 
                                     <div class="form-element">
                                         <label>Stall Name</label>
-                                        <input type="text" name="StallName" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->name }}" readonly="">
+                                        <input type="text" name="name" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->name }}" readonly="">
                                     </div>
 
                                     <div class="form-element">
                                         <label>Stall Address</label>
-                                        <textarea name="StallAddress"
+                                        <textarea name="address"
                                             readonly="readonly">{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->address }}</textarea>
                                     </div>
 
                                     <div class="form-element">
                                         <label>City</label>
                                         <span id="showType">
-                                            <input type="text" name="" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->city }}" readonly="">
+                                            <input type="text" name="city" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->city }}" readonly="">
                                         </span>
                                     </div>
 
                                     <div class="form-element">
                                         <label>Area</label>
-                                        <input type="text" name="" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->area }}" readonly="">
+                                        <input type="text" name="city" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->area }}" readonly="">
                                     </div>
 
                                     <div class="form-element">
                                         <label>Postal Code</label>
-                                        <input type="text" name="" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->poscode }}" readonly="">
+                                        <input type="text" name="poscode" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->poscode }}" readonly="">
                                     </div>
 
                                     <div class="form-element">
                                         <label>Business</label>
-                                        <select name="BusinessID">
-                                            <option value="1" selected="">Computers</option>
+                                        <select name="business">
+                                            <option value="Computers" selected="">{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->business ? Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->business:'null' }}</option>
                                         </select> </div>
 
                                     <div class="form-element">
                                         <label>Phone</label>
-                                        <input type="text" name="StallPhone" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->phone }}" size="20">
+                                        <input type="text" name="phone" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->phone }}" size="23" required>
                                     </div>
 
                                     <div class="form-element">
                                         <label>Hotline</label>
-                                        <input type="text" name="Hotline1" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->hotline1 }}" size="11" maxlength="11">
-                                        <input type="text" name="Hotline2" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->hotline2 }}" size="11" maxlength="11">
+                                        <input type="text" name="hotline1" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->hotline1 }}" size="11" maxlength="11" required>
+                                        <input type="text" name="hotline2" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->hotline2 }}" size="11" maxlength="11" required>
                                     </div>
 
 
 
                                     <div class="form-element">
                                         <label>Email</label>
-                                        <input type="text" name="StallEmail" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->email }}">
+                                        <input type="text" name="email" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->email }}" required>
                                     </div>
 
                                     <div class="form-element">
                                         <label>Web</label>
-                                        <input type="text" name="StallWeb" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->web }}">
+                                        <input type="text" name="web" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->web }}">
                                     </div>
 
                                     <div class="form-element">
                                         <label>Fax</label>
-                                        <input type="text" name="StallFax" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->fax }}">
+                                        <input type="text" name="fax" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->fax }}">
                                     </div>
 
                                     <div class="form-element">
                                         <label>Contact Person</label>
-                                        <input type="text" name="StallContactPerson" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->person_name }}">
+                                        <input type="text" name="person_name" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->person_name }}" required>
                                     </div>
 
                                     <div class="form-element">
                                         <label>Stall Description</label>
-                                        <textarea name="StallDescription">{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->about }}</textarea>
+                                        <textarea name="about" required>{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->about }}</textarea>
                                     </div>
 
                                 </div>
 
                                 <div class="form-element">
                                     <label></label>
-                                    <input type="button" value="Update">
+                                    <input type="submit" value="Update">
                                 </div>
 
                             </div>
 
                             <div class="four columns">
                                 <a href="https://www.bdstall.com/stallDetail/index/845/" target="_BLANK">
-                                    <img src="https://www.bdstall.com/asset/stall-image/1572.jpg">
+                                    <img src="{{ Storage::disk('public')->url('user/'.Auth::User()->img) }}">
                                 </a>
 
 

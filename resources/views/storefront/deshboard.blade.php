@@ -1,6 +1,6 @@
 @extends('layouts.storefront.layout')
 
-@section('title','Deshboard')
+@section('title','Dashboard')
 
 
 @section('main')
@@ -65,6 +65,7 @@
                             </div>
                         </div>
 
+                        @if (Auth::User()->is_seller)
 
                         <div class="four columns account-head account-profile">
 
@@ -95,6 +96,9 @@
                             </div>
 
                         </div>
+
+                        @endif
+
                     </div>
                 </div>
             </div>

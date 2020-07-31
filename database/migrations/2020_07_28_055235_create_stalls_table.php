@@ -21,6 +21,7 @@ class CreateStallsTable extends Migration
             $table->date('item_exp')->nullable();
             $table->string('type')->nullable();
             $table->string('name');
+            $table->string('slug');
             $table->string('phone');
             $table->string('email')->nullable();
             $table->string('web')->nullable();
@@ -33,6 +34,7 @@ class CreateStallsTable extends Migration
             $table->string('area')->nullable();
             $table->string('city');
             $table->string('country')->default('Bangladesh');
+            $table->string('img')->default('picture.jpg');
             $table->integer('postcode')->nullable();
             $table->text('about')->nullable();
             $table->timestamps();

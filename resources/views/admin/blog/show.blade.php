@@ -53,7 +53,7 @@
 
             </div>
             <div class="card-footer text-muted">
-                Updated On {{Carbon\Carbon::parse($blog->updated_at)->diffInDays(Carbon\Carbon::now())}}
+                Updated on {{$blog->updated_at->diffForHumans()}}
             </div>
         </div>
     </div>

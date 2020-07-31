@@ -34,6 +34,7 @@ class DeshboardController extends Controller
         $stall = new Stall();
         $stall->type = $request->type;
         $stall->name = $request->name;
+        $stall->slug = Str_slug($request->name.'-'.uniqid());
         $stall->address = $request->address;
         $stall->phone = $request->phone;
         $stall->city = $request->city;
@@ -144,24 +145,34 @@ class DeshboardController extends Controller
 
     public function editstallpost(Request $request)
     {
-
-        return $request;
         $this->validate($request, [
-            'password' => 'required',
-            'confirmpassword' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'hotline1' => 'required',
+            'hotline2' => 'required',
+            'person_name' => 'required',
+            'about' => 'required',
         ]);
 
 
-            if($request->password == $request->confirmpassword )
+            if(Auth::User()->is_seller == true )
             {
-                $password = bcrypt($request->password);
+                $stall = Auth::User()->stall()->where('user_id', Auth::User()->id)->first();
+                $stall->email = $request->email;
+                $stall->phone = $request->phone;
+                $stall->hotline1 = $request->hotline1;
+                $stall->hotline2 = $request->hotline2;
+                $stall->person_name = $request->person_name;
+                $stall->about = $request->about;
+                $stall->business = $request->business;
+                $stall->web = $request->web;
+                $stall->fax = $request->fax;
+                $stall->save();
+
             }else{
-                return redirect()->route('client.Passwordshow');
+                return redirect()->route('client.stallreq');
             }
 
-        $user = Auth::User();
-        $user->password = $password;
-        $user->save();
 
 
         return redirect()->route('client.dashboard');
