@@ -19,6 +19,8 @@
 
                 @include('storefront.components.saidbar')
 
+
+
                 <form action="{{ route('client.editstallpost') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
@@ -29,6 +31,11 @@
                         <div class="body-header">
                             <h1>Update Stall</h1>
                         </div>
+
+
+                        @if (Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->status)
+
+
 
                         <div class="row">
 
@@ -62,7 +69,7 @@
 
                                     <div class="form-element">
                                         <label>Postal Code</label>
-                                        <input type="text" name="poscode" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->poscode }}" readonly="">
+                                        <input type="text" name="poscode" value="{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->postcode }}" readonly="">
                                     </div>
 
                                     <div class="form-element">
@@ -120,13 +127,20 @@
 
                             <div class="four columns">
                                 <a href="https://www.bdstall.com/stallDetail/index/845/" target="_BLANK">
-                                    <img src="{{ Storage::disk('public')->url('user/'.Auth::User()->img) }}">
+                                    <img style="height:100px" src="{{ Storage::disk('public')->url('stall/'.Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->img) }}">
                                 </a>
-
-
-
-
                             </div>
+
+                @else
+                <div class="form-style">
+
+                    <small> Your Stall is Expire Pls Contact Us.</small>
+
+                </div>
+
+                @endif
+
+
                         </div>
 
                     </div>

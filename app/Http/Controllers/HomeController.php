@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Stall;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -54,6 +55,33 @@ class HomeController extends Controller
         }
 
         return view('blog.show', compact('blog','rblogs'));
+    }
+
+    public function stallshow($slug)
+    {
+        $count = Stall::where('status', '=', true);
+
+        $stall = Stall::where('slug', $slug)->first();
+
+        // $blogKey = 'blog_'.$blog->id;
+
+        // if(!Session::has($blogKey))
+        // {
+        //     $blog->increment('view_count');
+        //     Session::put($blogKey,1);
+        // }
+
+        if($count->count() < 8)
+        {
+
+            $rstalls = Stall::all()->where('status', '=', true)->random($count->count());
+
+        }else{
+
+            $rstalls = stall::all()->where('status', '=', true)->random(8);
+        }
+
+        return view('stallview', compact('stall','rstalls'));
     }
 
 }
