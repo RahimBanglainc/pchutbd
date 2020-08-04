@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('blog', 'HomeController@blogindex')->name('blog');
 Route::get('blog/{slug}', 'HomeController@blogshow')->name('blog.show');
 Route::get('stall/{slug}', 'HomeController@stallshow')->name('stall.show');
+Route::get('stallList', 'HomeController@stallList')->name('stallList');
 
 Auth::routes();
 

@@ -40,14 +40,13 @@
 
                             <div class="row account-style account-profile">
                                 <div class="four columns">
-                                    @if(Auth::User()->img == 'user.jpg')
+                                    @if(Storage::disk('public')->url('user/user.jpg'))
 
-                                        <img src="{{ asset('img/Auth::User()->img') }}">
+                                    <img src="{{Storage::disk('public')->url('user/'.Auth::User()->img)}}">
 
                                     @else
 
-                                        <img
-                                            src="{{ Storage::disk('public')->url('user/'.Auth::User()->img) }}">
+                                    <img src="{{ asset('img/user.jpg') }}">
 
                                     @endif
                                 </div>

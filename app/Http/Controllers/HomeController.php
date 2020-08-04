@@ -84,4 +84,14 @@ class HomeController extends Controller
         return view('stallview', compact('stall','rstalls'));
     }
 
+    public function stallList()
+    {
+        $count = Stall::where('status', '=', true);
+
+        $stalls = Stall::where('status', '=', true)->latest()->Paginate(15);
+
+        return view('stalls', compact('stalls','count'));
+    }
+
+
 }

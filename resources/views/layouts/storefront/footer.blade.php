@@ -177,7 +177,7 @@
                         Industry</a></div>
                 <div><a href="#searchItemListingByDepartment/index/8/">Tours &amp;
                         Travels</a></div>
-                <div><a href="#stallList/">Online Stall</a></div>
+                <div><a href="{{route('stallList')}}">Online Stall</a></div>
                 <div><a href="#market/list/">Shopping Mall</a></div>
 
             </div>

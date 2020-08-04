@@ -112,7 +112,7 @@ class StallController extends Controller
             {
                 Storage::disk('public')->delete('stall/'.$stall->img);
             }
-            $blogImg = Image::make($img)->resize(350, 250)->save($imageName, 90);
+            $blogImg = Image::make($img)->resize(200, 200)->save($imageName, 90);
             Storage::disk('public')->put('stall/'.$imageName,$blogImg);
         }else{
             $imageName = $stall->img;
