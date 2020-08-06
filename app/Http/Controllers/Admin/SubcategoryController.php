@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Category;
-use Carbon\Carbon;
 use App\Http\Controllers\Controller;
+use App\Subcategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
 
-class CategoryController extends Controller
+class SubcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categorys = Category::latest()->get();
-        return view('admin.category.index', compact('categorys'));
+        $subcategorys = Subcategory::latest()->get();
+        return view('admin.subcategory.index', compact('subcategorys'));
     }
 
     /**
@@ -41,36 +37,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
-        ]);
-        $img = $request->file('img');
-        $slug = Str::slug($request->name);
-        if(isset($img))
-        {
-            $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'-'.$img->getClientOriginalExtension();
-            if(!Storage::disk('public')->exists('category'))
-            {
-                Storage::disk('public')->makeDirectory('category');
-            }
-
-            $blogImg = Image::make($img)->resize(100, 100)->save($imageName, 90);
-            Storage::disk('public')->put('category/'.$imageName,$blogImg);
-        }else{
-            $imageName = "default.png";
-        }
-
-        $category = new Category();
-        $category->name = $request->name;
-        $category->slug = $slug;
-        $category->status = 1;
-        $category->img = $imageName;
-        $category->save();
-
-        return redirect()->route('admin.category.index');
-
+        //
     }
 
     /**

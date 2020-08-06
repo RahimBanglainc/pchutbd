@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->integer('stall_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->boolean('status')->default(1);
+            $table->boolean('status')->default(0);
             $table->boolean('is_approve')->default(0);
             $table->string('title');
             $table->string('slug');
@@ -25,9 +25,14 @@ class CreateItemsTable extends Migration
             $table->decimal('price', 8, 2);
             $table->string('offer');
             $table->string('img')->default('item.png');
+            $table->string('img1')->default(null);
+            $table->string('img2')->default(null);
+            $table->string('img3')->default(null);
+            $table->string('img4')->default(null);
             $table->text('description')->nullable();
             $table->integer('feature_id');
             $table->string('category')->nullable();
+            $table->json('features');
             $table->timestamps();
         });
     }

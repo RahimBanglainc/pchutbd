@@ -23,20 +23,16 @@
                         <span>Shop</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('admin.category.index')}}">Category</a></li>
+                        <li><a href="{{route('admin.subcategory.index')}}">Sub-Category</a></li>
                         <li><a href="#">Products</a></li>
-                        <li><a href="#">Product Detail</a></li>
-                        <li><a href="{{route('admin.category')}}">Category</a></li>
-                        <li><a href="#">Customers</a></li>
-                        <li><a href="#">Cart</a></li>
-                        <li><a href="#">Checkout</a></li>
-                        <li><a href="#">Add Product</a></li>
                         <li><a href="{{route('admin.stall.index')}}">Store</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-newspaper-line"></i>
                         <span>All Blogs</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -48,7 +44,7 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-layout-3-line"></i>
-                        <span>Layouts</span>
+                        <span>Settings</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="#">Horizontal</a></li>

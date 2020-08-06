@@ -116,8 +116,8 @@
         <div class="row">
             <div class="twelve columns breadcum">
 
-                <a class="breadcum-link" href="https://www.bdstall.com/">Home</a> -&gt; <a
-                    href="https://www.bdstall.com/stallList/" class="breadcum-link-clk">Online Stall</a>
+                <a class="breadcum-link" href="{{route('index')}}">Home</a> -&gt; <a
+                    href="{{route('stallList')}}" class="breadcum-link-clk">Online Stall</a>
             </div>
         </div>
 

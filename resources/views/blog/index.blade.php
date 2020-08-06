@@ -96,7 +96,9 @@
             border-bottom-left-radius: .2rem
         }
 
-        .pagination-sm .page-item:last-child
+        .pagination-sm .page-item:last-child{
+
+        }
 
     </style>
 

@@ -121,32 +121,33 @@
             <div class="breadcum s-bottom">
 
                 <a class="breadcum-link" href="{{route('index')}}">Home</a> -&gt; <a
-                    href="https://www.bdstall.com/stallList/" class="breadcum-link-clk">Stall List</a>
+                    href="{{route('stallList')}}" class="breadcum-link-clk">Stall List</a>
             </div>
         </div>
 
         <div class="body-header">
-            <h1>Megamart Office Equipment BD</h1>
+            <h1>{{ $stall->name }}</h1>
         </div>
 
         <div class="row">
 
             <div class="three columns stall-details">
 
-                <a href="https://www.bdstall.com/stallDetail/index/864/"><img
-                        src="https://www.bdstall.com/asset/stall-image/big_1410.jpg" alt="Megamart Office Equipment BD"
-                        title="Megamart Office Equipment BD"></a>
+                <a href="{{route('stall.show', $stall->slug)}}"><img
+                    style="width: 75px" src="{{ Storage::disk('public')->url('stall/'.$stall->img) }}" alt="{{ $stall->name }}" alt="{{ $stall->name }}"
+                        title="{{ $stall->name }}">
+                </a>
 
-                <label class="b-top">Stall No - 864</label>
+                <label class="b-top">Stall No - {{$stall->id}}</label>
 
                 <p>
 
-                    28/1/C, Toyenbee Circular Road<br>
+                    {{$stall->address}}<br>
 
-                    Motijheel, Dhaka,
-                    Bangladesh<br>
+                    {{$stall->area}}, {{$stall->city}},
+                    {{$stall->country}}<br>
 
-                    Nazrul Islam Bhuyan, Kazi safi uddin ahmed papon, Md.Mizanur Rahman<br>
+                    {{$stall->person_name}}<br>
 
                 </p>
 
@@ -160,18 +161,18 @@
                     <div class="row s-bottom" style="width:100%">
                         <div class="u-pull-left" style="width:5em">Hotline1</div>
                         <div class="u-pull-left">
-                            <a href="tel:01819299877">
-                                <img src="https://www.bdstall.com/asset/static-image/phone-icon.png">
-                                0181-929-9877 </a>
+                            <a href="tel:{{$stall->hotline1}}">
+                                <img src="{{asset('img/phone-icon.png')}}">
+                                {{$stall->hotline1}} </a>
                         </div>
                     </div>
 
                     <div class="row s-bottom" style="width:100%">
                         <div class="u-pull-left" style="width:5em">Hotline2</div>
                         <div class="u-pull-left">
-                            <a href="tel:01711387435">
-                                <img src="https://www.bdstall.com/asset/static-image/phone-icon.png">
-                                0171-138-7435 </a>
+                            <a href="tel:{{$stall->hotline2}}">
+                            <img src="{{asset('img/phone-icon.png')}}">
+                                {{$stall->hotline2}} </a>
                         </div>
                     </div>
 
