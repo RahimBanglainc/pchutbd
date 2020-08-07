@@ -130,7 +130,7 @@ rel="stylesheet" type="text/css" />
 
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">{{ $key + 1 }}</a> </td>
                                 <td>
-                                <a href="{{ route('admin.category.show', $item->id) }}">
+                                <a href="{{ route('admin.category.edit', $item->id) }}">
                                         {{ \Illuminate\Support\Str::limit($item->name, 30) }}
                                         {{-- {{ $item->title }} --}}
                                     </a>
@@ -157,7 +157,7 @@ rel="stylesheet" type="text/css" />
                                         data-placement="top" title="" data-original-title="Delete"  onclick="blogDelete({{ $item->id }})"><i
                                             class="mdi mdi-trash-can font-size-18"></i>
                                     </a>
-                                        <form method="POST" style="display: none;" action="{{route('admin.blog.destroy', $item->id)}}" id="delete-form-{{$item->id}}">
+                                        <form method="POST" style="display: none;" action="{{route('admin.category.destroy', $item->id)}}" id="delete-form-{{$item->id}}">
                                             @csrf
 
                                             @method('DELETE')
@@ -242,7 +242,7 @@ swalWithBootstrapButtons.fire({
   ) {
     swalWithBootstrapButtons.fire(
       'Cancelled',
-      'Your Blog Data is safe :)',
+      'Your Blog Data is safe',
       'error'
     )
   }

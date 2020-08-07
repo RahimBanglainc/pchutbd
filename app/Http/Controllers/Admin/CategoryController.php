@@ -56,8 +56,8 @@ class CategoryController extends Controller
                 Storage::disk('public')->makeDirectory('category');
             }
 
-            $blogImg = Image::make($img)->resize(100, 100)->save($imageName, 90);
-            Storage::disk('public')->put('category/'.$imageName,$blogImg);
+            $categoryImg = Image::make($img)->resize(100, 100)->save($imageName, 90);
+            Storage::disk('public')->put('category/'.$imageName,$categoryImg);
         }else{
             $imageName = "default.png";
         }
@@ -92,7 +92,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::where('id', $id)->first();
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -104,7 +105,42 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
+        ]);
+
+        $category = Category::where('id', $id)->first();
+
+        $img = $request->file('img');
+        $slug = Str::slug($request->name);
+        if(isset($img))
+        {
+            $currentDate = Carbon::now()->toDateString();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
+            if(!Storage::disk('public')->exists('category'))
+            {
+                Storage::disk('public')->makeDirectory('category');
+            }
+
+            // delete old image here
+            if(Storage::disk('public')->exists('category/'.$category->img))
+            {
+                Storage::disk('public')->delete('category/'.$category->img);
+            }
+            $categoryImg = Image::make($img)->resize(500, 350)->save($imageName, 90);
+            Storage::disk('public')->put('category/'.$imageName,$categoryImg);
+        }else{
+            $imageName = $category->img;
+        }
+
+        $category->name = $request->name;
+        $category->slug = $slug;
+        $category->status = 1;
+        $category->img = $imageName;
+        $category->save();
+
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -115,6 +151,17 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::where('id', $id)->first();
+
+        if(Storage::disk('public')->exists('category/'.$category->img))
+        {
+            Storage::disk('public')->delete('category/'.$category->img);
+        }
+
+    $category->delete();
+
+   // Toastr::Success('category Delete Successfully');
+
+   return redirect()->route('admin.category.index');
     }
 }
