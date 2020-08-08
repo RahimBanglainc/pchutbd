@@ -43,9 +43,9 @@
                             <input class="form-control" type="text" name="name" placeholder="Category Name" value="{{ $category->name }}" required>
                         </div>
                         <h4 class="card-title">Picture Upload</h4>
-                        <p class="card-title-desc"> Upload 512x512 px</p>
+                        <p class="card-title-desc"> Upload 100x100 px</p>
                         <div class="col-md-6">
-                        <img class="img-thumbnail" alt="200x200" style="height:150px;" src="{{asset('storage/category/'.$category->img)}}" data-holder-rendered="true">
+                        <img class="img-thumbnail" alt="200x200" style="height:100px;" src="{{asset('storage/category/'.$category->img)}}" data-holder-rendered="true">
                         </div>
                         <br>
                         <div class="custom-file">

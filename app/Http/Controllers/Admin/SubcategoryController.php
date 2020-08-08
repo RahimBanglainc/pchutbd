@@ -44,7 +44,7 @@ class SubcategoryController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'parent' => 'required',
+            'category_id' => 'required',
             'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
         ]);
         $img = $request->file('img');
@@ -67,7 +67,7 @@ class SubcategoryController extends Controller
         $category = new Subcategory();
         $category->name = $request->name;
         $category->slug = $slug;
-        $category->parent = $request->parent;
+        $category->category_id = $request->category_id;
         $category->status = 1;
         $category->img = $imageName;
         $category->save();
@@ -109,7 +109,7 @@ class SubcategoryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'parent' => 'required',
+            'category_id' => 'required',
             'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
         ]);
         $category = Subcategory::where('id', $id)->first();
@@ -137,7 +137,7 @@ class SubcategoryController extends Controller
 
         $category->name = $request->name;
         $category->slug = $slug;
-        $category->parent = $request->parent;
+        $category->category_id = $request->category_id;
         $category->status = 1;
         $category->img = $imageName;
         $category->save();

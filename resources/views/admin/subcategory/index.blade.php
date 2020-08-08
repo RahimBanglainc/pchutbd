@@ -73,7 +73,7 @@ rel="stylesheet" type="text/css" />
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Category</label>
                                             <div class="col-md-9">
-                                                <select name="parent" class="form-control">
+                                                <select name="category_id" class="form-control">
                                                     <option>Select</option>
                                                     @foreach ( App\Category::all() as $item)
 
@@ -145,13 +145,11 @@ rel="stylesheet" type="text/css" />
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">{{ $key + 1 }}</a> </td>
                                 <td>
                                 <a href="{{ route('admin.subcategory.edit', $item->id) }}">
-                                        {{ \Illuminate\Support\Str::limit($item->name, 30) }}
-                                        {{-- {{ $item->title }} --}}
+                                        {{ $item->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    {!! App\Category::where('id', $item->parent)->first()->name !!}
-                                    {{-- {{ $item->body }} --}}
+                                    {!! App\Category::where('id', $item->Category_id)->first()->name !!}
                                 </td>
 
                                 <td>

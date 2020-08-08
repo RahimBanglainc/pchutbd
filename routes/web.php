@@ -56,13 +56,15 @@ Route::group(['as' => 'client.', 'prefix' => 'client', 'namespace' => 'Storefron
     Route::get('editstall', 'DeshboardController@editstall')->name('editstall');
     Route::put('editstallPost', 'DeshboardController@editstallpost')->name('editstallpost');
 
+    Route::resource('item', 'ItemController');
+
     // only get here
-    Route::get('postitem', 'DeshboardController@postitem')->name('postitem');
+    // Route::get('postitem', 'DeshboardController@postitem')->name('postitem');
     Route::get('payment', 'DeshboardController@payment')->name('payment');
     Route::get('order', 'DeshboardController@order')->name('order');
     Route::get('myorder', 'DeshboardController@myorder')->name('myorder');
     Route::get('invoice', 'DeshboardController@invoice')->name('invoice');
-    Route::get('item', 'DeshboardController@item')->name('item');
+    // Route::get('item', 'DeshboardController@item')->name('item');
     Route::get('favourite', 'DeshboardController@favourite')->name('favourite');
 
 });

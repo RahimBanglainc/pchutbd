@@ -10,4 +10,8 @@ class Item extends Model
     {
         return $this->belongsTo('App\Stall');
     }
+    public function subcategory()
+    {
+        return $this->belongsTo('App\Subcategory');
+    }
 }

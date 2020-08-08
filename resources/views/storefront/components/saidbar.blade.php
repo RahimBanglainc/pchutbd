@@ -7,12 +7,12 @@
     @if(Auth::User()->is_seller)
         <div>
             <div>
-                <a href="{{route('client.item')}}">
+                <a href="{{route('client.item.index')}}">
                     Manage Item
                 </a>
             </div>
             <div>
-                <a href="{{route('client.postitem')}}">
+                <a href="{{route('client.item.create')}}">
                     Post New Item
                 </a>
             </div>
