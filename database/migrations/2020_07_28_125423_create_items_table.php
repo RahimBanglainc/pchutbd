@@ -28,16 +28,17 @@ class CreateItemsTable extends Migration
             $table->decimal('price', 8, 2);
             $table->decimal('ship_dhaka', 8, 2)->default(60);
             $table->decimal('ship_bd', 8, 2)->default(130);
-            $table->string('offer');
+            $table->string('offer')->nullable();
             $table->string('img')->default('item.png');
-            $table->string('img1')->default(null);
-            $table->string('img2')->default(null);
-            $table->string('img3')->default(null);
-            $table->string('img4')->default(null);
+            $table->string('img1')->nullable();
+            $table->string('img2')->nullable();
+            $table->string('img3')->nullable();
+            $table->string('img4')->nullable();
             $table->text('description')->nullable();
-            $table->integer('feature_id');
+            $table->text('warranty')->nullable();
+            $table->integer('feature_id')->nullable();
             $table->string('subcategory')->nullable();
-            $table->json('features');
+            $table->json('features')->nullable();
             $table->foreign('stall_id')
                 ->references('id')
                 ->on('stalls')

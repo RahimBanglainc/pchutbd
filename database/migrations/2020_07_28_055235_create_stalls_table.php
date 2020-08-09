@@ -37,6 +37,10 @@ class CreateStallsTable extends Migration
             $table->string('img')->default('picture.jpg');
             $table->integer('postcode')->nullable();
             $table->text('about')->nullable();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
