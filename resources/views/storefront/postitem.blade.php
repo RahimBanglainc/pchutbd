@@ -39,7 +39,7 @@
                             <div class="eight columns">
 
 
-                                @if($count)
+                                @if($count && $stall->item_exp >= $my_time)
 
 
                                     <div class="form-style">
@@ -48,58 +48,11 @@
                                         <div class="form-element"><label>Item</label><select name="subcategory_id"
                                                 onchange="selectItemFeature()" required>
                                                 <option value="">select</option>
-                                                <option value="6">PC &amp; Laptop- Laptop</option>
-                                                <option value="477">PC &amp; Laptop- Gaming Laptop</option>
-                                                <option value="4">PC &amp; Laptop- Desktop PC</option>
-                                                <option value="474">PC &amp; Laptop- Gaming PC</option>
-                                                <option value="471">PC &amp; Laptop- Brand PC</option>
-                                                <option value="376">PC &amp; Laptop- Mini PC</option>
-                                                <option value="10">PC &amp; Laptop- Tablet PC</option>
-                                                <option value="470">PC &amp; Laptop- All In One PC</option>
-                                                <option value="97">PC &amp; Laptop- Computer Repair</option>
-                                                <option value="74">PC Parts- Headphone</option>
-                                                <option value="95">PC Parts- UPS</option>
-                                                <option value="27">PC Parts- Processor</option>
-                                                <option value="28">PC Parts- Motherboard</option>
-                                                <option value="31">PC Parts- RAM</option>
-                                                <option value="29">PC Parts- Hard Disk</option>
-                                                <option value="262">PC Parts- SSD</option>
-                                                <option value="32">PC Parts- Graphics Card</option>
-                                                <option value="39">PC Parts- Mouse</option>
-                                                <option value="380">PC Parts- Keyboard</option>
-                                                <option value="90">PC Parts- CPU Cooler</option>
-                                                <option value="35">PC Parts- DVD Writer</option>
-                                                <option value="40">PC Parts- Computer Casing</option>
-                                                <option value="37">PC Parts- Internet Modem</option>
-                                                <option value="36">PC Parts- Webcam</option>
-                                                <option value="34">PC Parts- TV Card</option>
-                                                <option value="30">PC Parts- Pen Drive</option>
-                                                <option value="111">PC Parts- Cable</option>
-                                                <option value="351">PC Parts- Surge Protector</option>
-                                                <option value="195">PC Parts- Power Supply</option>
-                                                <option value="358">PC Parts- USB Hub</option>
-                                                <option value="502">PC Parts- UPS Battery</option>
-                                                <option value="109">PC Parts- Memory Card Reader</option>
-                                                <option value="363">PC Parts- Blank Disk</option>
-                                                <option value="33">PC Parts- Sound Card</option>
-                                                <option value="501">PC Parts- Thermal Paste</option>
-                                                <option value="525">PC Parts- Gaming Chair</option>
-                                                <option value="526">PC Parts- Mouse Pad</option>
-                                                <option value="86">Laptop Accessories- Laptop Battery</option>
-                                                <option value="87">Laptop Accessories- Laptop Charger</option>
-                                                <option value="77">Laptop Accessories- Laptop Bag</option>
-                                                <option value="78">Laptop Accessories- Laptop Cooler</option>
-                                                <option value="88">Laptop Accessories- Laptop Display</option>
-                                                <option value="89">Laptop Accessories- Laptop Keyboard</option>
-                                                <option value="410">Laptop Accessories- Laptop Table</option>
-                                                <option value="48">Networking- Wireless Router</option>
-                                                <option value="17">Monitor- Monitor</option>
-                                                <option value="23">Print &amp; Scan- Printer</option>
-                                                <option value="21">Print &amp; Scan- Photo Printer</option>
-                                                <option value="170">Print &amp; Scan- Printer Cartridge</option>
-                                                <option value="104">Print &amp; Scan- Printer Paper</option>
-                                                <option value="368">Print &amp; Scan- Printer Drum</option>
-                                                <option value="511">Print &amp; Scan- Printing Accessories</option>
+                                                @foreach ($subcats as $subcat)
+
+                                                <option value="{{$subcat->id}}">{{ $subcat->category()->first()->name }}- {{ $subcat->name }}</option>
+
+                                                @endforeach
                                             </select></div>
 
                                         <!--            <div class="form-element">
@@ -394,9 +347,18 @@
 
                                     <div class="form-style">
 
+                                        @if (!$count)
+
                                         <small> Item Post limit is over. Please increase the limit.</small><br>
                                         Limit : <font color="olive">{{ $stall->item_limit }}</font>
                                         Left : <font color="olive">{{ $count }}</font><br>
+
+                                        @else
+
+                                        <small> Item Post Date is Expire.</small><br>
+
+                                        @endif
+
 
                                     </div>
 

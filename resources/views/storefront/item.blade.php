@@ -227,8 +227,8 @@
                                 <div class="six columns product-cat-box-img">
                                     <div class="row">
                                         <div class="seven columns">
-                                            <a href="#" target="_BLANK">
-                                                <img src="{{ asset('storage/item/'.$item->img) }}"
+                                            <a href="{{route('item.view', $item->slug)}}" target="_BLANK">
+                                                <img src="{{ asset('storage/item/small/'.$item->img) }}"
                                                     alt="{{ $item->title }}" title="{{ $item->title }}">
                                             </a> </div>
                                         <div class="five columns">
@@ -253,20 +253,31 @@
                                                         @endif
                                                     </span>
                                                 </div>
-
+                                                @if ($item->is_approve && $item->status)
                                                 <div class="product-cat-box-button">
                                                     <a
                                                         href="{{ route('client.item.edit',$item->id) }}">
                                                         <div class="button-link">Edit</div>
                                                     </a>
                                                 </div>
+
+                                                @else
+
+                                                <div class="product-cat-box-button">
+                                                    <a
+                                                        href="{{ route('item.view', $item->slug) }}">
+                                                        <div class="button-link">View</div>
+                                                    </a>
+                                                </div>
+
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="six columns product-cat-box-text">
-                                    <a href="#" target="_BLANK">{{ $item->title }}</a>
+                                    <a href="{{route('item.view', $item->slug)}}" target="_BLANK">{{ $item->title }}</a>
                                     <p>{!! \Illuminate\Support\str::limit(strip_tags($item->description), 200) !!}</p>
                                 </div>
 

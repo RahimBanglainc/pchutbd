@@ -25,9 +25,9 @@ class CreateItemsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('model');
-            $table->decimal('price', 8, 2);
-            $table->decimal('ship_dhaka', 8, 2)->default(60);
-            $table->decimal('ship_bd', 8, 2)->default(130);
+            $table->decimal('price', 8, 0);
+            $table->decimal('ship_dhaka', 8, 0)->default(60);
+            $table->decimal('ship_bd', 8, 0)->default(130);
             $table->string('offer')->nullable();
             $table->string('img')->default('item.png');
             $table->string('img1')->nullable();

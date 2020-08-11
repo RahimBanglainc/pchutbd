@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Storefront;
 use App\Http\Controllers\Controller;
 use App\Item;
 use App\Stall;
+use App\Subcategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -33,11 +34,13 @@ class ItemController extends Controller
      */
     public function create()
     {
+        $my_time = Carbon::now(); // today
         $stall = Stall::where('user_id', Auth::user()->id)->first();
         $a= Item::where('stall_id', $stall->id )->latest()->count();
         $count = $stall->item_limit - $a ;
+        $subcats = Subcategory::all();
 
-        return view('storefront.postitem', compact('stall', 'count'));
+        return view('storefront.postitem', compact('stall', 'count','my_time', 'subcats'));
     }
 
     /**
@@ -66,6 +69,7 @@ class ItemController extends Controller
             if(!Storage::disk('public')->exists('item'))
             {
                 Storage::disk('public')->makeDirectory('item');
+                Storage::disk('public')->makeDirectory('item/small/');
             }
 
             // // delete old image here
@@ -73,11 +77,17 @@ class ItemController extends Controller
             // {
             //     Storage::disk('public')->delete('user/'.Auth::User()->img);
             // }
-            $userImg = Image::make($img)->resize(150, 150)->save($imageName, 90);
-            Storage::disk('public')->put('item/'.$imageName,$userImg);
+            $userImg = Image::make($img)->resize(null, 130, function ($constraint) {
+                $constraint->aspectRatio();})->save($imageName, 90);
+            Storage::disk('public')->put('item/small/'.$imageName,$userImg);
+
+            $userImg1 = Image::make($img)->resize(null, 350, function ($constraint) {
+                $constraint->aspectRatio();})->save($imageName, 90);
+                Storage::disk('public')->put('item/'.$imageName,$userImg1);
         }else{
             $imageName = 0;
         }
+
         // image 1
         $img1 = $request->file('img1');
         if(isset($img1))
@@ -94,7 +104,8 @@ class ItemController extends Controller
             // {
             //     Storage::disk('public')->delete('user/'.Auth::User()->img);
             // }
-            $userImg1 = Image::make($img1)->resize(150, 150)->save($imageName1, 90);
+            $userImg1 = Image::make($img1)->resize(null, 350, function ($constraint) {
+                $constraint->aspectRatio();})->save($imageName1, 90);
             Storage::disk('public')->put('item/'.$imageName1,$userImg1);
         }else{
             $imageName1 = 0;
@@ -117,7 +128,8 @@ class ItemController extends Controller
             // {
             //     Storage::disk('public')->delete('user/'.Auth::User()->img);
             // }
-            $userImg2 = Image::make($img2)->resize(150, 150)->save($imageName2, 90);
+            $userImg2 = Image::make($img2)->resize(null, 350, function ($constraint) {
+                $constraint->aspectRatio();})->save($imageName2, 90);
             Storage::disk('public')->put('item/'.$imageName2,$userImg2);
         }else{
             $imageName2 = 0;
@@ -139,7 +151,8 @@ class ItemController extends Controller
             // {
             //     Storage::disk('public')->delete('user/'.Auth::User()->img);
             // }
-            $userImg3 = Image::make($img3)->resize(150, 150)->save($imageName3, 90);
+            $userImg3 = Image::make($img3)->resize(null, 350, function ($constraint) {
+                $constraint->aspectRatio();})->save($imageName3, 90);
             Storage::disk('public')->put('item/'.$imageName3, $userImg3);
         }else{
             $imageName3 = 0;
@@ -161,7 +174,8 @@ class ItemController extends Controller
             // {
             //     Storage::disk('public')->delete('user/'.Auth::User()->img);
             // }
-            $userImg4 = Image::make($img4)->resize(150, 150)->save($imageName4, 90);
+            $userImg4 = Image::make($img4)->resize(null, 350, function ($constraint) {
+                $constraint->aspectRatio();})->save($imageName4, 90);
             Storage::disk('public')->put('item/'.$imageName4,$userImg4);
         }else{
             $imageName4 = 0;
@@ -212,7 +226,7 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-
+        return view('storefront.edititem', compact('item'));
     }
 
     /**
@@ -224,7 +238,29 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        // return $request;
+        $this->validate($request, [
+            'stock' => 'required',
+            'price' => 'required',
+            'ship_dhaka' => 'required',
+            'ship_bd' => 'required',
+        ]);
+
+        if($item->status && $item->is_approve)
+        {
+        $item->stock = $request->stock;
+        $item->price = $request->price;
+        $item->ship_dhaka = $request->ship_dhaka;
+        $item->ship_bd = $request->ship_bd;
+        $item->offer = $request->offer;
+        $item->save();
+        return redirect()->route('client.item.index');
+    }else{
+
+        return redirect()->route('client.item.index');
+
+        }
+
     }
 
     /**
