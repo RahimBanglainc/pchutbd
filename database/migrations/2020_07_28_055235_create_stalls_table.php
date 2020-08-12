@@ -19,6 +19,7 @@ class CreateStallsTable extends Migration
             $table->integer('item_limit')->default(1);
             $table->boolean('status')->default(false);
             $table->date('item_exp')->nullable();
+            $table->string('plan')->nullable();
             $table->string('type')->nullable();
             $table->string('name');
             $table->string('slug');

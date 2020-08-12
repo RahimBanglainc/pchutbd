@@ -20,6 +20,8 @@ Route::get('blog/{slug}', 'HomeController@blogshow')->name('blog.show');
 Route::get('stall/{slug}', 'HomeController@stallshow')->name('stall.show');
 Route::get('stallList', 'HomeController@stallList')->name('stallList');
 Route::get('item/{slug}', 'HomeController@item')->name('item.view');
+Route::get('category/{slug}', 'HomeController@category')->name('cat.view');
+Route::get('category/item/{slug}', 'HomeController@subcategory')->name('catitem.view');
 
 Auth::routes();
 

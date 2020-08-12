@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Category;
 use App\Item;
 use App\Stall;
+use App\Subcategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -186,6 +188,172 @@ class HomeController extends Controller
         }
 
     }
+
+
+    public function category($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $subcategories = Subcategory::where('Category_id', $category->id)->get();
+
+        $my_time = Carbon::now(); // today
+        // $stall = Stall::where('id', $item->stall_id)->first();
+        // $count = Item::where([
+        //     ['status', '=', true],
+        //     ['subcategory_id', '=', $item->subcategory_id],
+        //     ['is_approve', '=', true],
+        //     ['stock', '=', true],
+        //     ]);
+
+
+        // if($item->is_approve && $item->status)
+        // {
+        //     $itemKey = 'item_'.$item->id;
+
+        //     if(!Session::has($itemKey))
+        //     {
+        //         $item->increment('views');
+        //         Session::put($itemKey,1);
+        //     }
+
+        //     if($count->count() < 6)
+        //     {
+
+        //         $ritems = Item::where([
+        //             ['status', '=', true],
+        //             ['subcategory_id', '=', $item->subcategory_id],
+        //             ['is_approve', '=', true],
+        //             ['stock', '=', true],
+        //             ])
+        //             ->get()
+        //             ->random($count->count());
+
+        //     }else{
+
+        //         $ritems = Item::where([
+        //             ['status', '=', true],
+        //             ['subcategory_id', '=', $item->subcategory_id],
+        //             ['is_approve', '=', true],
+        //             ['stock', '=', true],
+        //             ])
+        //             ->get()
+        //             ->random(6);
+        //     }
+
+        //     if($count->count() < 3)
+        //     {
+
+        //         $sitems = Item::where([
+        //             ['status', '=', true],
+        //             ['subcategory_id', '=', $item->subcategory_id],
+        //             ['is_approve', '=', true],
+        //             ['stock', '=', true],
+        //             ])
+        //             ->get()
+        //             ->random($count->count());
+
+        //     }else{
+
+        //         $sitems = Item::where([
+        //             ['status', '=', true],
+        //             ['subcategory_id', '=', $item->subcategory_id],
+        //             ['is_approve', '=', true],
+        //             ['stock', '=', true],
+        //             ])
+        //             ->get()
+        //             ->random(3);
+        //     }
+
+        //     return view('subcategory', compact('item','ritems', 'stall', 'sitems', 'my_time'));
+        // }else{
+            //     return redirect()->route('index');
+            // }
+
+                return view('subcategory', compact('category', 'subcategories', 'my_time'));
+    }
+
+
+
+    public function subcategory($slug)
+    {
+        $items = Item::where('slug', $slug)->first();
+        $my_time = Carbon::now(); // today
+        // $stall = Stall::where('id', $item->stall_id)->first();
+        // $count = Item::where([
+        //     ['status', '=', true],
+        //     ['subcategory_id', '=', $item->subcategory_id],
+        //     ['is_approve', '=', true],
+        //     ['stock', '=', true],
+        //     ]);
+
+
+        // if($item->is_approve && $item->status)
+        // {
+        //     $itemKey = 'item_'.$item->id;
+
+        //     if(!Session::has($itemKey))
+        //     {
+        //         $item->increment('views');
+        //         Session::put($itemKey,1);
+        //     }
+
+        //     if($count->count() < 6)
+        //     {
+
+        //         $ritems = Item::where([
+        //             ['status', '=', true],
+        //             ['subcategory_id', '=', $item->subcategory_id],
+        //             ['is_approve', '=', true],
+        //             ['stock', '=', true],
+        //             ])
+        //             ->get()
+        //             ->random($count->count());
+
+        //     }else{
+
+        //         $ritems = Item::where([
+        //             ['status', '=', true],
+        //             ['subcategory_id', '=', $item->subcategory_id],
+        //             ['is_approve', '=', true],
+        //             ['stock', '=', true],
+        //             ])
+        //             ->get()
+        //             ->random(6);
+        //     }
+
+        //     if($count->count() < 3)
+        //     {
+
+        //         $sitems = Item::where([
+        //             ['status', '=', true],
+        //             ['subcategory_id', '=', $item->subcategory_id],
+        //             ['is_approve', '=', true],
+        //             ['stock', '=', true],
+        //             ])
+        //             ->get()
+        //             ->random($count->count());
+
+        //     }else{
+
+        //         $sitems = Item::where([
+        //             ['status', '=', true],
+        //             ['subcategory_id', '=', $item->subcategory_id],
+        //             ['is_approve', '=', true],
+        //             ['stock', '=', true],
+        //             ])
+        //             ->get()
+        //             ->random(3);
+        //     }
+
+        //     return view('subcategory', compact('item','ritems', 'stall', 'sitems', 'my_time'));
+        // }else{
+            //     return redirect()->route('index');
+            // }
+
+                return view('subcategoryitem', compact('items', 'my_time'));
+    }
+
+
+
 
 
 }

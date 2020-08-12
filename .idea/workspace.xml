@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27d17c43-bfd3-4292-a4a9-093e8d5ca258" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-plugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/summernote_0_8_18_dist.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/textfile.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pchutbd.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/assets/js/pages/dashboard.init.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/assets/js/pages/dashboard.init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/deshboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/deshboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/saidbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/saidbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_28_055235_create_stalls_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_28_055235_create_stalls_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +38,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595772734305</updated>
       <workItem from="1595772746264" duration="22000" />
+      <workItem from="1597166935268" duration="4000" />
     </task>
     <servers />
   </component>
