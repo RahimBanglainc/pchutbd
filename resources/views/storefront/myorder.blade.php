@@ -58,7 +58,7 @@
 
 
 
-                            <div class="b-bottom"><a href="https://www.bdstall.com/cartItem/track_order_status/"
+                            <div class="b-bottom"><a href="cartItem/track_order_status/"
                                     style="font-weight:bold">আপনি যদি রেজিস্ট্রেশান না করে অর্ডার করে থাকেন তবে এখানে
                                     ট্র্যাক করতে পারেন</a></div>
                         </div>

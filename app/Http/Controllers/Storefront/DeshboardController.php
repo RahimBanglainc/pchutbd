@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Storefront;
 use App\Stall;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +15,14 @@ class DeshboardController extends Controller
 {
     public function index()
     {
-        return view('storefront.deshboard');
+
+        $my_time = Carbon::now(); // today
+        $stall = Stall::where('user_id', Auth::user()->id)->first();
+        $a= Item::where('stall_id', $stall->id )->latest()->count();
+        $count = $stall->item_limit - $a ;
+
+
+        return view('storefront.deshboard', compact('a', 'count', 'stall', 'my_time'));
     }
     public function stallshaw()
     {
@@ -175,17 +183,18 @@ class DeshboardController extends Controller
 
 
 
-        return redirect()->route('client.dashboard');
-    }
+            return redirect()->route('client.dashboard');
+        }
 
+        public function favourite()
+        {
+           $items = Auth::user()->favorite_items()->get();
+            return view('storefront.favourite', compact('items'));
+        }
     // only pages here
 
 
-    public function postitem()
-    {
 
-        return view('storefront.postitem');
-    }
 
     public function payment()
     {
@@ -217,11 +226,6 @@ class DeshboardController extends Controller
         return view('storefront.item');
     }
 
-    public function favourite()
-    {
-
-        return view('storefront.favourite');
-    }
 
 
 

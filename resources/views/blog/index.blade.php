@@ -179,15 +179,15 @@
 
                     <span class="paginationCurLink"></span>
                     <span class="page-digit-link">
-                        <a href="https://www.bdstall.com/blog/list/2/">2</a>
+                        <a href="blog/list/2/">2</a>
                     </span>
                     <span class="page-digit-link">
-                        <a href="https://www.bdstall.com/blog/list/3/">3</a>
+                        <a href="blog/list/3/">3</a>
                     </span>
                     <span class="page-digit-link">
-                        <a href="https://www.bdstall.com/blog/list/4/">4</a></span>
+                        <a href="blog/list/4/">4</a></span>
                         <span class="page-next-link">
-                            <a href="https://www.bdstall.com/blog/list/2/">Next</a></span>
+                            <a href="blog/list/2/">Next</a></span>
                 </div> --}}
             </div>
 

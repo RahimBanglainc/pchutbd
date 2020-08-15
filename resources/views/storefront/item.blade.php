@@ -214,7 +214,7 @@
 
                             <div class="u-pull-left">Item 1-{{$items->count()}} of {{$itemCount->count()}}</div>
 
-                            <!--    <div class="u-pull-right"><a href="https://www.bdstall.com/productListing/index/23272/845/">Post New Item</a></div>-->
+                            <!--    <div class="u-pull-right"><a href="productListing/index/23272/845/">Post New Item</a></div>-->
 
                         </div>
 

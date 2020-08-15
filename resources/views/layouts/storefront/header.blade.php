@@ -3,8 +3,12 @@
 <div class="main-header">
     <div class="container">
 
-        <a href="{{ route('index') }}"><img src="{{ asset('img/logo.png') }}"
-                alt="pchutbd.com" title="pchutbd.com"></a>
+        <a href="{{ route('index') }}">
+
+
+            <img src="{{asset('storage/img/'.App\Settings::find(1)->head_img)}}" alt="pchutbd.com" title="pchutbd.com">
+
+        </a>
 
         <div class="spinner-master">
             <input type="checkbox" id="spinner-form">
@@ -19,9 +23,11 @@
         <input type="hidden" name="DepartmentID" value="-1">
         <input type="hidden" name="ItemTypeID" value="-1">
         <a href="##search_box" class="search-btn" id="search"><img
-                src="{{ asset('img/site-search-icon.png') }}"></a>
-        <form class="search_box" id="search_box" action="#search/">
-            <input name="term" placeholder="Search item" value="" type="text">
+                src="{{ asset('img/site-search-icon.png') }}">
+        </a>
+
+        <form class="search_box" id="search_box" method="GET" action="{{route('search')}}">
+            <input name="query" placeholder="Search item" value="" type="text">
             <input class="search_icon" value="Search" type="submit">
         </form>
 

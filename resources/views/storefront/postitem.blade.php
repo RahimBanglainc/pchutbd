@@ -5,9 +5,194 @@
 
 @section('main')
 
+
+
+<script type="text/javascript" language="javascript">
+
+    /* function for insert*/
+    start_over_at = 3;
+    counter = 0;
+    function insertData()
+    {
+            if(http.readyState!=4 && http.readyState!=0 )
+        {
+                alert("Please wait...");
+                return;
+        }
+
+    //	if(document.clientForm.StallID.value==-1)
+    //	{
+    //			alert("Please select stall.");
+    //			document.clientForm.StallID.focus();
+    //			return;
+    //	}
+    //	if(document.clientForm.CategoryID.value==-1)
+    //	{
+    //			alert("Please select category.");
+    //			document.clientForm.CategoryID.focus();
+    //			return;
+    //	}
+
+        if(document.clientForm.subcategory_id.value==-1)
+        {
+                alert("Please select item type.");
+                document.clientForm.subcategory_id.focus();
+                return;
+        }
+
+        if(document.clientForm.ListingPrice.value=="")
+        {
+                alert("Please enter price.");
+                document.clientForm.ListingPrice.focus();
+                return;
+        }
+            else if(!isNumeric(document.clientForm.ListingPrice.value))
+            {
+                            alert("Please enter valid price and do not put any comma (,)");
+                document.clientForm.ListingPrice.focus();
+                return;
+            }
+            else if(document.clientForm.ListingPrice.value<=0)
+        {
+                alert("Price must be greater than Zero");
+                document.clientForm.ListingPrice.focus();
+                return;
+        }
+
+        if(document.clientForm.ListingTitle.value== "")
+        {
+                alert("Please enter item title.");
+                document.clientForm.ListingTitle.focus();
+                return;
+        }
+
+    //	if(document.clientForm.BrandID.value==-1)
+    //	{
+    //			alert("Please select brand.");
+    //			document.clientForm.BrandID.focus();
+    //			return;
+    //	}
+        if(document.clientForm.ListingDescription.value=="")
+        {
+                alert("Please enter item description");
+                document.clientForm.ListingDescription.focus();
+                return;
+        }
+            //prevent multiple submission
+            counter++;
+            if(counter >= start_over_at) { counter = 1; }
+            if(counter == 2) {
+                alert('Sometimes the server is a bit slow. ' +
+                    'One click is sufficient.\n\nThe ' +
+                     'server will respond in a few seconds.\n\n' +
+                     'Thank you for your patience.');
+            }
+            if(counter > 1) { return false; }
+            else {document.clientForm.submit();}
+    }
+
+
+    http = getHTTPObject();
+
+    img="<img src='";
+    img=img +"{{asset('img/')}}";
+        img=img +"/ajax-loader.gif";
+        img=img +"'";
+        img=img +"/>";
+
+
+    function selectItemType()
+    {
+            http = getHTTPObject();
+
+            if (http.readyState != 4)
+         {
+                document.getElementById("showType").innerHTML=img;
+          }
+
+        var CategoryID=document.clientForm.CategoryID.value;
+        url  = 'https://s/productListing/getItemType//' + CategoryID + '/';
+        http.open( "POST" ,url, true);
+        http.onreadystatechange = showItemType;
+        http.send(null);
+    }
+
+    function showItemType()
+    {
+        if (http.readyState == 4)
+         {
+            if(http.responseText=="")
+              {
+                return;
+              }
+
+            document.getElementById("showType").innerHTML=http.responseText;
+            document.getElementById("showItemFeature").innerHTML="";
+          }
+    }
+
+
+    function selectItemFeature()
+    {
+            http = getHTTPObject();
+
+            if (http.readyState != 4)
+         {
+            document.getElementById("showItemFeature").innerHTML=img;
+          }
+
+        var subcategory_id=document.clientForm.subcategory_id.value;
+        url  = '{{route('index')}}/getItemFeature//' + subcategory_id + '/';
+        http.open( "GET" ,url, true);
+        http.onreadystatechange = displayItemFeature;
+        http.send(null);
+    }
+
+    function displayItemFeature()
+    {
+        if (http.readyState == 4)
+         {
+            if(http.responseText=="")
+              {
+                return;
+              }
+
+            document.getElementById("showItemFeature").innerHTML=http.responseText;
+
+          }
+    }
+        function limitText(limitField, limitCount, limitNum) {
+            if (limitField.value.length > limitNum) {
+                limitField.value = limitField.value.substring(0, limitNum);
+            }
+        }
+
+    function tabmenu(status, max_photo){
+          for(i=1; i<=max_photo; i++)
+           {
+            image_id = "image" + i;
+            image_tab_id="image" + i + "-tab";
+
+            if (status==i)
+                {
+                    document.getElementById(image_id).style.display='block';
+                    document.getElementById(image_tab_id).className='selHomeTab';
+                }
+                else
+                {
+                    document.getElementById(image_id).style.display='none';
+                    document.getElementById(image_tab_id).className='';
+                }
+            }
+        return false;
+    }
+    </script>
+
+
+
 <div id="app">
 
-    <div name="clientForm" action="" method="post">
+    <div action="" method="post">
 
 
         <input type="hidden" name="UserID" value="23272">
@@ -20,7 +205,7 @@
                 @include('storefront.components.saidbar')
 
 
-                <form action="{{ route('client.item.store') }}" method="POST"
+                <form name="clientForm" action="{{ route('client.item.store') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
 
@@ -47,18 +232,19 @@
 
                                         <div class="form-element"><label>Item</label><select name="subcategory_id"
                                                 onchange="selectItemFeature()" required>
-                                                <option value="">select</option>
+                                                <option value="-1">select</option>
                                                 @foreach ($subcats as $subcat)
 
                                                 <option value="{{$subcat->id}}">{{ $subcat->category()->first()->name }}- {{ $subcat->name }}</option>
 
                                                 @endforeach
-                                            </select></div>
+                                            </select>
+                                        </div>
 
                                         <!--            <div class="form-element">
                                         <label>Type</label>
                                         <span id="showType">
-                                        <select name="ItemTypeID" id="ItemTypeID" >
+                                        <select name="subcategory_id" id="subcategory_id" >
                                             <option value="-1" > select </option>
                                         </select>
                                         </span>
@@ -95,182 +281,12 @@
                                     </div>
 
                                     <div id="showItemFeature">
-                                        <table width="100%" cellpadding="0" cellspacing="1" style="border:1px solid;">
-                                            <tbody>
-                                                <tr>
-                                                    <td width="100%" align="left" class="profileDetail" colspan="2">
-                                                        <b>Item
-                                                            Features</b> (Please fill up all these features)</td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[0]" value="129">Modem</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[0]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="display: none">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[1]" value="1844">Condition
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[1]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="display: none">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[2]" value="1711">Laptop
-                                                        Type</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[2]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[3]" value="69">Processor
-                                                        Type</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[3]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[4]" value="75">Processor
-                                                        Speed</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[4]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[5]" value="81">Chipset
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[5]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[6]" value="99">Screen Size
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[6]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[7]" value="87">RAM</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[7]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[8]" value="93">Hard Disk
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[8]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="display: none">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[9]" value="1712">Disk Type
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[9]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[10]" value="105">Optical
-                                                        Drive</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[10]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[11]" value="111">Graphics
-                                                        Card</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[11]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[12]"
-                                                            value="117">Audio/Speaker</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[12]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[13]"
-                                                            value="123">Networking</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[13]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[14]" value="135">Webcam
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[14]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[15]" value="141">Card
-                                                        Reader</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[15]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[16]" value="147">Battery
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[16]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[17]" value="153">Software
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[17]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[18]" value="159">Other
-                                                        Features</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[18]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[19]" value="165">Product
-                                                        Weight (Kg)</td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[19]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                                <tr style="background-color:#EFF0F2;">
-                                                    <td width="50%" align="left" class="profileDetail"><input
-                                                            type="hidden" name="ItemFeatureID[20]" value="171">Warranty
-                                                    </td>
-                                                    <td width="40%" align="left" class="profileDetail"><input
-                                                            type="text" name="ItemFeatureDescription[20]" value=""
-                                                            size="20" maxlength="400"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table><input type="hidden" name="rowCount" value="21">
+
+
                                     </div>
+
+
+
 
                                     <div class="account-prod-image-box">
 
@@ -290,7 +306,6 @@
 
 
                                             <div id="image1">
-                                                <!--                    <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg" />-->
                                                 <input type="file" name="img" size="6" required>
                                             </div>
 
@@ -300,7 +315,6 @@
 
 
                                             <div id="image2">
-                                                <!--                    <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg" />-->
                                                 <input type="file" name="img1" size="6">
                                             </div>
 
@@ -310,7 +324,6 @@
 
 
                                             <div id="image3">
-                                                <!--                    <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg" />-->
                                                 <input type="file" name="img2" size="6">
                                             </div>
 
@@ -320,7 +333,6 @@
 
 
                                             <div id="image4">
-                                                <!--                    <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg" />-->
                                                 <input type="file" name="img3" size="6">
                                             </div>
 
@@ -330,7 +342,6 @@
 
 
                                             <div id="image5">
-                                                <!--                    <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg" />-->
                                                 <input type="file" name="img4" size="6">
                                             </div>
 

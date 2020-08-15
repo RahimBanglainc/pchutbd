@@ -71,26 +71,26 @@
 
                             <div><b>My Account</b></div>
 
-                            Plan Name: <font color="olive">Gorom</font><br>
+                            Plan Name: <font color="olive">{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->plan }}</font><br>
 
-                            Item: <font color="olive">85 of 100
+                            Item: <font color="olive">{{$a}} of {{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->item_limit }}
 
-                                <a href="#/productListing/limit_info/" style="margin-left: 0.2em">more&gt;&gt;</a><br>
+                                <a href="#" style="margin-left: 0.2em">more&gt;&gt;</a><br>
                             </font> Free Item: <font color="olive">1</font><br>
 
 
-                            Post Left: <font color="olive">15</font><br>
+                            Post Left: <font color="olive">{{$count}}</font><br>
 
 
-                            Plan End: <font color="olive">08-09-2020</font><br>
+                            Plan End: <font color="olive">{{ Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->item_exp}}</font><br>
 
-                            Days Left: <font color="olive">47</font><br>
+                        {{-- Days Left: <font color="olive">47</font><br> --}}
 
-                            <a href="#/myPlan/upgradeUserPlan/23272/">Get More Limit</a>
+                            <a href="#">Get More Limit</a>
 
                             <div class="s-top">
                                 <!--        <a href="#/productListing/limit_info/" style="color:#257AB1;float: left">View Limit Info</a><br>-->
-                                <a href="#/payment/info/" style="color:#257AB1;float: left">View
+                                <a href="#" style="color:#257AB1;float: left">View
                                     Payement Info</a>
                             </div>
 

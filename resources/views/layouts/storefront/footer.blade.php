@@ -169,34 +169,32 @@
         <div class="row">
             <div class="three columns m-top">
                 <label>Popular Department</label>
-                <div><a href="#searchItemListingByDepartment/index/1/">Computer &amp;
-                        Software</a></div>
-                <div><a href="#searchItemListingByDepartment/index/2/">Mobile</a></div>
-                <div><a href="#searchItemListingByDepartment/index/3/">Electronics</a></div>
-                <div><a href="#searchItemListingByDepartment/index/7/">Security &amp;
-                        Industry</a></div>
-                <div><a href="#searchItemListingByDepartment/index/8/">Tours &amp;
-                        Travels</a></div>
+                @foreach (App\Category::take(6)
+                ->get(); as $focat)
+
+            <div><a href="{{route('cat.view', $focat->slug)}}"> {{$focat->name}} </a></div>
+
+                @endforeach
+
                 <div><a href="{{route('stallList')}}">Online Stall</a></div>
-                <div><a href="#market/list/">Shopping Mall</a></div>
 
             </div>
 
             <div class="three columns m-top">
                 <label>Knowledge Base</label>
                 <div><a href="{{route('blog')}}">Blog</a></div>
-                <div><a href="#faq/bn/">FAQ</a></div>
+                <div><a href="{{ App\Settings::find(1)->faq }}">FAQ</a></div>
             </div>
 
 
             <div class="three columns m-top">
-                <div><a href="#"><img src="{{asset('img/logo.png')}}" width="30%"></a>
+                <div><a href="{{route('index')}}"><img src="{{asset('storage/img/'.App\Settings::find(1)->foo_img)}}" width="30%"></a>
                 </div>
-                <div><a href="#contactUs/">Contact Us</a></div>
-                <div><a href="#career/">Career</a></div>
-                <div><a href="#sitemap/">Site Map</a></div>
-                <div><a href="#privacyPolicy/">Privacy Policy</a></div>
-                <div><a href="#termsAndCondition/">Terms &amp; Conditions</a></div>
+                <div><a href="{{ App\Settings::find(1)->contact }}">Contact Us</a></div>
+                <div><a href="{{ App\Settings::find(1)->career }}">Career</a></div>
+                <div><a href="{{ App\Settings::find(1)->privacy }}">Site Map</a></div>
+                <div><a href="{{ App\Settings::find(1)->privacy }}">Privacy Policy</a></div>
+                <div><a href="{{ App\Settings::find(1)->terms }}">Terms &amp; Conditions</a></div>
             </div>
 
             <div class="three columns m-top">
@@ -206,13 +204,13 @@
                 <div class="s-top"><label>Follow us</label></div>
 
                 <div class="social">
-                    <a href="https://www.facebook.com/" target="_BLANK"><img src="{{asset('storefront/assets/img/fb_icon.png')}}"></a>
+                    <a href="{{ App\Settings::find(1)->fb }}" target="_BLANK"><img src="{{asset('storefront/assets/img/fb_icon.png')}}"></a>
                     {{-- <a href="https://twitter.com/" target="_BLANK"><img src="#asset/static-image/twitter_icon.png"></a> --}}
-                    <a href="https://www.instagram.com/" target="_BLANK"><img
+                    <a href="{{ App\Settings::find(1)->instra }}" target="_BLANK"><img
                             src="{{asset('storefront/assets/img/instagram_icon.png')}}"></a>
-                    <a href="https://www.youtube.com/" target="_BLANK"><img
+                    <a href="{{ App\Settings::find(1)->youtube }}" target="_BLANK"><img
                             src="{{asset('storefront/assets/img/youtube_icon.png')}}"></a>
-                    <a href="https://www.pinterest.com/" target="_BLANK"><img
+                    <a href="{{ App\Settings::find(1)->pinterest }}" target="_BLANK"><img
                             src="{{asset('storefront/assets/img/pinterest_icon.png')}}"></a>
                 </div>
 
@@ -222,7 +220,7 @@
 
     <div class="row footer-line b-bottom" style="color:white">
         <div class="container">
-            Copyright © PCHUTBD.com </div>
+            {{ App\Settings::find(1)->copyright }} </div>
     </div>
 
 

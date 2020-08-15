@@ -43,7 +43,6 @@ class CategoryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
         ]);
         $img = $request->file('img');
         $slug = Str::slug($request->name);
@@ -107,7 +106,6 @@ class CategoryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
         ]);
 
         $category = Category::where('id', $id)->first();

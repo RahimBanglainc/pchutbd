@@ -24,12 +24,12 @@
     <meta name="description" content="Buy brand tablets, tour packages, air ticketing, electronics, cameras, mobiles, real estate, industrial products, IPS, furniture and many more from genuine stall owners of Bangladesh.">
     <meta name="keywords" content="">
 
-    <meta property="og:image" content="#asset/static-image/bdstall-logo.jpg">
+    <meta property="og:image" content="{{asset('storage/img/'.App\Settings::find(1)->head_img)}}">
     <link href="{{asset('storefront/assets/css/r-com-min-v56.css')}}" rel="stylesheet" type="text/css">
 
 
 
-    <link rel="icon" type="image/png" href="#asset/static-image/favicon-bdstall.png">
+    <link rel="icon" type="image/png" href="{{asset('storage/img/'.App\Settings::find(1)->favicon)}}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

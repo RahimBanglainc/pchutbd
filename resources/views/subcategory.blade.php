@@ -135,12 +135,12 @@
         if (minPrice > 0) text_string = text_string + "&min-price=" + minPrice;
         if (maxPrice > 0) text_string = text_string + "&max-price=" + maxPrice;
 
-        document.searchProduct.action = "https://www.bdstall.com/search/" + "?term=" + text_string;
+        document.searchProduct.action = "search/" + "?term=" + text_string;
         document.searchProduct.submit();
     }
 
     img = "<img src='";
-    img = img + "https://www.bdstall.com/asset/static-image/";
+    img = img + "asset/static-image/";
     img = img + "ajax-loader.gif";
     img = img + "'";
     img = img + "/>";
@@ -154,7 +154,7 @@
 
         var DepartmentID = document.searchProduct.DepartmentID.value;
 
-        site_url = 'https://www.bdstall.com/home/getSearchCategory//' + DepartmentID + '/';
+        site_url = 'home/getSearchCategory//' + DepartmentID + '/';
 
         http.open("GET", site_url, true);
         http.onreadystatechange = showCategory;
@@ -170,7 +170,7 @@
 
         var CategoryID = document.searchProduct.CategoryID.value;
 
-        site_url = 'https://www.bdstall.com/home/getItemType//' + CategoryID + '/';
+        site_url = 'home/getItemType//' + CategoryID + '/';
 
         http.open("GET", site_url, true);
         http.onreadystatechange = showItemType;
@@ -232,7 +232,7 @@
 
         document.cookie = 'flu=' + page_root_url + ';expires=;path=/';
 
-        document.filterform.action = "https://www.bdstall.com/" + urlname + "";
+        document.filterform.action = "" + urlname + "";
 
         document.filterform.submit();
     }
@@ -240,7 +240,7 @@
     function clear_all_filter(urlname) {
         set_cookie();
 
-        document.filterform.action = "https://www.bdstall.com/" + urlname + "";
+        document.filterform.action = "" + urlname + "";
 
         document.filterform.submit();
     }
@@ -316,7 +316,7 @@
                 <div class="row s-top s-bottom">
                     <div id="menuv-wrapper" class="menuv-icon">
                         <div id="hamburger-menuv u-pull-left">
-                            <img src="https://www.bdstall.com/asset/static-image/filter.png" width="25" border="0">
+                            <img src="asset/static-image/filter.png" width="25" border="0">
                         </div>
                     </div>
 
@@ -358,12 +358,12 @@
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{route('catitem.view',$category->slug)}}"
                         target="_blank">
                         <img alt="Share on Facebook" title="Share on Facebook"
-                            src="https://www.bdstall.com/asset/static-image/fb_share.jpg">
+                    src="{{asset('img/fb_share.jpg')}}">
                     </a>
                     <a target="_blank"
                         href="http://twitter.com/home?status={{route('catitem.view',$category->slug)}}"><img
                             alt="Post on Twitter" title="Post on Twitter"
-                            src="https://www.bdstall.com/asset/static-image/twitter_share.jpg"></a>
+                            src="{{asset('img/twitter_share.jpg')}}"></a>
                 </div>
 
 
@@ -459,7 +459,7 @@
             });
 
         </script>
-        <script src="https://www.bdstall.com/asset/js/tiny-slider.js"></script>
+        <script src="asset/js/tiny-slider.js"></script>
 
         <script>
             var options = {

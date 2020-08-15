@@ -22,8 +22,16 @@ Route::get('stallList', 'HomeController@stallList')->name('stallList');
 Route::get('item/{slug}', 'HomeController@item')->name('item.view');
 Route::get('category/{slug}', 'HomeController@category')->name('cat.view');
 Route::get('category/item/{slug}', 'HomeController@subcategory')->name('catitem.view');
+Route::get('/page/{slug}', 'HomeController@page')->name('page.view');
+Route::get('/getItemFeature//{id}', 'HomeController@feature')->name('feature.view');
+Route::get('/all-item/', 'HomeController@allItem')->name('all.view');
+Route::get('/search', 'HomeController@search')->name('search');
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('/favorite/{id}/add', 'HomeController@favorite')->name('favorite.post');
+});
 
 // Route::get('/', 'HomeController@index')->name('home');
 

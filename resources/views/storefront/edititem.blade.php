@@ -134,192 +134,87 @@
                                             </td>
                                         </tr>
 
-                                        <tr style="background-color:#EFF0F2;">
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[0]" value="19">
-                                                Processor Type </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[0]"
-                                                    value="AMD Ryzen 5 3400G" style="width:100% !important">
-                                            </td>
-                                        </tr>
+                                            @foreach (App\FeatureValue::where('item_id', $item->id)->get() as $key => $value)
+
+                                            <tr style="background-color:#EFF0F2;">
+                                                <td width="30%" align="center">
+                                                    <input type="hidden" name="feature_id[{{$key}}]" value="$value->feature_id">
+                                                    {{$value->feature()->where('id', $value->feature_id)->first()->name}}
+                                                </td>
+                                                <td width="70%" align="left">
+                                                    <input type="text" readonly="readonly" name="value[{{$key}}]"
+                                                        value=" {{$value->value}}" style="width:100% !important">
+                                                </td>
+                                            </tr>
+                                            @endforeach
+
+
 
                                         <tr>
                                             <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[1]" value="22">
-                                                Processor Speed </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[1]"
-                                                    value=" Up to 4.2 GHz Maximum Boost Clock"
-                                                    style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr style="background-color:#EFF0F2;">
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[2]" value="25">
-                                                Main Board </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[2]"
-                                                    value="Gigabyte A320M-S2H" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[3]" value="40">
-                                                Monitor </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[3]"
-                                                    value="19&quot; LED Monitor" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr style="background-color:#EFF0F2;">
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[4]" value="28">
-                                                RAM </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[4]"
-                                                    value="DDR-4 8GB RAM" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[5]" value="31">
-                                                Hard Disk </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[5]"
-                                                    value="500GB Hard Disk Drive" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[6]" value="1714">
-                                                Disk Type </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[6]"
-                                                    value="" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[7]" value="37">
-                                                Graphics Card </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[7]"
-                                                    value="" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr style="background-color:#EFF0F2;">
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[8]" value="34">
-                                                Optical Drive </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[8]"
-                                                    value="" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[9]" value="43">
-                                                Audio / Speaker </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[9]"
-                                                    value="" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr style="background-color:#EFF0F2;">
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[10]" value="46">
-                                                Networking </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[10]"
-                                                    value="LAN / USB / Wi-Fi" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[11]" value="49">
-                                                Keyboard </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[11]"
-                                                    value="USB Standard Keyboard" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr style="background-color:#EFF0F2;">
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[12]" value="52">
-                                                Mouse </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[12]"
-                                                    value="USB Standard Mouse" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[13]" value="55">
-                                                Modem </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[13]"
-                                                    value="" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr style="background-color:#EFF0F2;">
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[14]" value="58">
-                                                Casing </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[14]"
-                                                    value="" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[15]" value="61">
-                                                Software </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[15]"
-                                                    value="" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr style="background-color:#EFF0F2;">
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[16]" value="64">
-                                                Other Features </td>
-                                            <td width="70%" align="left">
-                                                <input type="text" readonly="readonly" name="ItemFeatureDescription[16]"
-                                                    value="" style="width:100% !important">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td width="30%" align="left">
-                                                <input type="hidden" name="ItemFeatureID[17]" value="67">
+                                                <input type="hidden" name="warranty" value="67">
                                                 Warranty </td>
                                             <td width="70%" align="left">
                                                 <input type="text" readonly="readonly" name="ItemFeatureDescription[17]"
-                                                    value="3 Years Standard Warranty" style="width:100% !important">
+                                                    value="{{$item->warranty}}" style="width:100% !important">
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table><input type="hidden" name="rowCount" value="18">
+                                </table>
+                                <input type="hidden" name="rowCount" value="18">
 
                             </div>
 
                             <div class="hometab">
+
+                                <div class="row">
+
+                                    <table style="width:100%">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <b>Images</b>
+                                                </td>
+                                            </tr>
+
+                                                <tr style="background-color:#EFF0F2;">
+                                                    <td width="20%" align="center">
+                                                        <img src="{{asset('storage/item/'.$item->img)}}" style="max-width:100%; min-height: 10em">
+                                                    </td>
+                                                    <td width="20%" align="center">
+                                                        @if ($item->img1)
+
+                                                            <img src="{{asset('storage/item/'.$item->img1)}}" style="max-width:100%; min-height: 10em">
+
+                                                        @endif
+                                                    </td>
+                                                    <td width="20%" align="center">
+                                                        @if ($item->img2)
+
+                                                            <img src="{{asset('storage/item/'.$item->img2)}}" style="max-width:100%; min-height: 10em">
+
+                                                        @endif
+                                                    </td>
+                                                    <td width="20%" align="center">
+                                                        @if ($item->img3)
+
+                                                            <img src="{{asset('storage/item/'.$item->img3)}}" style="max-width:100%; min-height: 10em">
+
+                                                        @endif
+                                                    </td>
+                                                    <td width="20%" align="center">
+                                                        @if ($item->img4)
+
+                                                            <img src="{{asset('storage/item/'.$item->img4)}}" style="max-width:100%; min-height: 10em">
+
+                                                        @endif
+                                                    </td>
+                                                </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
 
                                 {{-- <a href="" id="image1-tab" onclick="tabmenu(1, 5); return false"
                                     class="selHomeTab">Image1</a>
@@ -328,7 +223,7 @@
                                 <a href="" id="image4-tab" onclick="tabmenu(4, 5); return false" class="">Image4</a>
                                 <a href="" id="image5-tab" onclick="tabmenu(5, 5); return false" class="">Image5</a> --}}
 
-                                <div class="s-top">
+                                {{-- <div class="s-top">
 
 
                                     <input type="hidden" name="ListingAvatorID[0]" value="105346">
@@ -337,7 +232,7 @@
 
                                     <div style="" id="image1">
                                         <div class="tab-window-row">
-                                            <img src="https://www.bdstall.com/asset/product-image/giant_105346.jpg"
+                                            <img src="asset/product-image/giant_105346.jpg"
                                                 style="max-width:100%; min-height: 10em">
                                         </div>
 
@@ -361,7 +256,7 @@
 
                                     <div style="display:none" id="image2">
                                         <div class="tab-window-row">
-                                            <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg"
+                                            <img src="asset/static-image/imagebox.jpeg"
                                                 style="max-width:100%; min-height: 10em">
                                         </div>
 
@@ -382,7 +277,7 @@
 
                                     <div style="display:none" id="image3">
                                         <div class="tab-window-row">
-                                            <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg"
+                                            <img src="asset/static-image/imagebox.jpeg"
                                                 style="max-width:100%; min-height: 10em">
                                         </div>
 
@@ -403,7 +298,7 @@
 
                                     <div style="display:none" id="image4">
                                         <div class="tab-window-row">
-                                            <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg"
+                                            <img src="asset/static-image/imagebox.jpeg"
                                                 style="max-width:100%; min-height: 10em">
                                         </div>
 
@@ -424,7 +319,7 @@
 
                                     <div style="display:none" id="image5">
                                         <div class="tab-window-row">
-                                            <img src="https://www.bdstall.com/asset/static-image/imagebox.jpeg"
+                                            <img src="asset/static-image/imagebox.jpeg"
                                                 style="max-width:100%; min-height: 10em">
                                         </div>
 
@@ -439,13 +334,12 @@
                                     </div>
 
 
-                                </div>
+                                </div> --}}
                             </div>
 
-                            <div class="u-pull-left b-top">
-                                <input type="submit" name="btnSave" value="Update" class="submit"
-                                    >
-                            </div>
+                            {{-- <div class="u-pull-left b-top">
+                                <input type="submit" name="btnSave" value="Update" class="submit">
+                            </div> --}}
 
                         </div>
                     </div>

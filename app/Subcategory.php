@@ -14,4 +14,10 @@ class Subcategory extends Model
     {
         return $this->hasMany('App\Item');
     }
+
+
+    public function feature()
+    {
+        return $this->hasMany('App\Feature');
+    }
 }

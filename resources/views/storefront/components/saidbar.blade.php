@@ -46,7 +46,7 @@
     @endif
 
     <div>
-        <a href="{{route('client.favourite')}}">Favourite&nbsp;(1)</a>
+        <a href="{{route('client.favourite')}}">Favourite&nbsp;({{Auth::user()->favorite_items()->count()}})</a>
     </div>
 
     <div><a href="{{route('client.profile')}}">Update Profile</a>

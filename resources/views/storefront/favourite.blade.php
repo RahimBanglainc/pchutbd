@@ -25,48 +25,53 @@
 
 
 
-                    <div class="body-header"><h1>Favourite</h1></div>
-
-                    <div>
-
-
-                         <div class="row product-cat-box s-top">
-
-                            <div class="six columns product-cat-box-img">
-                                <div class="row">
-                                    <div class="seven columns">
-                                        <a href="https://www.bdstall.com/listingDetail/index/876/" target="_BLANK">
-                                    <img src="https://www.bdstall.com/asset/product-image/big_81809.jpg" alt="Student Desktop PC , Very low Price!!!" title="Student Desktop PC , Very low Price!!!">
-                                </a> </div>
-                                    <div class="five columns">
-                                    <div class="product-price-group">
-                                    <div class="product-price">৳ 12,500</div>
-                                    <div class="product-update-date">10 hours ago</div>
-
-                                    <div class="product-cat-box-button">
-                                        <a href="https://www.bdstall.com/userSavedListing/deleteListing/42421/">
-                                            <div class="button-link">Remove</div>
-                                        </a>
-                                    </div>
-
-                                    </div></div>
-                                </div>
-                            </div>
-
-
-                            <div class="six columns product-cat-box-text">
-                                <a href="https://www.bdstall.com/listingDetail/index/876/" target="_BLANK">Student Desktop PC , Very low Price!!!</a>
-                                <p>Intel core i5 processor, 4 GB memory, 500 GB HDD, A4Tech USB keyboard and mouse, 19 inch LED monitor.            </p></div>
-
-                            </div>
-
-
+                    <div class="body-header">
+                        <h1>Favourite</h1>
                     </div>
 
+@foreach ($items as $item)
 
+<div class="row product-cat-box s-top">
 
-                <br class="clear">
+    <div class="six columns product-cat-box-img">
+        <div class="row">
+            <div class="seven columns">
+                <a href="{{route('item.view', $item->slug)}}" target="_BLANK">
+                    <img src="{{asset('storage/item/small/'.$item->img)}}"
+                        alt="{{$item->title}}"
+                        title="{{$item->title}}">
+                </a> </div>
+            <div class="five columns">
+                <div class="product-price-group">
+                    <div class="product-price">৳ {{$item->price}}</div>
+                    <div class="product-update-date">{{ $item->updated_at->diffForHumans() }}</div>
+
+                    <div class="product-cat-box-button">
+                    <a href="javascript:void(0)" onclick="document.getElementById('favorite-form-{{$item->id}}').submit()">
+                            <div class="button-link">Remove</div>
+                        </a>
+                        <form id="favorite-form-{{$item->id}}" method="POST" action="{{route('favorite.post', $item->id)}}" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="six columns product-cat-box-text">
+        <a href="{{route('item.view', $item->slug)}}" target="_BLANK">{{$item->title}}</a>
+        <p>{!! \Illuminate\Support\str::limit(strip_tags($item->description), 100) !!} </p>
+    </div>
+
+</div>
+@endforeach
+
+
+                    <br class="clear">
+                </div>
 
 
             </div>

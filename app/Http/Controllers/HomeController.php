@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Category;
+use App\Feature;
 use App\Item;
+use App\Page;
 use App\Stall;
 use App\Subcategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -196,77 +199,7 @@ class HomeController extends Controller
         $subcategories = Subcategory::where('Category_id', $category->id)->get();
 
         $my_time = Carbon::now(); // today
-        // $stall = Stall::where('id', $item->stall_id)->first();
-        // $count = Item::where([
-        //     ['status', '=', true],
-        //     ['subcategory_id', '=', $item->subcategory_id],
-        //     ['is_approve', '=', true],
-        //     ['stock', '=', true],
-        //     ]);
 
-
-        // if($item->is_approve && $item->status)
-        // {
-        //     $itemKey = 'item_'.$item->id;
-
-        //     if(!Session::has($itemKey))
-        //     {
-        //         $item->increment('views');
-        //         Session::put($itemKey,1);
-        //     }
-
-        //     if($count->count() < 6)
-        //     {
-
-        //         $ritems = Item::where([
-        //             ['status', '=', true],
-        //             ['subcategory_id', '=', $item->subcategory_id],
-        //             ['is_approve', '=', true],
-        //             ['stock', '=', true],
-        //             ])
-        //             ->get()
-        //             ->random($count->count());
-
-        //     }else{
-
-        //         $ritems = Item::where([
-        //             ['status', '=', true],
-        //             ['subcategory_id', '=', $item->subcategory_id],
-        //             ['is_approve', '=', true],
-        //             ['stock', '=', true],
-        //             ])
-        //             ->get()
-        //             ->random(6);
-        //     }
-
-        //     if($count->count() < 3)
-        //     {
-
-        //         $sitems = Item::where([
-        //             ['status', '=', true],
-        //             ['subcategory_id', '=', $item->subcategory_id],
-        //             ['is_approve', '=', true],
-        //             ['stock', '=', true],
-        //             ])
-        //             ->get()
-        //             ->random($count->count());
-
-        //     }else{
-
-        //         $sitems = Item::where([
-        //             ['status', '=', true],
-        //             ['subcategory_id', '=', $item->subcategory_id],
-        //             ['is_approve', '=', true],
-        //             ['stock', '=', true],
-        //             ])
-        //             ->get()
-        //             ->random(3);
-        //     }
-
-        //     return view('subcategory', compact('item','ritems', 'stall', 'sitems', 'my_time'));
-        // }else{
-            //     return redirect()->route('index');
-            // }
 
                 return view('subcategory', compact('category', 'subcategories', 'my_time'));
     }
@@ -275,85 +208,107 @@ class HomeController extends Controller
 
     public function subcategory($slug)
     {
-        $items = Item::where('slug', $slug)->first();
+        $subcat = Subcategory::where('slug', $slug)->first();
+        $items = Item::where([
+                        ['status', '=', true],
+                        ['subcategory_id', '=', $subcat->id],
+                        ['is_approve', '=', true],
+                        ])->paginate(20);
+
+     $sitems = Item::where([
+        ['status', '=', true],
+        ['subcategory_id', '=', $subcat->id],
+        ['is_approve', '=', true],
+        ['stock', '=', true],
+        ])->latest()->take(10)->get();
+
+        $count = Item::where([
+            ['status', '=', true],
+            ['subcategory_id', '=', $subcat->id],
+            ['is_approve', '=', true],
+            ])->count();
         $my_time = Carbon::now(); // today
-        // $stall = Stall::where('id', $item->stall_id)->first();
-        // $count = Item::where([
-        //     ['status', '=', true],
-        //     ['subcategory_id', '=', $item->subcategory_id],
-        //     ['is_approve', '=', true],
-        //     ['stock', '=', true],
-        //     ]);
 
 
-        // if($item->is_approve && $item->status)
-        // {
-        //     $itemKey = 'item_'.$item->id;
+        return view('subcategoryitem', compact('items', 'sitems', 'my_time', 'count', 'subcat'));
+    }
 
-        //     if(!Session::has($itemKey))
-        //     {
-        //         $item->increment('views');
-        //         Session::put($itemKey,1);
-        //     }
 
-        //     if($count->count() < 6)
-        //     {
+    public function page($slug)
+    {
+        $page = Page::where('slug', $slug)->first();
 
-        //         $ritems = Item::where([
-        //             ['status', '=', true],
-        //             ['subcategory_id', '=', $item->subcategory_id],
-        //             ['is_approve', '=', true],
-        //             ['stock', '=', true],
-        //             ])
-        //             ->get()
-        //             ->random($count->count());
+        return view('page', compact('page'));
+    }
 
-        //     }else{
+    public function feature($id)
+    {
+        $features = Feature::where('subcategory_id', $id)->get();
 
-        //         $ritems = Item::where([
-        //             ['status', '=', true],
-        //             ['subcategory_id', '=', $item->subcategory_id],
-        //             ['is_approve', '=', true],
-        //             ['stock', '=', true],
-        //             ])
-        //             ->get()
-        //             ->random(6);
-        //     }
+        return view('storefront.components.feature', compact('features'));
+    }
 
-        //     if($count->count() < 3)
-        //     {
+    public function allItem()
+    {
 
-        //         $sitems = Item::where([
-        //             ['status', '=', true],
-        //             ['subcategory_id', '=', $item->subcategory_id],
-        //             ['is_approve', '=', true],
-        //             ['stock', '=', true],
-        //             ])
-        //             ->get()
-        //             ->random($count->count());
+        $items = Item::where([
+                        ['status', '=', true],
+                        ['is_approve', '=', true],
+                        ])->paginate(20);
 
-        //     }else{
 
-        //         $sitems = Item::where([
-        //             ['status', '=', true],
-        //             ['subcategory_id', '=', $item->subcategory_id],
-        //             ['is_approve', '=', true],
-        //             ['stock', '=', true],
-        //             ])
-        //             ->get()
-        //             ->random(3);
-        //     }
+        $count = Item::where([
+            ['status', '=', true],
+            ['is_approve', '=', true],
+            ])->count();
+        $my_time = Carbon::now(); // today
 
-        //     return view('subcategory', compact('item','ritems', 'stall', 'sitems', 'my_time'));
-        // }else{
-            //     return redirect()->route('index');
-            // }
 
-                return view('subcategoryitem', compact('items', 'my_time'));
+        return view('moreitem', compact('items','my_time', 'count'));
+    }
+
+    public function search(Request $request)
+    {
+
+        // return $request;
+        $query = $request->input('query');
+        $items = Item::where('title', 'like', "%$query%")
+                        ->where([
+                        ['status', '=', true],
+                        ['is_approve', '=', true],
+                        ])->paginate(10);
+
+
+        $count = Item::where('title', 'like', "%$query%")
+        ->where([
+        ['status', '=', true],
+        ['is_approve', '=', true],
+        ])->count();
+        $my_time = Carbon::now(); // today
+
+
+        return view('search', compact('items','my_time', 'count'));
     }
 
 
 
+// for favorite cotroller
+    public function favorite($id)
+    {
 
+        // return $id;
+        $user = Auth::user();
+        $isFavorite = $user->favorite_items()->where('item_id', $id)->count();
+
+        if($isFavorite == 0)
+        {
+            $user->favorite_items()->attach($id);
+            return redirect()->back();
+        }else{
+            $user->favorite_items()->detach($id);
+            return redirect()->back();
+        }
+
+    }
 
 }

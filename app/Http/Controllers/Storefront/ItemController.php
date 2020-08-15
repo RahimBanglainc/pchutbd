@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Storefront;
 
+use App\FeatureValue;
 use App\Http\Controllers\Controller;
 use App\Item;
 use App\Stall;
@@ -181,11 +182,11 @@ class ItemController extends Controller
             $imageName4 = 0;
         }
 
-
+        $slug = Str_slug($request->title.'-'.uniqid());
         $item = new Item();
         $item->subcategory_id = $request->subcategory_id;
         $item->model = $request->model;
-        $item->slug = Str_slug($request->title.'-'.uniqid());
+        $item->slug =  $slug;
         $item->price = $request->price;
         $item->title = $request->title;
         $item->description = $request->description;
@@ -195,14 +196,28 @@ class ItemController extends Controller
         $item->img2 = $imageName2;
         $item->img3 = $imageName3;
         $item->img4 = $imageName4;
+        $item->warranty = $request->warranty;
         $item->feature_id = 1;
         $item->user_id = Auth::User()->id;
         $item->stall_id = Auth::User()->stall()->first()->id;
         $item->save();
 
-        // $seller = Auth::User();
-        // $seller->seller_req = true;
-        // $seller->save();
+        $itemId = Item::where('slug', $slug)->first()->id;
+        for($i = 0; $i < $request->rowCount; $i++) {
+
+            if($request->value[$i])
+            {
+                $data = $request->value[$i];
+            }else{
+                $data = 'N/A' ;
+            }
+            $value = new FeatureValue();
+            $value->feature_id = $request->feature_id[$i];
+            $value->item_id = $itemId;
+            $value->position = $i;
+            $value->value = $data;
+            $value->save();
+        }
 
         return redirect()->route('client.item.index');
     }

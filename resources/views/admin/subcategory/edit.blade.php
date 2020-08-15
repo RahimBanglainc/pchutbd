@@ -42,8 +42,8 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Category</label>
                             <div class="col-md-9">
-                                <select name="parent" class="form-control">
-                                <option value="{{$category->parent}}">{{App\Category::where('id',$category->parent)->first()->name}}</option>
+                                <select name="Category_id" class="form-control">
+                                <option value="{{$category->Category_id}}">{{App\Category::where('id',$category->Category_id)->first()->name}}</option>
                                     @foreach ( App\Category::all() as $item)
 
                                 <option value="{{ $item->id }}">{{$item->name}}</option>

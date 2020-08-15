@@ -113,7 +113,7 @@ rel="stylesheet" type="text/css" />
                                 <th>Name</th>
                                 <th>Slug</th>
                                 <th>Status</th>
-                                <th>Image</th>
+                                <th>SubCats</th>
                                 <th style="width: 120px;">Action</th>
                             </tr>
                         </thead>
@@ -146,7 +146,9 @@ rel="stylesheet" type="text/css" />
 
                                 </td>
                                 <td>
-                                    <div class="badge badge-soft-warning font-size-12"><img src="{{ asset('storage/category/'.$item->img)}}" alt="" class="rounded avatar-sm"></div>
+                                    <div class="badge badge-soft-warning font-size-12">{{ App\Subcategory::where('Category_id', $item->id)->count() }} </div>
+
+                                    {{-- <div class="badge badge-soft-warning font-size-12"><img src="{{ asset('storage/category/'.$item->img)}}" alt="" class="rounded avatar-sm"></div> --}}
                                 </td>
                                 <td>
                                     <a href="{{route('admin.category.edit', $item->id)}}" class="mr-3 text-primary" data-toggle="tooltip"

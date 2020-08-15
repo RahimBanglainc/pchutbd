@@ -1,6 +1,6 @@
 @extends('layouts.storefront.layout')
 
-@section('title','Home')
+@section('title',$item->title)
 
 @section('main')
 
@@ -209,11 +209,25 @@
                             <tr>
                                 <th>ID</th>
                                 <td>
-                                    {{ $item->id }} <a class="product-fav"
-                                        href="javascript:addListing('{{ $item->id }}')">
-                                        <img src="https://www.bdstall.com/asset/static-image/fav.png" alt="favourite"
-                                            title="Favourite">
+                                    {{ $item->id }}
+                                    @guest
+                                    <a class="product-fav" href="javascript:void(0)" onclick="fav()">
+                                        <img src="{{asset('img/fav.png')}}" alt="favourite" title="Favourite">
                                     </a>
+                                    @else
+
+
+                                    <a class="product-fav" href="javascript:void(0)" onclick="document.getElementById('favorite-form').submit()">
+                                        <img src="{{Auth::user()->favorite_items()->where('item_id', $item->id)->count() == 0 ? asset('img/fav.png') : asset('img/fav-sav.png')}}" alt="favourite" title="Favourite">
+                                    </a>
+
+                                    <form id="favorite-form" method="POST" action="{{route('favorite.post', $item->id)}}" style="display: none;">
+                                        @csrf
+                                    </form>
+
+
+                                    @endguest
+
                                 </td>
                             </tr>
 
@@ -357,55 +371,12 @@
             <table>
 
                 <tbody>
+                    @foreach (App\FeatureValue::where('item_id', $item->id)->get() as $key => $value)
                     <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Processor Type</td>
-                        <td>AMD Ryzen 5 3400G</td>
+                        <td style="background-color: rgb(239, 240, 242);width:40%">{{$value->feature()->where('id', $value->feature_id)->first()->name}}</td>
+                        <td>{{$value->value}}</td>
                     </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Processor Speed</td>
-                        <td> Up to 4.2 GHz Maximum Boost Clock</td>
-                    </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Main Board</td>
-                        <td>Gigabyte A320M-S2H</td>
-                    </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Monitor</td>
-                        <td>19" LED Monitor</td>
-                    </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">RAM</td>
-                        <td>DDR-4 8GB RAM</td>
-                    </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Hard Disk</td>
-                        <td>500GB Hard Disk Drive</td>
-                    </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Disk Type</td>
-                        <td>HDD</td>
-                    </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Networking</td>
-                        <td>LAN / USB / Wi-Fi</td>
-                    </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Keyboard</td>
-                        <td>USB Standard Keyboard</td>
-                    </tr>
-
-                    <tr class="featuredRow" style="border:1px solid #E1E1E1">
-                        <td style="background-color: rgb(239, 240, 242);width:40%">Mouse</td>
-                        <td>USB Standard Mouse</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -415,12 +386,14 @@
         <!-- defining warranty -->
 
 
+@if ($item->warranty)
 
-        <div class="s-bottom">
-            <b>Product Warranty</b>
-        </div>
+<div class="s-bottom">
+    <b>Product Warranty</b>
+</div>
 
-        <p>{{ $item->warranty }}</p>
+<p>{{ $item->warranty }}</p>
+@endif
 
 
 
@@ -447,11 +420,11 @@
                         <div class="six columns">
                             <span class="product-desc-contact-location">{{ $stall->name }}
                                 <br>
-                                <img src="https://www.bdstall.com/asset/static-image/rating.png" width="8">
-                                <img src="https://www.bdstall.com/asset/static-image/rating.png" width="8">
-                                <img src="https://www.bdstall.com/asset/static-image/rating.png" width="8">
-                                <img src="https://www.bdstall.com/asset/static-image/rating.png" width="8">
-                                <img src="https://www.bdstall.com/asset/static-image/rating.png" width="8">
+                                <img src="{{asset('img/rating.png')}}" width="8">
+                                <img src="{{asset('img/rating.png')}}" width="8">
+                                <img src="{{asset('img/rating.png')}}" width="8">
+                                <img src="{{asset('img/rating.png')}}" width="8">
+                                <img src="{{asset('img/rating.png')}}" width="8">
                             </span>
                         </div>
 
@@ -536,26 +509,26 @@
 
 
         <!--<div class="social u-full-width m-top">
-        <div class="fb-like" data-href="https://www.bdstall.com/details/gaming-pc-ryzen-5-3400g-8gb-ram-500gb-hdd-19-monitor-53182/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+        <div class="fb-like" data-href="details/gaming-pc-ryzen-5-3400g-8gb-ram-500gb-hdd-19-monitor-53182/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
             <g:plusone size="medium" annotation="none"></g:plusone>
     </div>             -->
 
-        <div class="product-review b-top">
+        {{-- <div class="product-review b-top">
             <form name="clientForm" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="ListingID" value="53182">
 
                 <div class="m-top b-bottom">
                     <b>Reviews</b> <span class="product-review-lbl">(0)</span>
 
-                    <img src="https://www.bdstall.com/asset/static-image/no-rating.png" width="15">
+                    <img src="asset/static-image/no-rating.png" width="15">
 
-                    <img src="https://www.bdstall.com/asset/static-image/no-rating.png" width="15">
+                    <img src="asset/static-image/no-rating.png" width="15">
 
-                    <img src="https://www.bdstall.com/asset/static-image/no-rating.png" width="15">
+                    <img src="asset/static-image/no-rating.png" width="15">
 
-                    <img src="https://www.bdstall.com/asset/static-image/no-rating.png" width="15">
+                    <img src="asset/static-image/no-rating.png" width="15">
 
-                    <img src="https://www.bdstall.com/asset/static-image/no-rating.png" width="15">
+                    <img src="asset/static-image/no-rating.png" width="15">
 
 
 
@@ -579,7 +552,7 @@
 
 
             </form>
-        </div>
+        </div> --}}
 
 
         <div class="s-top">
@@ -607,13 +580,13 @@
                 "priceCurrency": "BDT",
                 "price": "28800.00"
             },
-            "image": ["https://www.bdstall.com/asset/product-image/giant_105346.jpg"]
+            "image": ["asset/product-image/giant_105346.jpg"]
         }
 
     </script>
     <script language="javascript">
         function addListing(listingID) {
-            url = 'https://www.bdstall.com/searchItemListing/addListingToMyAccount//' + listingID + '/';
+            url = '{{route('index')}}/favorite/' + listingID + '/add';
 
             http.open("POST", url, true);
             http.onreadystatechange = showResult;
@@ -626,11 +599,11 @@
                     return;
                 } else {
                     if (http.responseText == "error") {
-                        window.location = "https://www.bdstall.com/userLogin/";
+                        window.location = "{{route('login')}}";
                         return;
                     } else if (http.responseText == "success") {
                         window.location =
-                            "https://www.bdstall.com/details/gaming-pc-ryzen-5-3400g-8gb-ram-500gb-hdd-19-monitor-53182/";
+                            "details/gaming-pc-ryzen-5-3400g-8gb-ram-500gb-hdd-19-monitor-53182/";
                         return;
                     }
 
@@ -694,7 +667,7 @@
         function review(login) {
 
             if (!login) {
-                var url = "https://www.bdstall.com/userLogin/";
+                var url = "userLogin/";
                 window.location.href = url;
 
             } else {}
@@ -703,7 +676,7 @@
         }
 
         function addToCart(stallID, listingID, qty, price, avid, avname) {
-            url = 'https://www.bdstall.com/cartItem/add_to_cart//' + stallID + '/' + listingID + '/' + qty + '/' +
+            url = 'cartItem/add_to_cart//' + stallID + '/' + listingID + '/' + qty + '/' +
                 price + "/" + avid + '/' + avname + '/';
             http.open("POST", url, true);
             http.onreadystatechange = showCartResult;
@@ -716,16 +689,16 @@
                     return;
                 } else {
                     if (http.responseText == "success") {
-                        //document.getElementById('cart').innerHTML="<div id='cart'><li><a style='color:red' href=https://www.bdstall.com/cartItem/cart_list// > Cart Item: 1</a></li></div>";
-                        //window.location="https://www.bdstall.com/cartItem/cart_list/";
-                        window.location = "https://www.bdstall.com/cartItem/cart_list/";
+                        //document.getElementById('cart').innerHTML="<div id='cart'><li><a style='color:red' href=cartItem/cart_list// > Cart Item: 1</a></li></div>";
+                        //window.location="cartItem/cart_list/";
+                        window.location = "cartItem/cart_list/";
                         return;
                     } else if (http.responseText == "failed") {
                         alert("Sorry!! failed to add in the cart , please try again");
                         return;
                     } else if (http.responseText == "exist") {
                         //alert("Item already exist in the cart");
-                        window.location = "https://www.bdstall.com/cartItem/cart_list/";
+                        window.location = "cartItem/cart_list/";
                         return;
                     }
                 }
@@ -746,7 +719,7 @@
                 document.getElementById(id2).style.display = 'block';
             }
 
-            url = 'https://www.bdstall.com/listingDetail/recordClick//' + lid + '/' + sid + '/';
+            url = 'listingDetail/recordClick//' + lid + '/' + sid + '/';
             http.open("POST", url, true);
             http.onreadystatechange = "";
             http.send(null);
@@ -767,7 +740,12 @@
 
 </div>
 
-
+<script>
+    // When the user clicks on <div>, open the popup
+    function fav() {
+        window.location.replace("{{route('login')}}");
+    }
+</script>
 
 
 @endsection

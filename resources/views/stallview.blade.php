@@ -103,7 +103,7 @@
 @endpush
 
 
-<form name="clientForm" action="https://www.bdstall.com/advancedSearch//" method="post" enctype="multipart/form-data">
+<form name="clientForm" action="advancedSearch//" method="post" enctype="multipart/form-data">
 
     <input type="hidden" name="DepartmentID" value="-1">
     <input type="hidden" name="CategoryID" value="-1">
@@ -185,11 +185,11 @@
 
                 <!--       <div class="row">
 
-            <a href="https://www.bdstall.com/details/toshiba-e-studio-2303am-digital-all-in-one-photocopier-40977/">
+            <a href="#">
 
                 <div class="stall-product-box">
                 <div class="product-box-img">
-                    <img src="https://www.bdstall.com/asset/product-image/big_74362.jpg">
+                    <img src="/asset/product-image/big_74362.jpg">
                 </div>
                 <div class="product-box-item-type">
                      Toshiba e-Studio 2303AM...                    </div>
@@ -201,11 +201,11 @@
             </a>
 
 
-            <a href="https://www.bdstall.com/details/toshiba-e-studio-2523a-desktop-copier-49796/">
+            <a href="details/toshiba-e-studio-2523a-desktop-copier-49796/">
 
                 <div class="stall-product-box">
                 <div class="product-box-img">
-                    <img src="https://www.bdstall.com/asset/product-image/big_95047.jpg">
+                    <img src="asset/product-image/big_95047.jpg">
                 </div>
                 <div class="product-box-item-type">
                      Toshiba e-Studio 2523A...                    </div>
@@ -217,11 +217,11 @@
             </a>
 
 
-            <a href="https://www.bdstall.com/details/toshiba-e-studio-2303a-compact-23-ppm-photostat-machine-28733/">
+            <a href="details/toshiba-e-studio-2303a-compact-23-ppm-photostat-machine-28733/">
 
                 <div class="stall-product-box">
                 <div class="product-box-img">
-                    <img src="https://www.bdstall.com/asset/product-image/big_47834.jpg">
+                    <img src="asset/product-image/big_47834.jpg">
                 </div>
                 <div class="product-box-item-type">
                      Toshiba e-Studio 2303A...                    </div>
@@ -233,11 +233,11 @@
             </a>
 
 
-            <a href="https://www.bdstall.com/details/toshiba-e-studio-2809a-black-and-white-28-ppm-photocopier-28735/">
+            <a href="details/toshiba-e-studio-2809a-black-and-white-28-ppm-photocopier-28735/">
 
                 <div class="stall-product-box">
                 <div class="product-box-img">
-                    <img src="https://www.bdstall.com/asset/product-image/big_47832.jpg">
+                    <img src="asset/product-image/big_47832.jpg">
                 </div>
                 <div class="product-box-item-type">
                      Toshiba e-Studio 2809A...                    </div>
@@ -257,7 +257,7 @@
                 <div class="m-top">
                     <script language="javascript">
                         function addListing(listingID) {
-                            url = 'https://www.bdstall.com/searchItemListing/addListingToMyAccount//' + listingID + '/';
+                            url = 'searchItemListing/addListingToMyAccount//' + listingID + '/';
                             http.open("POST", url, true);
                             http.onreadystatechange = showResult;
                             http.send(null);
