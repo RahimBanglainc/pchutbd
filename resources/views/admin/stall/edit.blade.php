@@ -205,7 +205,7 @@
                     <h4 class="card-title">Picture Upload</h4>
                     <p class="card-title-desc"> Upload 512x512 px</p>
                     <div class="col-md-6">
-                        @if (Storage::disk('public')->url('stall/'.$stall->img))
+                        @if (Storage::disk('public')->exists('stall/'.$stall->img))
 
                         <img class="img-thumbnail" alt="200x200" style="width:300px;" src="{{Storage::disk('public')->url('stall/'.$stall->img)}}" data-holder-rendered="true">
 
@@ -221,6 +221,10 @@
                         <label class="custom-file-label" for="customFile">Choose Image</label>
                     </div>
                     <br><br>
+                    <div class="mb-4">
+                        <input class="form-control" type="text" name="plan" placeholder="Plan Name"
+                            value="{{ $stall->plan }}" required>
+                    </div>
                     <div class="mb-4">
                         <label class="control-label">Expare Date</label>
                         <input class="form-control" type="date" name="item_exp" placeholder="Expare Date"

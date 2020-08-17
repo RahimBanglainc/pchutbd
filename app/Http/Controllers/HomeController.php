@@ -236,9 +236,22 @@ class HomeController extends Controller
 
     public function page($slug)
     {
+
         $page = Page::where('slug', $slug)->first();
+        $pageKey = 'Page_'.$page->id;
+    if( $page->status )
+    {
+
+        if(!Session::has($pageKey))
+        {
+            $page->increment('views');
+            Session::put($pageKey,1);
+        }
 
         return view('page', compact('page'));
+    }else{
+        return redirect()->route('index');
+    }
     }
 
     public function feature($id)

@@ -17,12 +17,19 @@ class DeshboardController extends Controller
     {
 
         $my_time = Carbon::now(); // today
-        $stall = Stall::where('user_id', Auth::user()->id)->first();
-        $a= Item::where('stall_id', $stall->id )->latest()->count();
-        $count = $stall->item_limit - $a ;
+        if(Auth::user()->is_seller)
+        {
+
+            $stall = Stall::where('user_id', Auth::user()->id)->first();
+            $a= Item::where('stall_id', $stall->id )->latest()->count();
+            $count = $stall->item_limit - $a ;
+            return view('storefront.deshboard', compact('a', 'count', 'stall', 'my_time'));
+        }else{
+
+            return view('storefront.deshboard', compact('my_time'));
+        }
 
 
-        return view('storefront.deshboard', compact('a', 'count', 'stall', 'my_time'));
     }
     public function stallshaw()
     {

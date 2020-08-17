@@ -39,7 +39,7 @@
             </div>
             <div class="card-body">
                 <blockquote class="card-blockquote mb-0">
-                    @if (Storage::disk('public')->url('stall/'.$stall->img))
+                    @if (Storage::disk('public')->exists('stall/'.$stall->img))
 
                     <img class="img-thumbnail" alt="200x200" style="width:500px;" src="{{Storage::disk('public')->url('stall/'.$stall->img)}}" data-holder-rendered="true">
 
@@ -54,7 +54,7 @@
                             <span class="badge badge-primary">{{$stall->item_limit}}</span></cite>
                     </footer>
                     <footer class="blockquote-footer font-size-12">
-                        Plan End: <cite title="Source Title"><span class="badge badge-warning">{{$stall->item_exp}}</span></cite>
+                        Plan End: <cite title="Source Title"><span class="badge badge-warning">{{$stall->item_exp}}</span>-{{$stall->plan}}</cite>
                     </footer>
                     <br>
                     <a href="{{route('admin.stall.index')}}" class="btn btn-danger waves-effect waves-light">Back</a>
@@ -260,30 +260,6 @@
                         <small>{{ $stall->about}}</small>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

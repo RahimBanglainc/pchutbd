@@ -1,6 +1,6 @@
 @extends('layouts.admin.layout')
 
-@section('title','Deshboard')
+@section('title','Items')
 
 
 @section('main')
@@ -33,7 +33,7 @@ rel="stylesheet" type="text/css" />
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">PCHUTBD</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item active">Items</li>
                 </ol>
             </div>
 
@@ -44,132 +44,19 @@ rel="stylesheet" type="text/css" />
 
 {{-- ___________________________________________________________ --}}
 
-<div class="row">
-
-    <div class="col-xl-12">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body overflow-hidden">
-                                <p class="text-truncate font-size-14 mb-2">Number of Item</p>
-                                <h4 class="mb-0">{{$items->count()}}</h4>
-                            </div>
-                            <div class="text-primary">
-                                <i class="ri-stack-line font-size-24"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body border-top py-3">
-                        <div class="text-truncate">
-                            <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> {{$items->where('status', true)->count()}}
-                            </span>
-                            <span class="text-muted ml-2">Active Item</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body overflow-hidden">
-                                <p class="text-truncate font-size-14 mb-2">Number of Stall</p>
-                                <h4 class="mb-0"> {{App\Stall::all()->count()}}</h4>
-                            </div>
-                            <div class="text-primary">
-                                <i class="ri-store-2-line font-size-24"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body border-top py-3">
-                        <div class="text-truncate">
-                            <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> {{App\Stall::where('status', true)->count()}}
-                            </span>
-                            <span class="text-muted ml-2">Active Stall</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body overflow-hidden">
-                                <p class="text-truncate font-size-14 mb-2">Number of Users</p>
-                                <h4 class="mb-0">{{App\User::all()->count()}}</h4>
-                            </div>
-                            <div class="text-primary">
-                                <i class="ri-account-box-line font-size-24"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body border-top py-3">
-                        <div class="text-truncate">
-                            <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> {{App\User::where('is_seller', true)->count()}}
-                            </span>
-                            <span class="text-muted ml-2">Active Seller</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body overflow-hidden">
-                                <p class="text-truncate font-size-14 mb-2">Number of Blogs</p>
-                                <h4 class="mb-0">{{App\Blog::all()->count()}}</h4>
-                            </div>
-                            <div class="text-primary">
-                                <i class=" ri-newspaper-line font-size-24"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body border-top py-3">
-                        <div class="text-truncate">
-                            <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> {{App\Blog::where('status', true)->count()}}
-                            </span>
-                            <span class="text-muted ml-2">Active Blogs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end row -->
-    </div>
-
-</div>
-<!-- end row -->
-
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <div class="dropdown float-right">
-                    {{-- <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="mdi mdi-dots-vertical"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                    </div> --}}
+
                 </div>
 
                 <h4 class="card-title mb-4">Latest Item</h4>
 
                 <div class="table-responsive">
-                    <table class="table table-centered datatable dt-responsive nowrap" data-page-length="6"
+                    <table class="table table-centered datatable dt-responsive nowrap" data-page-length="10"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead class="thead-light">
                             <tr>

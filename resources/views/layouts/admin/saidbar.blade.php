@@ -25,7 +25,8 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('admin.category.index')}}">Category</a></li>
                         <li><a href="{{route('admin.subcategory.index')}}">Sub-Category</a></li>
-                        <li><a href="#">Products</a></li>
+                        <li><a href="{{route('admin.feature.index')}}">Features</a></li>
+                        <li><a href="{{route('admin.item.index')}}">Products</a></li>
                         <li><a href="{{route('admin.stall.index')}}">Store</a></li>
                     </ul>
                 </li>
@@ -47,12 +48,8 @@
                         <span>Settings</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Horizontal</a></li>
-                        <li><a href="#">Light Sidebar</a></li>
-                        <li><a href="#">Compact Sidebar</a></li>
-                        <li><a href="#">Icon Sidebar</a></li>
-                        <li><a href="#">Boxed Layout</a></li>
-                        <li><a href="#">Preloader</a></li>
+                        <li><a href="{{route('admin.settings.index')}}">StoreFront</a></li>
+                        <li><a href="{{route('admin.page.index')}}">Pages</a></li>
                     </ul>
                 </li>
 
@@ -64,8 +61,8 @@
                         <span>Users</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('admin.users')}}">Users List</a></li>
-                        <li><a href="#">Add User</a></li>
+                        <li><a href="{{route('admin.users.index')}}">Users List</a></li>
+                        <li><a href="{{route('admin.users.edit', Auth::user()->id)}}">Profile</a></li>
                     </ul>
                 </li>
 

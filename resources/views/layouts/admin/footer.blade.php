@@ -6,7 +6,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-right d-none d-sm-block">
-                    Develop with <i class="mdi mdi-heart text-danger"></i> by RBsoft Technologies.
+                    {{-- Develop with <i class="mdi mdi-heart text-danger"></i> by RBsoft Technologies. --}}
                 </div>
             </div>
         </div>

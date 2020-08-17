@@ -133,6 +133,7 @@ class StallController extends Controller
         $stall->fax = $request->fax;
         $stall->person_name = $request->person_name;
         $stall->about = $request->about;
+        $stall->plan = $request->plan;
         $stall->item_exp = $request->item_exp;
         $stall->item_limit = $request->item_limit;
         if(!$stall->user()->find($stall->user_id)->is_seller)

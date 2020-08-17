@@ -40,11 +40,20 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
 
     Route::get('dashboard', 'DeshboardController@index')->name('dashboard');
-    Route::get('users', 'DeshboardController@users')->name('users');
+
+    // Route::get('users', 'DeshboardController@users')->name('users');
+    // Route::post('users/add', 'DeshboardController@usercreate')->name('users.add');
+    // Route::put('users/{id}/update', 'DeshboardController@userupdate')->name('users.put');
+
+    Route::resource('users', 'UserController');
     Route::resource('category', 'CategoryController');
     Route::resource('subcategory', 'SubcategoryController');
     Route::resource('blog', 'BlogController');
     Route::resource('stall', 'StallController');
+    Route::resource('item', 'ItemController');
+    Route::resource('page', 'PageController');
+    Route::resource('feature', 'FeatureController');
+    Route::resource('settings', 'SettingsController');
 });
 
 

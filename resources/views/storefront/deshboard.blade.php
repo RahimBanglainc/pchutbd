@@ -40,7 +40,7 @@
 
                             <div class="row account-style account-profile">
                                 <div class="four columns">
-                                    @if(Storage::disk('public')->url('user/user.jpg'))
+                                    @if(Storage::disk('public')->exists('user/'.Auth::User()->img))
 
                                     <img src="{{Storage::disk('public')->url('user/'.Auth::User()->img)}}">
 

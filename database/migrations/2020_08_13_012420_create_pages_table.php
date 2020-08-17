@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('slug');
             $table->boolean('status')->default(1);
             $table->longText('body');
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
     }
