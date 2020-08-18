@@ -142,7 +142,7 @@
           }
 
         var subcategory_id=document.clientForm.subcategory_id.value;
-        url  = '{{route('index')}}/getItemFeature//' + subcategory_id + '/';
+        url  = '{{route('index')}}/getItemFeature//' + subcategory_id;
         http.open( "GET" ,url, true);
         http.onreadystatechange = displayItemFeature;
         http.send(null);

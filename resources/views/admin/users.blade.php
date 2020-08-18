@@ -1,6 +1,6 @@
 @extends('layouts.admin.layout')
 
-@section('title','Deshboard')
+@section('title','User List')
 
 
 @section('main')

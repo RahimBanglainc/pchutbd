@@ -1,6 +1,6 @@
 @extends('layouts.admin.layout')
 
-@section('title','Edit Blogs')
+@section('title','Edit User')
 
 @push('css')
 
@@ -21,7 +21,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">PCHUTBD</a></li>
-                    <li class="breadcrumb-item active">Edit Category</li>
+                    <li class="breadcrumb-item active">Edit User</li>
                 </ol>
             </div>
 

@@ -1,6 +1,6 @@
 @extends('layouts.admin.layout')
 
-@section('title','Edit Blogs')
+@section('title','Edit Category')
 
 @push('css')
 

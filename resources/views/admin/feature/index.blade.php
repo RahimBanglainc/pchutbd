@@ -1,6 +1,6 @@
 @extends('layouts.admin.layout')
 
-@section('title','Category')
+@section('title','Features')
 
 
 
@@ -38,7 +38,7 @@ rel="stylesheet" type="text/css" />
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">PCHUTBD</a></li>
-                    <li class="breadcrumb-item active">Sub Categorys</li>
+                    <li class="breadcrumb-item active">Sub Features</li>
                 </ol>
             </div>
 
@@ -99,7 +99,7 @@ rel="stylesheet" type="text/css" />
                     </div>
                 </div>
 
-                <h4 class="card-title mb-4">All Categorys</h4>
+                <h4 class="card-title mb-4">All Features</h4>
 
                 <div class="table-responsive">
                     <table class="table table-centered datatable dt-responsive nowrap" data-page-length="10"

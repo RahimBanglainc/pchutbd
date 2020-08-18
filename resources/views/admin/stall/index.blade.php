@@ -55,7 +55,7 @@ rel="stylesheet" type="text/css" />
                     {{-- <a href="{{route('admin.blog.create')}}" class="btn btn-success mb-2"><i class="mdi mdi-plus mr-2"></i> Add Blog</a> --}}
                 </div>
 
-                <h4 class="card-title mb-4">All Blogs</h4>
+                <h4 class="card-title mb-4">All Stalls</h4>
 
                 <div class="table-responsive">
                     <table class="table table-centered datatable dt-responsive nowrap" data-page-length="10"

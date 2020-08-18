@@ -316,7 +316,7 @@
                 <div class="row s-top s-bottom">
                     <div id="menuv-wrapper" class="menuv-icon">
                         <div id="hamburger-menuv u-pull-left">
-                            <img src="asset/static-image/filter.png" width="25" border="0">
+                            {{-- <img src="asset/static-image/filter.png" width="25" border="0"> --}}
                         </div>
                     </div>
 

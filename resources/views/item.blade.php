@@ -106,7 +106,7 @@
 
 <div class="container product-desc">
 
-    <div class="breadcum"><a href="/" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span><a
+    <div class="breadcum"><a href="{{route('index')}}" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span><a
             class="breadcum-link-clk" href="#">{{$item->subcategory()->where('id', $item->subcategory_id)->first()->name}}</a>
     </div>
 
@@ -560,7 +560,7 @@
         </div>
         <div class="s-top">
             <p>
-                Visit showroom or call to buy the gaming pc
+                Visit showroom or call to buy the {{$item->subcategory()->where('id', $item->subcategory_id)->first()->name}}
                 from Dhaka, Bangladesh.
             </p>
         </div>
