@@ -80,11 +80,11 @@
 
     <div class="six columns">
 
-        <div class="b-bottom">
+        {{-- <div class="b-bottom">
 
             <a href="#"><img src="{{ asset('img/facebook_connect.jpg')}}" alt="Facebook Login" title="Facebook Login"></a>
 
-        </div>
+        </div> --}}
 
         <div class="s-top">
 

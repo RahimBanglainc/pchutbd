@@ -135,7 +135,7 @@
 
                         <a href="{{ route('blog.show',$rblog->slug) }}">
                             <div class="mag-related-box-img">
-                                <img src="{{ Storage::disk('public')->url('blog/'.$rblog->img) }}"
+                                <img src="{{ asset('/'.$rblog->img) }}"
                                     title="{{ $blog->title }}">
                             </div>
                             <div class="mag-related-box-item-title">

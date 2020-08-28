@@ -179,33 +179,33 @@
 
                                                 <tr style="background-color:#EFF0F2;">
                                                     <td width="20%" align="center">
-                                                        <img src="{{asset('storage/item/'.$item->img)}}" style="max-width:100%; min-height: 10em">
+                                                        <img src="{{asset('/'.$item->img)}}" style="max-width:100%; min-height: 10em">
                                                     </td>
                                                     <td width="20%" align="center">
                                                         @if ($item->img1)
 
-                                                            <img src="{{asset('storage/item/'.$item->img1)}}" style="max-width:100%; min-height: 10em">
+                                                            <img src="{{asset('/'.$item->img1)}}" style="max-width:100%; min-height: 10em">
 
                                                         @endif
                                                     </td>
                                                     <td width="20%" align="center">
                                                         @if ($item->img2)
 
-                                                            <img src="{{asset('storage/item/'.$item->img2)}}" style="max-width:100%; min-height: 10em">
+                                                            <img src="{{asset('/'.$item->img2)}}" style="max-width:100%; min-height: 10em">
 
                                                         @endif
                                                     </td>
                                                     <td width="20%" align="center">
                                                         @if ($item->img3)
 
-                                                            <img src="{{asset('storage/item/'.$item->img3)}}" style="max-width:100%; min-height: 10em">
+                                                            <img src="{{asset('/'.$item->img3)}}" style="max-width:100%; min-height: 10em">
 
                                                         @endif
                                                     </td>
                                                     <td width="20%" align="center">
                                                         @if ($item->img4)
 
-                                                            <img src="{{asset('storage/item/'.$item->img4)}}" style="max-width:100%; min-height: 10em">
+                                                            <img src="{{asset('/'.$item->img4)}}" style="max-width:100%; min-height: 10em">
 
                                                         @endif
                                                     </td>

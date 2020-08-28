@@ -134,7 +134,7 @@
 
 
                         <div id="displayAvator"><img
-                                src="{{ Storage::disk('public')->url('item/'.$item->img) }}"
+                                src=" {{ asset('/'.$item->img) }}"
                                 title="{{ $item->title }}" alt="{{ $item->title }}">
                         </div>
 
@@ -150,37 +150,37 @@
 
 
                     <a
-                        href="javascript:setAvator('{{ Storage::disk('public')->url('item/'.$item->img) }}','{{ $item->title }}')"><img
-                            src="{{ Storage::disk('public')->url('item/'.$item->img) }}">
+                        href="javascript:setAvator('{{ asset('/'.$item->img) }}','{{ $item->title }}')"><img
+                            src="{{ asset('/'.$item->img) }}">
                     </a>
 
                     @if($item->img1)
 
                         <a
-                            href="javascript:setAvator('{{ Storage::disk('public')->url('item/'.$item->img1) }}','{{ $item->title }}')"><img
-                                src="{{ Storage::disk('public')->url('item/'.$item->img1) }}">
+                            href="javascript:setAvator('{{ asset('/'.$item->img1) }}','{{ $item->title }}')"><img
+                                src="{{ asset('/'.$item->img1) }}">
                         </a>
                     @endif
                     @if($item->img2)
 
                         <a
-                            href="javascript:setAvator('{{ Storage::disk('public')->url('item/'.$item->img2) }}','{{ $item->title }}')"><img
-                                src="{{ Storage::disk('public')->url('item/'.$item->img2) }}">
+                            href="javascript:setAvator('{{ asset('/'.$item->img2) }}','{{ $item->title }}')"><img
+                                src="{{ asset('/'.$item->img2) }}">
                         </a>
                     @endif
 
                     @if($item->img3)
 
                         <a
-                            href="javascript:setAvator('{{ Storage::disk('public')->url('item/'.$item->img3) }}','{{ $item->title }}')"><img
-                                src="{{ Storage::disk('public')->url('item/'.$item->img3) }}">
+                            href="javascript:setAvator('{{ asset('/'.$item->img3) }}','{{ $item->title }}')"><img
+                                src="{{ asset('/'.$item->img3) }}">
                         </a>
                     @endif
                     @if($item->img4)
 
                         <a
-                            href="javascript:setAvator('{{ Storage::disk('public')->url('item/'.$item->img4) }}','{{ $item->title }}')"><img
-                                src="{{ Storage::disk('public')->url('item/'.$item->img4) }}">
+                            href="javascript:setAvator('{{ asset('/'.$item->img4) }}','{{ $item->title }}')"><img
+                                src="{{ asset('/'.$item->img4) }}">
                         </a>
                     @endif
 
@@ -245,6 +245,7 @@
                                 <td>{{$item->subcategory()->where('id', $item->subcategory_id)->first()->name}}</td>
                             </tr>
 
+
                             <tr>
                                 <th>Status</th>
                                 @if($item->stock)
@@ -265,19 +266,71 @@
                                 <th>Updated</th>
                                 <td>{{ $item->updated_at->diffForHumans() }}</td>
                             </tr>
-
                         </tbody>
                     </table>
 
-                    @if($item->stock & $stall->item_exp >= $my_time)
 
-                        <div class="product-desc-gap">
-                            <div class="product-desc-price-label">&nbsp;</div>
-                            <div class="product-desc-price-data"><a href="#compare"
-                                    class="product-desc-contact-button">View
-                                    Contact</a></div>
-                        </div>
 
+
+                    @if($item->stock && $item->status && $stall->item_exp >= $my_time)
+                    <table cellpadding="0" cellspacing="0">
+
+                        <div class="b-bottom b-top" id="compare"><b>Contact &amp; Best Price</b></div>
+
+                        <hr>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <div class="six columns s-bottom product-desc-contact-logo">
+                                        <a href="{{route('stall.show', $stall->slug)}}" style="float:left">
+                                            <img src="{{ asset('/'.$stall->img) }}" alt="{{ $stall->name }}"
+                                                title="{{ $stall->name }}">
+                                        </a>
+                                    </div>
+                                </th>
+                                <td>
+                                    <div class="six columns">
+                                        <span class="product-desc-contact-location">{{ $stall->name }}
+                                            <br>
+                                            <img src="{{asset('img/rating.png')}}" width="8">
+                                            <img src="{{asset('img/rating.png')}}" width="8">
+                                            <img src="{{asset('img/rating.png')}}" width="8">
+                                            <img src="{{asset('img/rating.png')}}" width="8">
+                                            <img src="{{asset('img/rating.png')}}" width="8">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                                <div class="row">
+                                    <div class="nine columns b-bottom" style="align: center;">
+
+
+
+                                        <a href="javascript:hotline(845, 53182)" class="call_btn" style="display:block"
+                                            id="845">01XXXXXXXXX</a>
+
+
+                                        <div class="product-desc-phone" style="display:none" id="845-1">
+                                            <a href="tel:{{ $stall->hotline1 }}">
+                                                <img src="{{ asset('img/phone-icon.png') }}">
+                                                {{ $stall->hotline1 }}</a>
+                                        </div>
+
+
+                                        @if($stall->hotline2)
+
+                                            <div class="product-desc-phone s-top" style="display:none" id="845-2">
+                                                <a href="tel:{{ $stall->hotline2 }}">
+                                                    <img src="{{ asset('img/phone-icon.png') }}">
+                                                    {{ $stall->hotline2 }}</a>
+                                            </div>
+                                        @endif
+
+
+                                    </div>
+                                </div>
                     @endif
 
 
@@ -298,7 +351,7 @@
                                             <a
                                                 href="{{route('item.view', $sitem->slug)}}">
                                                 <div class="product-related-box-img">
-                                                    <img style="width: 70px" src="{{ asset('storage/item/small/'.$sitem->img) }}">
+                                                    <img style="width: 70px" src="{{ asset('/'.$sitem->img) }}">
                                                 </div>
                                                 <div class="product-related-box-item-title">
                                                     {!! \Illuminate\Support\str::limit(strip_tags($sitem->title), 8) !!} </div>
@@ -397,87 +450,6 @@
 
 
 
-        @if($item->stock && $item->status && $stall->item_exp >= $my_time)
-
-            <div class="b-bottom b-top" id="compare"><b>Contact &amp; Best Price</b></div>
-
-            <hr>
-
-
-            <div class="row b-top">
-
-                <div class="four columns product-desc-contact-logo">
-
-                    <div class="row">
-
-                        <div class="six columns s-bottom">
-                            <a href="{{route('stall.show', $stall->slug)}}" style="float:left">
-                                <img src="{{ asset('storage/stall/'.$stall->img) }}" alt="Madani Computer"
-                                    title="Madani Computer">
-                            </a>
-                        </div>
-
-                        <div class="six columns">
-                            <span class="product-desc-contact-location">{{ $stall->name }}
-                                <br>
-                                <img src="{{asset('img/rating.png')}}" width="8">
-                                <img src="{{asset('img/rating.png')}}" width="8">
-                                <img src="{{asset('img/rating.png')}}" width="8">
-                                <img src="{{asset('img/rating.png')}}" width="8">
-                                <img src="{{asset('img/rating.png')}}" width="8">
-                            </span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="five columns product-desc-contact">
-                    <div class="row">
-
-                        <div class="nine columns b-bottom">
-
-
-
-                            <a href="javascript:hotline(845, 53182)" class="call_btn" style="display:block"
-                                id="845">01XXXXXXXXX</a>
-
-
-                            <div class="product-desc-phone" style="display:none" id="845-1">
-                                <a href="tel:{{ $stall->hotline1 }}">
-                                    <img src="{{ asset('img/phone-icon.png') }}">
-                                    {{ $stall->hotline1 }}</a>
-                            </div>
-
-
-                            @if($stall->hotline2)
-
-                                <div class="product-desc-phone s-top" style="display:none" id="845-2">
-                                    <a href="tel:{{ $stall->hotline2 }}">
-                                        <img src="{{ asset('img/phone-icon.png') }}">
-                                        {{ $stall->hotline2 }}</a>
-                                </div>
-                            @endif
-
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="three columns product-desc-contact-pricing u-pull-right">
-                    <div class="product-desc-contact-price">৳ {{ $item->price }}</div>
-
-                </div>
-
-            </div>
-            <hr>
-        @endif
-
-
-
-
 
 
         <div class="s-bottom b-top">
@@ -492,7 +464,7 @@
                 <a
                     href="{{route('item.view', $ritem->slug)}}">
                     <div class="product-related-box-img">
-                        <img style="height: 75px" src="{{ asset('storage/item/small/'.$ritem->img) }}">
+                        <img style="height: 75px" src="{{ asset('/'.$ritem->img) }}">
                     </div>
                     <div class="product-related-box-item-title">
                         {!! \Illuminate\Support\str::limit(strip_tags($ritem->title), 20) !!} </div>

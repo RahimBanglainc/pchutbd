@@ -551,7 +551,7 @@
         <div class="row">
             <div class="seven columns">
                 <a href="{{route('item.view', $item->slug)}}">
-                    <img src="{{asset('storage/item/small/'.$item->img)}}"
+                    <img src="{{asset('/s'.$item->img)}}"
                         alt="{{$item->title}}"
                         title="{{$item->title}}">
                 </a> </div>

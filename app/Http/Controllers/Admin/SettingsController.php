@@ -142,7 +142,7 @@ class SettingsController extends Controller
             {
                 Storage::disk('public')->delete('img/'.$sett->favicon);
             }
-            $blogImg3 = Image::make($img3)->resize(100, 100)->save($imageName1, 90);
+            $blogImg3 = Image::make($img3)->resize(100, 100)->save($imageName3, 90);
             Storage::disk('public')->put('img/'.$imageName3,$blogImg3);
         }else{
             $imageName3 = $sett->favicon;

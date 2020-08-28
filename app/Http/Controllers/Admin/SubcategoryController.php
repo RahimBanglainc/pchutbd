@@ -52,7 +52,7 @@ class SubcategoryController extends Controller
         if(isset($img))
         {
             $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'-'.$img->getClientOriginalExtension();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
             if(!Storage::disk('public')->exists('subcategory'))
             {
                 Storage::disk('public')->makeDirectory('subcategory');
@@ -109,8 +109,7 @@ class SubcategoryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'category_id' => 'required',
-            'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
+            'Category_id' => 'required',
         ]);
         $category = Subcategory::where('id', $id)->first();
         $img = $request->file('img');
@@ -119,25 +118,25 @@ class SubcategoryController extends Controller
         {
             $currentDate = Carbon::now()->toDateString();
             $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
-            if(!Storage::disk('public')->exists('category'))
+            if(!Storage::disk('public')->exists('subcategory'))
             {
-                Storage::disk('public')->makeDirectory('category');
+                Storage::disk('public')->makeDirectory('subcategory');
             }
 
             // delete old image here
-            if(Storage::disk('public')->exists('category/'.$category->img))
+            if(Storage::disk('public')->exists('subcategory/'.$category->img))
             {
-                Storage::disk('public')->delete('category/'.$category->img);
+                Storage::disk('public')->delete('subcategory/'.$category->img);
             }
             $categoryImg = Image::make($img)->resize(500, 350)->save($imageName, 90);
-            Storage::disk('public')->put('category/'.$imageName,$categoryImg);
+            Storage::disk('public')->put('subcategory/'.$imageName,$categoryImg);
         }else{
             $imageName = $category->img;
         }
 
         $category->name = $request->name;
         $category->slug = $slug;
-        $category->category_id = $request->category_id;
+        $category->Category_id = $request->Category_id;
         $category->status = 1;
         $category->img = $imageName;
         $category->save();
@@ -155,9 +154,9 @@ class SubcategoryController extends Controller
     {
         $category = subcategory::where('id', $id)->first();
 
-        if(Storage::disk('public')->exists('category/'.$category->img))
+        if(Storage::disk('local')->exists('category/'.$category->img))
         {
-            Storage::disk('public')->delete('category/'.$category->img);
+            Storage::disk('local')->delete('category/'.$category->img);
         }
 
     $category->delete();

@@ -207,7 +207,7 @@
                     <div class="col-md-6">
                         @if (Storage::disk('public')->exists('stall/'.$stall->img))
 
-                        <img class="img-thumbnail" alt="200x200" style="width:300px;" src="{{Storage::disk('public')->url('stall/'.$stall->img)}}" data-holder-rendered="true">
+                        <img class="img-thumbnail" alt="200x200" style="width:300px;" src="{{ asset('/'.$stall->img) }}" data-holder-rendered="true">
 
                         @else
 

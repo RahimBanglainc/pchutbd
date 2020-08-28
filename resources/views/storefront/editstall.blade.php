@@ -127,7 +127,7 @@
 
                             <div class="four columns">
                                 <a href="{{route('stall.show', Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->slug)}}" target="_BLANK">
-                                    <img style="height:100px" src="{{ Storage::disk('public')->url('stall/'.Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->img) }}">
+                                    <img style="height:100px" src="{{ asset('/'.Auth::User()->stall()->where('user_id', Auth::User()->id)->first()->img) }}">
                                 </a>
                             </div>
 

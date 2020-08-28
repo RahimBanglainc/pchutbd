@@ -158,7 +158,7 @@ rel="stylesheet" type="text/css" />
 
                                 </td>
                                 <td>
-                                    <div class="badge badge-soft-warning font-size-12"><img src="{{ asset('storage/subcategory/'.$item->img)}}" alt="" class="rounded avatar-sm"></div>
+                                    <div class="badge badge-soft-warning font-size-12"><img src="{{ asset('/'.$item->img)}}" alt="" class="rounded avatar-sm"></div>
                                 </td>
                                 <td>
                                     <a href="{{route('admin.subcategory.edit', $item->id)}}" class="mr-3 text-primary" data-toggle="tooltip"

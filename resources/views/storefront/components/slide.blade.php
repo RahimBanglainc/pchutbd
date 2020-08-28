@@ -34,7 +34,7 @@
                                             <a
                                                 href="{{ route('item.view', $item->slug) }}">
                                                 <div class="slider-img-box"><img
-                                                        src="{{ asset('storage/item/small/'.$item->img) }}">
+                                                        src="{{ asset('/s'.$item->img) }}">
                                                 </div>
                                                 <div class="card-item-type"> {!! \Illuminate\Support\str::limit(strip_tags($item->title), 30) !!}</div>
                                                 <div class="card-price">৳ {{ $item->price }}</div>

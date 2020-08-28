@@ -124,7 +124,7 @@
 
 
                                 <img class="img-thumbnail" alt="200x200" style="width:100px;"
-                                    src="{{ asset('storage/item/'.$item->img) }}"
+                                    src="{{ asset('/'.$item->img) }}"
                                     data-holder-rendered="true">
 
                                 @else
@@ -138,7 +138,7 @@
 
 
                                 <img class="img-thumbnail" alt="200x200" style="width:100px;"
-                                    src="{{ asset('storage/item/'.$item->img1) }}"
+                                    src="{{ asset('/'.$item->img1) }}"
                                     data-holder-rendered="true">
 
                                 @else
@@ -152,7 +152,7 @@
 
 
                                 <img class="img-thumbnail" alt="200x200" style="width:100px;"
-                                    src="{{ asset('storage/item/'.$item->img2) }}"
+                                    src="{{ asset('/'.$item->img2) }}"
                                     data-holder-rendered="true">
 
                                 @else
@@ -166,7 +166,7 @@
 
 
                                 <img class="img-thumbnail" alt="200x200" style="width:100px;"
-                                    src="{{ asset('storage/item/'.$item->img3) }}"
+                                    src="{{ asset('/'.$item->img3) }}"
                                     data-holder-rendered="true">
 
                                 @else
@@ -180,7 +180,7 @@
 
 
                                 <img class="img-thumbnail" alt="200x200" style="width:100px;"
-                                    src="{{ asset('storage/item/'.$item->img4) }}"
+                                    src="{{ asset('/'.$item->img4) }}"
                                     data-holder-rendered="true">
 
                                 @else

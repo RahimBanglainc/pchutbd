@@ -135,7 +135,7 @@
 
                         <div class="three columns mag-box-img">
                             <a href="{{ route('blog.show',$blog->slug) }}">
-                                <img src="{{ Storage::disk('public')->url('blog/'.$blog->img) }}"
+                                <img src="{{ asset('/'.$blog->img) }}"
                                     title="{{ $blog->title }}" alt="{{ $blog->title }}">
                             </a>
                         </div>

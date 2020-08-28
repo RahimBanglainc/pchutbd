@@ -188,7 +188,7 @@
 
 
             <div class="three columns m-top">
-                <div><a href="{{route('index')}}"><img src="{{asset('storage/img/'.App\Settings::find(1)->foo_img)}}" width="30%"></a>
+                <div><a href="{{route('index')}}"><img src="{{asset('/'.App\Settings::find(1)->foo_img)}}" width="30%"></a>
                 </div>
                 <div><a href="{{ App\Settings::find(1)->contact }}">Contact Us</a></div>
                 <div><a href="{{ App\Settings::find(1)->career }}">Career</a></div>

@@ -42,7 +42,7 @@
                                 <div class="four columns">
                                     @if(Storage::disk('public')->exists('user/'.Auth::User()->img))
 
-                                    <img src="{{Storage::disk('public')->url('user/'.Auth::User()->img)}}">
+                                    <img src="{{ asset('/'.Auth::User()->img) }}">
 
                                     @else
 

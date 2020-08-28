@@ -71,7 +71,7 @@
                                                     <h4 class="card-title">Header Logo Upload</h4>
                                                     <p class="card-title-desc"> Upload 200x50 px</p>
                                                     <div class="col-md-6">
-                                                    <img class="img-thumbnail" alt="200x50" style="height:50px;" src="{{asset('storage/img/'.$settings->head_img)}}" data-holder-rendered="true">
+                                                    <img class="img-thumbnail" alt="200x50" style="height:50px;" src="{{asset('/'.$settings->head_img)}}" data-holder-rendered="true">
                                                     </div>
                                                     <br>
                                                     <div class="custom-file">
@@ -82,23 +82,23 @@
                                                     <h4 class="card-title">Favicon Logo Upload</h4>
                                                     <p class="card-title-desc"> Upload 100x100 px</p>
                                                     <div class="col-md-6">
-                                                    <img class="img-thumbnail" alt="200x200" style="height:100px;" src="{{asset('storage/img/'.$settings->favicon)}}" data-holder-rendered="true">
+                                                    <img class="img-thumbnail" alt="200x200" style="height:100px;" src="{{asset('/'.$settings->favicon)}}" data-holder-rendered="true">
                                                     </div>
                                                     <br>
                                                     <div class="custom-file">
-                                                        <input type="file" name="favicon" class="custom-file-input" id="customFile">
-                                                        <label class="custom-file-label" for="customFile">Choose Image</label>
+                                                        <input type="file" name="favicon" class="custom-file-input" id="customFile1">
+                                                        <label class="custom-file-label" for="customFile1">Choose Image</label>
                                                     </div>
 
                                                     <h4 class="card-title">Footer Logo Upload</h4>
                                                     <p class="card-title-desc"> Upload 70x20 px</p>
                                                     <div class="col-md-6">
-                                                    <img class="img-thumbnail" alt="200x200" style="height:20px;" src="{{asset('storage/img/'.$settings->foo_img)}}" data-holder-rendered="true">
+                                                    <img class="img-thumbnail" alt="200x200" style="height:20px;" src="{{asset('/'.$settings->foo_img)}}" data-holder-rendered="true">
                                                     </div>
                                                     <br>
                                                     <div class="custom-file">
-                                                        <input type="file" name="foo_img" class="custom-file-input" id="customFile">
-                                                        <label class="custom-file-label" for="customFile">Choose Image</label>
+                                                        <input type="file" name="foo_img" class="custom-file-input" id="customFile2">
+                                                        <label class="custom-file-label" for="customFile2">Choose Image</label>
                                                     </div>
 
                                                 </div>

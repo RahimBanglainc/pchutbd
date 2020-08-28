@@ -337,7 +337,7 @@
                     <a href="{{route('catitem.view', $subcat->slug)}}">
                         <div class="box-menu">
                             <div class="box-menu-img">
-                                <img src="{{asset('storage/subcategory/'.$subcat->img)}}">
+                                <img src="{{asset('/'.$subcat->img)}}">
                             </div>
                             <div class="box-menu-text">
                                 {{$subcat->name}}

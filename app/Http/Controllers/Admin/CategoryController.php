@@ -49,7 +49,7 @@ class CategoryController extends Controller
         if(isset($img))
         {
             $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'-'.$img->getClientOriginalExtension();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
             if(!Storage::disk('public')->exists('category'))
             {
                 Storage::disk('public')->makeDirectory('category');

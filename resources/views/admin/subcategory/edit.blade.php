@@ -30,7 +30,7 @@
 </div>
 <!-- end page title -->
 
-<form method="POST" action="{{ route('admin.category.update', $category->id) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('admin.subcategory.update', $category->id) }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="row">
@@ -59,7 +59,7 @@
                         <h4 class="card-title">Picture Upload</h4>
                         <p class="card-title-desc"> Upload 100x100 px</p>
                         <div class="col-md-6">
-                        <img class="img-thumbnail" alt="200x200" style="height:100px;" src="{{asset('storage/subcategory/'.$category->img)}}" data-holder-rendered="true">
+                        <img class="img-thumbnail" alt="200x200" style="height:100px;" src="{{asset('/'.$category->img)}}" data-holder-rendered="true">
                         </div>
                         <br>
                         <div class="custom-file">

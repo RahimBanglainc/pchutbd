@@ -247,7 +247,7 @@ input[type="button"] {
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    background-color: #68ba00;
+    background-color: #00bdcc;
     border-radius: 4px;
     border: 0rem;
     cursor: pointer;
@@ -266,7 +266,7 @@ input[type="reset"]:focus,
 input[type="button"]:focus {
     color: #FFFFFF;
     border-color: #888;
-    background-color: #ff9000;
+    background-color: #008080;
     outline: 0;
 }
 
@@ -449,7 +449,7 @@ hr {
 }
 
 .menuv-submenuv li a:hover {
-    color: #ff9000
+    color: #008080
 }
 
 #menuv-wrapper {
@@ -502,7 +502,7 @@ hr {
         width: 10px;
         height: 2px;
         margin-top: -1px;
-        background-color: green;
+        background-color: #008080;
         -webkit-transform-origin: 50% 50%;
         -ms-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
@@ -552,7 +552,7 @@ hr {
         display: block;
         padding-top: 0.5em;
         padding-bottom: 0.3em;
-        border-bottom: solid 0.2rem #F38300
+        border-bottom: solid 0.2rem #008080
     }
     .menuv-close a {
         margin-left: 1.7em
@@ -914,11 +914,11 @@ main {
 
 .search_box input:focus {
     outline: none;
-    border-color: green;
+    border-color: #008080;
 }
 
 .search_box input.search_icon:hover {
-    background: #efa666;
+    background: #008080;
 }
 
 .spinner-master input[type=checkbox] {
@@ -928,7 +928,7 @@ main {
 .menu {
     width: 100%;
     height: auto;
-    background: #6AB802 none repeat scroll 0% 0%;
+    background: #00bdcc none repeat scroll 0% 0%;
     transition: all 0.3s ease;
 }
 
@@ -963,12 +963,12 @@ main {
 }
 
 .menu ul li a:hover {
-    background: #efa666;
+    background: #0fa0ce;
     color: #fff;
 }
 
 .menu ul li.hover>a {
-    background: #efa666;
+    background: #0fa0ce;
     color: #fff;
 }
 
@@ -998,7 +998,7 @@ main {
 }
 
 .menu ul ul>li a:hover {
-    background: #efa666;
+    background: #0fa0ce;
     color: #fff;
 }
 
@@ -1080,7 +1080,7 @@ main {
         font-size: 1.5em;
     }
     a.menu-link:hover {
-        color: #efa666;
+        color: #0fa0ce;
     }
     a.menu-link:after {
         content: "\2630";
@@ -1180,11 +1180,11 @@ main {
 
 a {
     text-decoration: none;
-    color: green
+    color: #008080
 }
 
 a:hover {
-    color: #ff9000
+    color: #008080
 }
 
 img {
@@ -1222,7 +1222,7 @@ img {
 .message {
     border-style: none;
     background-color: #CBDFAC;
-    border-color: #9BC561;
+    border-color: #61c5a4;
 }
 
 .error_message {
@@ -1239,7 +1239,7 @@ img {
                padding:3px 5px;
                display:inline;
                text-decoration:none}
-.pagination a:hover, .pagination a.selected {background:#ff9000; border: 1px solid #ff9000; color:#FFFFFF} */
+.pagination a:hover, .pagination a.selected {background:#008080; border: 1px solid #008080; color:#FFFFFF} */
 
 .page-next-link {
     float: right;
@@ -1261,7 +1261,7 @@ img {
 ;
 .filters {
     float: right;
-    border-top: solid 0.1em #F38300
+    border-top: solid 0.1em #008080
 }
 
 .filters a {
@@ -1279,7 +1279,7 @@ img {
 
 .filters a:hover {
     text-decoration: none;
-    color: #F38300
+    color: #008080
 }
 
 .filters-desk {
@@ -1316,7 +1316,7 @@ img {
 }
 
 .main-header {
-    background: #6AB802 none repeat scroll 0% 0%;
+    background: #00bdcc none repeat scroll 0% 0%;
     height: 3em
 }
 
@@ -1355,8 +1355,8 @@ img {
 }
 
 .main-header-login-link:hover {
-    background-color: #ff9000;
-    border-color: #ff9000;
+    background-color: #008080;
+    border-color: #008080;
     color: white
 }
 
@@ -1382,7 +1382,7 @@ img {
 .search_box input {
     width: 75%;
     margin-left: 2%;
-    border-color: green !important;
+    border-color: #008080 !important;
 }
 
 .slider-section {
@@ -1491,7 +1491,7 @@ img {
 
 .tab-selection {
     font-weight: bold;
-    border-bottom: solid #F38300
+    border-bottom: solid #008080
 }
 
 .breadcum {
@@ -1505,7 +1505,7 @@ img {
 }
 
 .breadcum-link-clk {
-    color: #F38300
+    color: #008080
 }
 
 .breadcum-link:hover,
@@ -1532,7 +1532,7 @@ img {
 .mag-body-header h1,
 .mag-panel label {
     font-size: 1.1em;
-    color: green;
+    color: #00bdcc;
     font-weight: bold;
     padding-left: 0.5em;
     line-height: 0.8em
@@ -1592,7 +1592,7 @@ img {
 }
 
 .product-cat-box-text a {
-    color: green;
+    color: #008080;
     font-weight: bold;
     font-size: 1em;
     float: left;
@@ -1600,7 +1600,7 @@ img {
 }
 
 .product-cat-box a:hover {
-    color: #F38300
+    color: #008080
 }
 
 .product-cat-box p,
@@ -1649,8 +1649,8 @@ img {
 }
 
 .button-link {
-    background-color: #68ba00;
-    border-color: #68ba00;
+    background-color: #00bdcc;
+    border-color: #00bdcc;
     color: white;
     font-size: 0.8em;
     padding-bottom: 0.9em;
@@ -1662,8 +1662,8 @@ img {
 }
 
 .button-link:hover {
-    background-color: #ff9000;
-    border-color: #ff9000
+    background-color: #008080;
+    border-color: #008080
 }
 
 .stall-box,
@@ -1721,7 +1721,7 @@ img {
 }
 
 .product-desc h1 {
-    color: #298D13;
+    color: #00bdcc;
     font-size: 1.2em;
     font-weight: bold
 }
@@ -1844,14 +1844,14 @@ img {
 }
 
 .product-desc-contact-button {
-    background-color: #68ba00;
+    background-color: #0fa0ce;
     width: 6.5em;
     padding: 0.3em 0.3em 0.1em 0.4em;
 }
 
 .product-desc-contact-button:hover {
     color: white;
-    background-color: #ff9000
+    background-color: #008080
 }
 
 .product-desc-contact-logo {
@@ -1902,11 +1902,11 @@ img {
 }
 
 .buy_now_btn {
-    background-color: #ff9000
+    background-color: #008080
 }
 
 .call_btn {
-    background-color: #73bd00
+    background-color: #0fa0ce
 }
 
 .buy_now_btn:hover,
@@ -2177,7 +2177,7 @@ adm-form-element label {
 .static h2 {
     font-size: 1.4em;
     font-weight: bold;
-    color: green
+    color: #008080
 }
 
 .static a {
@@ -2186,7 +2186,7 @@ adm-form-element label {
 }
 
 .static a:hover {
-    color: #ff9000
+    color: #008080
 }
 
 .static p {
@@ -2200,7 +2200,7 @@ adm-form-element label {
 
 .footer {
     margin-top: 1em;
-    background-color: #6AB802
+    background-color: #00bdcc
 }
 
 .footer a {
@@ -2209,7 +2209,7 @@ adm-form-element label {
 }
 
 .footer a:hover {
-    color: #ff9000
+    color: #008080
 }
 
 .social {
@@ -2231,7 +2231,7 @@ adm-form-element label {
 }
 
 .out-of-stock {
-    color: #ff9000
+    color: #008080
 }
 
 @media (min-width: 550px) and (max-width: 900px) {
@@ -2365,7 +2365,7 @@ adm-form-element label {
     .search_box input {
         position: relative !important;
         float: left !important;
-        border-color: green;
+        border-color: #008080;
         height: 2em;
         width: 29% !important;
     }
@@ -2429,7 +2429,7 @@ adm-form-element label {
     }
     .tab-selection {
         font-weight: bold;
-        border-bottom: solid 0.2rem #F38300
+        border-bottom: solid 0.2rem #008080
     }
     .lmenu-head,
     .lmenu-sub-head {
@@ -2440,7 +2440,7 @@ adm-form-element label {
         height: auto;
     }
     .lmenu-head {
-        background: #6AB802 none repeat scroll 0% 0%;
+        background: #00bdcc none repeat scroll 0% 0%;
         height: .9em;
         height: 2.3em;
         padding-top: 0.6em;
@@ -2573,7 +2573,7 @@ adm-form-element label {
         display: block;
         border: 1px solid #eaeae4;
         float: left;
-        color: #F38300;
+        color: #008080;
         padding: 3px 5px;
         display: inline;
         margin-right: 1.5%

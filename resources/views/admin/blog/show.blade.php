@@ -66,7 +66,7 @@
             </div>
             <div class="card-body">
                 <blockquote class="card-blockquote mb-0">
-                    <img class="img-thumbnail" alt="200x200" style="height:150px;" src="{{Storage::disk('public')->url('blog/'.$blog->img)}}" data-holder-rendered="true">
+                    <img class="img-thumbnail" alt="200x200" style="height:150px;" src="{{ asset('/'.$blog->img) }}" data-holder-rendered="true">
                     <footer class="blockquote-footer font-size-12">
                         Image Name: <cite title="Source Title">{{$blog->img}}</cite>
                     </footer>

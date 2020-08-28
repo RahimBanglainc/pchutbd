@@ -46,7 +46,7 @@
                         <h4 class="card-title">Picture Upload</h4>
                         <p class="card-title-desc"> Upload 512x512 px</p>
                         <div class="col-md-6">
-                        <img class="img-thumbnail" alt="200x200" style="height:150px;" src="{{asset('storage/blog/'.$blog->img)}}" data-holder-rendered="true">
+                        <img class="img-thumbnail" alt="200x200" style="height:150px;" src="{{asset('/'.$blog->img)}}" data-holder-rendered="true">
                         </div>
                         <br>
                         <div class="custom-file">

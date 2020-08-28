@@ -104,7 +104,7 @@
                                             <div class="avatar-xs mr-3">
                                                 <span class="avatar-title bg-primary rounded-circle font-size-16">
                                                     @if (Storage::disk('public')->exists('user/'.$item->img))
-                                                        <img class="rounded-circle header-profile-user" src="{{ asset('storage/user/'.$item->img) }}"
+                                                        <img class="rounded-circle header-profile-user" src="{{ asset('/'.$item->img) }}"
                                                     @else
                                                         <i class="ri-store-2-line"></i>
                                                     @endif
@@ -137,7 +137,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if (Storage::disk('public')->exists('user/'.Auth::user()->img))
 
-                                <img class="rounded-circle header-profile-user" src="{{ asset('storage/user/'.Auth::user()->img) }}"
+                                <img class="rounded-circle header-profile-user" src="{{ asset('/'.Auth::user()->img) }}"
                                 @else
                                 <img class="rounded-circle header-profile-user" src="{{ asset('img/user.png') }}"
 
@@ -159,11 +159,11 @@
                             </div>
                         </div>
 
-                        <div class="dropdown d-inline-block">
+                        {{-- <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                                 <i class="ri-settings-2-line"></i>
                             </button>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>

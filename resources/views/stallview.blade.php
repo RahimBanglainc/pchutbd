@@ -132,7 +132,7 @@
             <div class="three columns stall-details">
 
                 <a href="{{ route('stall.show', $stall->slug) }}"><img style="width: 75px"
-                        src="{{ Storage::disk('public')->url('stall/'.$stall->img) }}"
+                        src="{{ asset('/'.$stall->img) }}"
                         alt="{{ $stall->name }}" alt="{{ $stall->name }}" title="{{ $stall->name }}">
                 </a>
 
@@ -298,7 +298,7 @@
                                 <div class="row">
                                     <div class="seven columns">
                                         <a href="{{ route('item.view', $item->slug) }}">
-                                            <img src="{{ asset('storage/item/'.$item->img) }}"
+                                            <img src="{{ asset('/'.$item->img) }}"
                                                 alt="{{ $item->title }}" title="{{ $item->title }}">
                                         </a> </div>
                                     <div class="five columns">
@@ -346,7 +346,7 @@
                                 <div class="row">
                                     <div class="seven columns">
                                         <a href="{{ route('item.view', $item->slug) }}">
-                                            <img src="{{ asset('storage/item/small/'.$item->img) }}"
+                                            <img src="{{ asset('/s'.$item->img) }}"
                                                 alt="{{ $item->title }}" title="{{ $item->title }}">
                                         </a> </div>
                                     <div class="five columns">

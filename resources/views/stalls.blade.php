@@ -136,7 +136,7 @@
 
                     <div class="three columns stall-box-img">
                         <a href="{{ route('stall.show', $stall->slug) }}">
-                            <img style="width: 75px" src="{{ Storage::disk('public')->url('stall/'.$stall->img) }}" alt="{{ $stall->name }}"
+                            <img style="width: 75px" src="{{ asset('/'.$stall->img) }}" alt="{{ $stall->name }}"
                                 title="{{ $stall->name }}">
                         </a>
                     </div>

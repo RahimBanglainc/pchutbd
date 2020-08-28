@@ -91,6 +91,7 @@ class ItemController extends Controller
         if(isset($img))
         {
             $imageName = $currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
+            $imageNames = 's'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
             if(!Storage::disk('public')->exists('item'))
             {
                 Storage::disk('public')->makeDirectory('item');
@@ -103,13 +104,13 @@ class ItemController extends Controller
                 Storage::disk('public')->delete('item/'.$item->img);
             }
             // delete old image here
-            if(Storage::disk('public')->exists('item/small/'.$item->img))
+            if(Storage::disk('public')->exists('item/small/s'.$item->img))
             {
-                Storage::disk('public')->delete('item/small'.$item->img);
+                Storage::disk('public')->delete('item/small/s'.$item->img);
             }
             $userImg = Image::make($img)->resize(null, 130, function ($constraint) {
-                $constraint->aspectRatio();})->save($imageName, 90);
-            Storage::disk('public')->put('item/small/'.$imageName,$userImg);
+                $constraint->aspectRatio();})->save($imageNames, 90);
+            Storage::disk('public')->put('item/small/'.$imageNames,$userImg);
 
             $userImg1 = Image::make($img)->resize(null, 350, function ($constraint) {
                 $constraint->aspectRatio();})->save($imageName, 90);

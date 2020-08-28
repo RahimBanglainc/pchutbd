@@ -51,7 +51,7 @@
             <div class="product-box">
                 <a href="{{ route('item.view', $item->slug) }}">
                     <div class="product-box-img">
-                        <img src="{{ asset('storage/item/'.$item->img) }}">
+                        <img src="{{ asset('/'.$item->img) }}">
                     </div>
                     <div class="product-box-item-type">
                         {!! \Illuminate\Support\str::limit(strip_tags($item->title), 30) !!}

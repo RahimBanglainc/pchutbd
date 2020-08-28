@@ -6,7 +6,7 @@
         <a href="{{ route('index') }}">
 
 
-            <img src="{{asset('storage/img/'.App\Settings::find(1)->head_img)}}" alt="pchutbd.com" title="pchutbd.com">
+            <img src="{{asset('/'.App\Settings::find(1)->head_img)}}" alt="pchutbd.com" title="pchutbd.com">
 
         </a>
 
