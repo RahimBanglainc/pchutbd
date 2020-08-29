@@ -266,7 +266,7 @@
             </div>
 
             <div class="row lmenu-sub-head m-bottom">
-                <label>Computer &gt;</label>
+                <label>{{ $category->name }} &gt;</label>
             </div>
 
             @foreach($subcategories as $sublist)
@@ -300,7 +300,7 @@
 
 
                 <div class="row body-header">
-                    <h1>Computer</h1>
+                    <h1>{{ $category->name }}</h1>
                 </div>
 
 

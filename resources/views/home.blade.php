@@ -8,7 +8,7 @@
 
 
 <div class="container">
-    <div class="row banner">
+    {{-- <div class="row banner">
 
         <div class="six columns">
             <a href="#stallDetail/index/1301/" target="_BLANK"
@@ -28,7 +28,7 @@
                 onload="ga(&#39;send&#39;, &#39;event&#39;, &#39;Banner&#39;, &#39;Impression&#39;, &#39;PDR-470x111-userid42786&#39;, 1, {&#39;nonInteraction&#39;: 1})">
         </div>
 
-    </div>
+    </div> --}}
 
 </div>
 

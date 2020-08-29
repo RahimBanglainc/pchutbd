@@ -91,7 +91,7 @@ class ItemController extends Controller
         if(isset($img))
         {
             $imageName = $currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
-            $imageNames = 's'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
+            $imageNames = 's'.$imageName;
             if(!Storage::disk('public')->exists('item'))
             {
                 Storage::disk('public')->makeDirectory('item');
