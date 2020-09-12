@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/elecolab/test2.elecolab.com/
+    - export DEPLOYPATH=/home/pchutbd/public_html/
     - /bin/cp -R * $DEPLOYPATH
