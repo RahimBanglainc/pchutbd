@@ -115,7 +115,7 @@ rel="stylesheet" type="text/css" />
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Subcategory</th>
-                                <th>Category</th>
+                                <th>Created</th>
                                 <th>Value Count</th>
                                 <th style="width: 120px;">Action</th>
                             </tr>
@@ -133,7 +133,7 @@ rel="stylesheet" type="text/css" />
 
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">{{ $key + 1 }}</a> </td>
                                 <td>
-                                <a href="{{ route('admin.subcategory.edit', $item->id) }}">
+                                <a href="#">
                                         {{ $item->name }}
                                     </a>
                                 </td>
@@ -143,7 +143,10 @@ rel="stylesheet" type="text/css" />
 
                                 <td>
 
-                                    {!! App\Category::where('id', App\Subcategory::where('id', $item->subcategory_id)->first()->id)->first()->name !!}
+                                    {{-- {!! App\Category::where('id', App\Subcategory::where('id', $item->subcategory_id)->first()->id)->first()->name !!} --}}
+
+                                    {{ $item->created_at->diffForHumans() }}
+
                                 </td>
                                 <td>
                                     <div class="badge badge-soft-success font-size-12">{{App\FeatureValue::where('feature_id', $item->id)->count()}}</div>
