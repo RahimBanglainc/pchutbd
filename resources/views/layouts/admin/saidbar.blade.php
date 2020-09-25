@@ -25,6 +25,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('admin.category.index')}}">Category</a></li>
                         <li><a href="{{route('admin.subcategory.index')}}">Sub-Category</a></li>
+                        <li><a href="{{route('admin.brand.index')}}">Brand-Category</a></li>
                         <li><a href="{{route('admin.feature.index')}}">Features</a></li>
                         <li><a href="{{route('admin.item.index')}}">Products</a></li>
                         <li><a href="{{route('admin.stall.index')}}">Store</a></li>

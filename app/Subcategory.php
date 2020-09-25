@@ -20,4 +20,9 @@ class Subcategory extends Model
     {
         return $this->hasMany('App\Feature');
     }
+
+    public function brand()
+    {
+        return $this->hasMany('App\Brand');
+    }
 }

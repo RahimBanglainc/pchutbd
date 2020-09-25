@@ -190,10 +190,12 @@
                         <div class="form-group">
                             <h4 class="card-title">Upload Picture</h4>
                             <div class="custom-file">
-                                <input name="img" type="file"
+                                <label for="exampleFormControlFile1">Profile Picture</label>
+                                <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1">
+                                {{-- <input name="img" type="file"
                                     class="custom-file-input" id="customFile">
                                 <label class="custom-file-label"
-                                    for="customFile">Choose file</label>
+                                    for="customFile">Choose file</label> --}}
                             </div>
                         </div>
                     </div>

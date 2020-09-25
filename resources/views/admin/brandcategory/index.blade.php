@@ -1,6 +1,6 @@
 @extends('layouts.admin.layout')
 
-@section('title','Category')
+@section('title','Sub Category')
 
 
 
@@ -38,7 +38,7 @@ rel="stylesheet" type="text/css" />
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">PCHUTBD</a></li>
-                    <li class="breadcrumb-item active">Categories</li>
+                    <li class="breadcrumb-item active">Sub Categorys</li>
                 </ol>
             </div>
 
@@ -57,29 +57,43 @@ rel="stylesheet" type="text/css" />
                             <!-- Small modal -->
                             <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-center"><i class="mdi mdi-plus mr-2"></i></button>
 
-                    <form action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.brand.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                         <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title mt-0">Add Category</h5>
+                                        <h5 class="modal-title mt-0">Add Brand Category</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="mb-4">
-                                            <input class="form-control" type="text" name="name" placeholder="Category Name" required>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Brand Category</label>
+                                            <div class="col-md-9">
+                                                <select name="category_id" class="form-control">
+                                                    <option>Select</option>
+                                                    @foreach ( App\Subcategory::all() as $item)
+
+                                                <option value="{{ $item->id }}">{{$item->name}}</option>
+
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
                                         </div>
-                                        {{-- <h4 class="card-title">Picture Upload</h4>
+                                        <div class="mb-4">
+                                            <input class="form-control" type="text" name="name" placeholder="Brand Category Name" required>
+                                        </div>
+                                        <h4 class="card-title">Picture Upload</h4>
                                         <p class="card-title-desc"> Upload 100x100 px</p>
                                         <div class="custom-file">
                                             <input type="file" name="img" class="custom-file-input" id="customFile">
                                             <label class="custom-file-label" for="customFile">Choose Image</label>
-                                        </div> --}}
-                                        {{-- <br><br><br> --}}
+                                        </div>
+                                        <br><br><br>
                                         {{-- <div class="custom-control custom-switch mb-2" dir="ltr">
                                             <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" value="1" checked>
                                             <label class="custom-control-label" for="customSwitch1">Active/Inactive</label>
@@ -111,9 +125,9 @@ rel="stylesheet" type="text/css" />
                                 </th>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Slug</th>
+                                <th>Category</th>
                                 <th>Status</th>
-                                <th>SubCats</th>
+                                <th>Image</th>
                                 <th style="width: 120px;">Action</th>
                             </tr>
                         </thead>
@@ -130,14 +144,12 @@ rel="stylesheet" type="text/css" />
 
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">{{ $key + 1 }}</a> </td>
                                 <td>
-                                <a href="{{ route('admin.category.edit', $item->id) }}">
-                                        {{ \Illuminate\Support\Str::limit($item->name, 30) }}
-                                        {{-- {{ $item->title }} --}}
+                                <a href="{{ route('admin.subcategory.edit', $item->id) }}">
+                                        {{ $item->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    {!! \Illuminate\Support\str::limit(strip_tags($item->slug), 50) !!}
-                                    {{-- {{ $item->body }} --}}
+                                    {!! App\Category::where('id', $item->Category_id)->first()->name !!}
                                 </td>
 
                                 <td>
@@ -146,12 +158,10 @@ rel="stylesheet" type="text/css" />
 
                                 </td>
                                 <td>
-                                    <div class="badge badge-soft-warning font-size-12">{{ App\Subcategory::where('Category_id', $item->id)->count() }} </div>
-
-                                    {{-- <div class="badge badge-soft-warning font-size-12"><img src="{{ asset('/'.$item->img)}}" alt="" class="rounded avatar-sm"></div> --}}
+                                    <div class="badge badge-soft-warning font-size-12"><img src="{{ asset('/'.$item->img)}}" alt="" class="rounded avatar-sm"></div>
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.category.edit', $item->id)}}" class="mr-3 text-primary" data-toggle="tooltip"
+                                    <a href="{{route('admin.subcategory.edit', $item->id)}}" class="mr-3 text-primary" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"><i
                                             class="mdi mdi-pencil font-size-18"></i></a>
 
@@ -159,7 +169,7 @@ rel="stylesheet" type="text/css" />
                                         data-placement="top" title="" data-original-title="Delete"  onclick="blogDelete({{ $item->id }})"><i
                                             class="mdi mdi-trash-can font-size-18"></i>
                                     </a>
-                                        <form method="POST" style="display: none;" action="{{route('admin.category.destroy', $item->id)}}" id="delete-form-{{$item->id}}">
+                                        <form method="POST" style="display: none;" action="{{route('admin.subcategory.destroy', $item->id)}}" id="delete-form-{{$item->id}}">
                                             @csrf
 
                                             @method('DELETE')

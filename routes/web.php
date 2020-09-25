@@ -48,6 +48,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('users', 'UserController');
     Route::resource('category', 'CategoryController');
     Route::resource('subcategory', 'SubcategoryController');
+    Route::resource('brand', 'BrandController');
     Route::resource('blog', 'BlogController');
     Route::resource('stall', 'StallController');
     Route::resource('item', 'ItemController');

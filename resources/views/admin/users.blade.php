@@ -211,8 +211,8 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Upload Picture</h4>
                                             <div class="custom-file">
-                                                <input name="img" type="file" class="custom-file-input" id="customFile" required>
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                                <label for="exampleFormControlFile1">Profile Picture</label>
+                                                <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1">
                                             </div>
                                         </div>
                                     </div>
