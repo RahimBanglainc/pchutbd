@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Brand;
 use App\Category;
 use App\Feature;
 use App\Item;
@@ -206,25 +207,38 @@ class HomeController extends Controller
 
 
 
+    public function brandCategory($slug)
+    {
+        $sub = Subcategory::where('slug', $slug)->first();
+        $brandcategories = Brand::where('subcategory_id', $sub->id)->get();
+
+        $my_time = Carbon::now(); // today
+
+
+                return view('brand', compact('sub', 'my_time', 'brandcategories'));
+    }
+
+
+
     public function subcategory($slug)
     {
-        $subcat = Subcategory::where('slug', $slug)->first();
+        $subcat = Brand::where('slug', $slug)->first();
         $items = Item::where([
                         ['status', '=', true],
-                        ['subcategory_id', '=', $subcat->id],
+                        ['brand_id', '=', $subcat->id],
                         ['is_approve', '=', true],
                         ])->paginate(20);
 
      $sitems = Item::where([
         ['status', '=', true],
-        ['subcategory_id', '=', $subcat->id],
+        ['brand_id', '=', $subcat->id],
         ['is_approve', '=', true],
         ['stock', '=', true],
         ])->latest()->take(10)->get();
 
         $count = Item::where([
             ['status', '=', true],
-            ['subcategory_id', '=', $subcat->id],
+            ['brand_id', '=', $subcat->id],
             ['is_approve', '=', true],
             ])->count();
         $my_time = Carbon::now(); // today
@@ -256,7 +270,9 @@ class HomeController extends Controller
 
     public function feature($id)
     {
-        $features = Feature::where('subcategory_id', $id)->get();
+
+        $brand = Brand::where('id', $id)->first();
+        $features = Feature::where('subcategory_id', $brand->Subcategory_id)->get();
 
         return view('storefront.components.feature', compact('features'));
     }

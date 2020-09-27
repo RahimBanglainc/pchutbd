@@ -8,6 +8,11 @@ class Brand extends Model
 {
     public function subcategory()
     {
-        return $this->belongsTo('App\Subcategory', 'Subcategory_id');
+        return $this->belongsTo('App\Subcategory');
+    }
+
+    public function items()
+    {
+        return $this->hasMany('App\Item');
     }
 }

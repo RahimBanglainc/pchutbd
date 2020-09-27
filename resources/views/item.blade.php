@@ -106,8 +106,13 @@
 
 <div class="container product-desc">
 
-    <div class="breadcum"><a href="{{route('index')}}" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span><a
-            class="breadcum-link-clk" href="#">{{$item->subcategory()->where('id', $item->subcategory_id)->first()->name}}</a>
+    <div class="breadcum">
+
+        <a href="{{ route('index') }}" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span>
+        <a class="breadcum-link" href="{{route('cat.view', App\Subcategory::where('id', $item->subcategory_id)->first()->slug )}}">{{ App\Subcategory::where('id', $item->subcategory_id)->first()->name}}</a>
+        <span> &nbsp;&gt;&nbsp;</span>
+        <a class="breadcum-link-clk" href="#">{{App\Brand::where('id', $item->brand_id)->first()->name}}</a>
+
     </div>
 
     <h1>{{ $item->title }}</h1>
@@ -232,10 +237,10 @@
                             </tr>
 
 
-                            {{-- <tr>
+                            <tr>
                                 <th>Brand</th>
-                                <td>HP</td>
-                            </tr> --}}
+                                <td>{{App\Brand::where('id', $item->brand_id)->first()->name}}</td>
+                            </tr>
 
 
 

@@ -75,8 +75,7 @@
                                                     </div>
                                                     <br>
                                                     <div class="custom-file">
-                                                        <input type="file" name="head_img" class="custom-file-input" id="customFile">
-                                                        <label class="custom-file-label" for="customFile">Choose Image</label>
+                                                        <input type="file" name="head_img" class="form-control-file">
                                                     </div>
 
                                                     <h4 class="card-title">Favicon Logo Upload</h4>
@@ -86,8 +85,7 @@
                                                     </div>
                                                     <br>
                                                     <div class="custom-file">
-                                                        <input type="file" name="favicon" class="custom-file-input" id="customFile1">
-                                                        <label class="custom-file-label" for="customFile1">Choose Image</label>
+                                                        <input type="file" name="favicon" class="form-control-file">
                                                     </div>
 
                                                     <h4 class="card-title">Footer Logo Upload</h4>
@@ -97,8 +95,7 @@
                                                     </div>
                                                     <br>
                                                     <div class="custom-file">
-                                                        <input type="file" name="foo_img" class="custom-file-input" id="customFile2">
-                                                        <label class="custom-file-label" for="customFile2">Choose Image</label>
+                                                        <input type="file" name="foo_img" class="form-control-file">
                                                     </div>
 
                                                 </div>

@@ -73,7 +73,7 @@ rel="stylesheet" type="text/css" />
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Category</label>
                                             <div class="col-md-9">
-                                                <select name="category_id" class="form-control">
+                                                <select name="Category_id" class="form-control">
                                                     <option>Select</option>
                                                     @foreach ( App\Category::all() as $item)
 
@@ -90,8 +90,7 @@ rel="stylesheet" type="text/css" />
                                         <h4 class="card-title">Picture Upload</h4>
                                         <p class="card-title-desc"> Upload 100x100 px</p>
                                         <div class="custom-file">
-                                            <input type="file" name="img" class="custom-file-input" id="customFile">
-                                            <label class="custom-file-label" for="customFile">Choose Image</label>
+                                            <input type="file" name="img" class="form-control-file">
                                         </div>
                                         <br><br><br>
                                         {{-- <div class="custom-control custom-switch mb-2" dir="ltr">

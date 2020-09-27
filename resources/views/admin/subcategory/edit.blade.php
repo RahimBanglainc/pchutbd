@@ -63,8 +63,7 @@
                         </div>
                         <br>
                         <div class="custom-file">
-                            <input type="file" name="img" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose Image</label>
+                            <input type="file" name="img" class="form-control-file">
                         </div>
                         {{-- <br><br>
                         <div class="custom-control custom-switch mb-2" dir="ltr">

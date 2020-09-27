@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Storefront;
 
+use App\Brand;
 use App\FeatureValue;
 use App\Http\Controllers\Controller;
 use App\Item;
@@ -54,7 +55,7 @@ class ItemController extends Controller
     {
         // return $request;
         $this->validate($request, [
-            'subcategory_id' => 'required',
+            'brand_id' => 'required',
             'model' => 'required',
             'price' => 'required',
             'title' => 'required',
@@ -185,7 +186,8 @@ class ItemController extends Controller
 
         $slug = Str_slug($request->title.'-'.uniqid());
         $item = new Item();
-        $item->subcategory_id = $request->subcategory_id;
+        $item->brand_id = $request->brand_id;
+        $item->subcategory_id = Brand::where('id', $request->brand_id)->first()->Subcategory_id;
         $item->model = $request->model;
         $item->slug =  $slug;
         $item->price = $request->price;

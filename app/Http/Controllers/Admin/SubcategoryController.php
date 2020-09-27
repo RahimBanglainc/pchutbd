@@ -44,7 +44,7 @@ class SubcategoryController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'category_id' => 'required',
+            'Category_id' => 'required',
             'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
         ]);
         $img = $request->file('img');
@@ -67,7 +67,7 @@ class SubcategoryController extends Controller
         $category = new Subcategory();
         $category->name = $request->name;
         $category->slug = $slug;
-        $category->category_id = $request->category_id;
+        $category->Category_id = $request->Category_id;
         $category->status = 1;
         $category->img = $imageName;
         $category->save();
@@ -152,7 +152,7 @@ class SubcategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = subcategory::where('id', $id)->first();
+        $category = Subcategory::where('id', $id)->first();
 
         if(Storage::disk('local')->exists('category/'.$category->img))
         {

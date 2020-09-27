@@ -203,7 +203,7 @@
                 <div class="card-body">
 
                     <h4 class="card-title">Picture Upload</h4>
-                    <p class="card-title-desc"> Upload 512x512 px</p>
+                    <p class="card-title-desc"> Upload Stall Logo/Store Front Picture 512x512 px</p>
                     <div class="col-md-6">
                         @if (Storage::disk('public')->exists('stall/'.$stall->img))
 
@@ -217,10 +217,11 @@
                     </div>
                     <br>
                     <div class="custom-file">
-                        <input type="file" name="img" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose Image</label>
+                        <input type="file" name="img" class="form-control-file">
                     </div>
                     <br><br>
+                    <h4 class="card-title">Package Section</h4>
+                    <p class="card-title-desc"> Package Name</p>
                     <div class="mb-4">
                         <input class="form-control" type="text" name="plan" placeholder="Plan Name"
                             value="{{ $stall->plan }}" required>

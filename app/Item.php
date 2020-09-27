@@ -15,6 +15,11 @@ class Item extends Model
         return $this->belongsTo('App\Subcategory', 'subcategory_id');
     }
 
+    public function brand()
+    {
+        return $this->belongsTo('App\Brand', 'brand_id');
+    }
+
     public function featureValue()
     {
         return $this->hasMany('App\FeatureValue');

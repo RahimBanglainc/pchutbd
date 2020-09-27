@@ -112,7 +112,7 @@
             </div>-->
 
                                 <div class="form-element"><label>Brand</label><select name="brand_id">
-                                        <option value="0" selected="">Others</option>
+                                        <option value="{{App\Brand::where('id', $item->brand_id)->first()->id}}" selected="">{{App\Brand::where('id', $item->brand_id)->first()->name}}</option>
                                     </select></div>
 
                                 <div class="form-element"><label>Model</label><input type="text" readonly="readonly"

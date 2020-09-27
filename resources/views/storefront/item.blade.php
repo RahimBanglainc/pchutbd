@@ -1,6 +1,6 @@
 @extends('layouts.storefront.layout')
 
-@section('title','Deshboard')
+@section('title','Item')
 
 
 @section('main')

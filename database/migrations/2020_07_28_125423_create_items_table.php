@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->bigInteger('stall_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('subcategory_id')->unsigned();
+            $table->integer('brand_id')->unsigned();
             $table->integer('views')->default(0);
             $table->boolean('status')->default(0);
             $table->boolean('is_approve')->default(0);
@@ -37,7 +38,6 @@ class CreateItemsTable extends Migration
             $table->text('description')->nullable();
             $table->text('warranty')->nullable();
             $table->integer('feature_id')->nullable();
-            $table->string('subcategory')->nullable();
             $table->json('features')->nullable();
             $table->foreign('stall_id')
                 ->references('id')

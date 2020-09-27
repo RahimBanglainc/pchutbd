@@ -194,28 +194,23 @@
                         </div>
                         <br>
                         <div class="custom-file">
-                            <input type="file" name="img" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose Image</label>
+                            <input type="file" name="img" class="form-control-file">
                         </div>
                         <br><br>
                         <div class="custom-file">
-                            <input type="file" name="img1" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose Image 1</label>
+                            <input type="file" name="img1" class="form-control-file">
                         </div>
                         <br><br>
                         <div class="custom-file">
-                            <input type="file" name="img2" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose Image 2</label>
+                            <input type="file" name="img2" class="form-control-file">
                         </div>
                         <br><br>
                         <div class="custom-file">
-                            <input type="file" name="img3" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose Image 3</label>
+                            <input type="file" name="img3" class="form-control-file">
                         </div>
                         <br><br>
                         <div class="custom-file">
-                            <input type="file" name="img4" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose Image 4</label>
+                            <input type="file" name="img4" class="form-control-file">
                         </div>
                         <br><br>
 

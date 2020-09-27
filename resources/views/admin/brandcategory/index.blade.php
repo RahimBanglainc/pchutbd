@@ -1,6 +1,6 @@
 @extends('layouts.admin.layout')
 
-@section('title','Sub Category')
+@section('title','Brand Category')
 
 
 
@@ -38,7 +38,7 @@ rel="stylesheet" type="text/css" />
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">PCHUTBD</a></li>
-                    <li class="breadcrumb-item active">Sub Categorys</li>
+                    <li class="breadcrumb-item active">Brand Categorys</li>
                 </ol>
             </div>
 
@@ -73,7 +73,7 @@ rel="stylesheet" type="text/css" />
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Brand Category</label>
                                             <div class="col-md-9">
-                                                <select name="category_id" class="form-control">
+                                                <select name="Subcategory_id" class="form-control">
                                                     <option>Select</option>
                                                     @foreach ( App\Subcategory::all() as $item)
 
@@ -90,8 +90,7 @@ rel="stylesheet" type="text/css" />
                                         <h4 class="card-title">Picture Upload</h4>
                                         <p class="card-title-desc"> Upload 100x100 px</p>
                                         <div class="custom-file">
-                                            <input type="file" name="img" class="custom-file-input" id="customFile">
-                                            <label class="custom-file-label" for="customFile">Choose Image</label>
+                                            <input type="file" name="img" class="form-control-file">
                                         </div>
                                         <br><br><br>
                                         {{-- <div class="custom-control custom-switch mb-2" dir="ltr">
@@ -110,7 +109,7 @@ rel="stylesheet" type="text/css" />
                     </div>
                 </div>
 
-                <h4 class="card-title mb-4">All Categorys</h4>
+                <h4 class="card-title mb-4">All Brand Categorys</h4>
 
                 <div class="table-responsive">
                     <table class="table table-centered datatable dt-responsive nowrap" data-page-length="10"
@@ -124,15 +123,15 @@ rel="stylesheet" type="text/css" />
                                     </div>
                                 </th>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Category</th>
+                                <th>Brand Name</th>
+                                <th>Sub Category</th>
                                 <th>Status</th>
                                 <th>Image</th>
                                 <th style="width: 120px;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($categorys as $key=>$item)
+                            @foreach($brands as $key=>$brand)
 
                             <tr>
                                 <td>
@@ -144,12 +143,12 @@ rel="stylesheet" type="text/css" />
 
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">{{ $key + 1 }}</a> </td>
                                 <td>
-                                <a href="{{ route('admin.subcategory.edit', $item->id) }}">
-                                        {{ $item->name }}
+                                <a href="{{ route('admin.brand.edit', $brand->id) }}">
+                                        {{ $brand->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    {!! App\Category::where('id', $item->Category_id)->first()->name !!}
+                                    {!! App\Subcategory::where('id', $brand->Subcategory_id)->first()->name !!}
                                 </td>
 
                                 <td>
@@ -158,18 +157,18 @@ rel="stylesheet" type="text/css" />
 
                                 </td>
                                 <td>
-                                    <div class="badge badge-soft-warning font-size-12"><img src="{{ asset('/'.$item->img)}}" alt="" class="rounded avatar-sm"></div>
+                                    <div class="badge badge-soft-warning font-size-12"><img src="{{ asset('/'.$brand->img)}}" alt="" class="rounded avatar-sm"></div>
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.subcategory.edit', $item->id)}}" class="mr-3 text-primary" data-toggle="tooltip"
+                                    <a href="{{route('admin.brand.edit', $brand->id)}}" class="mr-3 text-primary" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"><i
                                             class="mdi mdi-pencil font-size-18"></i></a>
 
                                     <a class="text-danger" data-toggle="tooltip"
-                                        data-placement="top" title="" data-original-title="Delete"  onclick="blogDelete({{ $item->id }})"><i
+                                        data-placement="top" title="" data-original-title="Delete"  onclick="blogDelete({{ $brand->id }})"><i
                                             class="mdi mdi-trash-can font-size-18"></i>
                                     </a>
-                                        <form method="POST" style="display: none;" action="{{route('admin.subcategory.destroy', $item->id)}}" id="delete-form-{{$item->id}}">
+                                        <form method="POST" style="display: none;" action="{{route('admin.brand.destroy', $brand->id)}}" id="delete-form-{{$brand->id}}">
                                             @csrf
 
                                             @method('DELETE')

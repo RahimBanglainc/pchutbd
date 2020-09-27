@@ -110,10 +110,10 @@
     <div class="row">
         <div class="twelve columns breadcum">
 
-            <a href="{{route('index')}}" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span><a class="breadcum-link"
-                href="{{route('cat.view', $subcat->category()->where('id', $subcat->Category_id)->first()->slug)}}">{{$subcat->category()->where('id', $subcat->Category_id)->first()->name}}</a><span> &nbsp;&gt;&nbsp;</span><a class="breadcum-link-clk"
-                href="#">{{$subcat->name}}</a>
-            {{-- <a href="bn/wireless-router/" class="u-pull-right">Bangla</a> --}}
+            <a href="{{ route('index') }}" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span>
+                <a class="breadcum-link" href="{{route('cat.view', App\Subcategory::where('id', $subcat->Subcategory_id)->first()->slug )}}">{{ App\Subcategory::where('id', $subcat->Subcategory_id)->first()->name}}</a>
+                <span> &nbsp;&gt;&nbsp;</span>
+                <a class="breadcum-link-clk" href="#">{{ $subcat->name }}</a>
         </div>
     </div>
 
@@ -269,8 +269,8 @@
 
 
             <div class="row lmenu-head">
-                <a href="{{route('cat.view', $subcat->category()->where('id', $subcat->Category_id)->first()->slug)}}">
-                    &lt;&lt; {{$subcat->category()->where('id', $subcat->Category_id)->first()->name}} </a>
+                <a href="{{route('cat.view', App\Subcategory::where('id', $subcat->Subcategory_id)->first()->slug )}}">
+                    &lt;&lt; {{ App\Subcategory::where('id', $subcat->Subcategory_id)->first()->name}} </a>
             </div>
 
             <div class="row lmenu-sub-head m-bottom">

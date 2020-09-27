@@ -36,13 +36,13 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="card">
-                <div class="card-body" style="height:490px;">
+                <div class="card-body" style="">
                     <h4 class="card-title">Edit Category</h4>
                     <div>
                         <div class="mb-4">
                             <input class="form-control" type="text" name="name" placeholder="Category Name" value="{{ $category->name }}" required>
                         </div>
-                        <h4 class="card-title">Picture Upload</h4>
+                        {{-- <h4 class="card-title">Picture Upload</h4>
                         <p class="card-title-desc"> Upload 100x100 px</p>
                         <div class="col-md-6">
                         <img class="img-thumbnail" alt="200x200" style="height:100px;" src="{{asset('/'.$category->img)}}" data-holder-rendered="true">
@@ -51,7 +51,7 @@
                         <div class="custom-file">
                             <input type="file" name="img" class="custom-file-input" id="customFile">
                             <label class="custom-file-label" for="customFile">Choose Image</label>
-                        </div>
+                        </div> --}}
                         {{-- <br><br>
                         <div class="custom-control custom-switch mb-2" dir="ltr">
                             <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" value="1" {{ $category->status == true ?'checked' : '' }} >

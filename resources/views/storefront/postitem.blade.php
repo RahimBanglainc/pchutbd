@@ -141,8 +141,8 @@
             document.getElementById("showItemFeature").innerHTML=img;
           }
 
-        var subcategory_id=document.clientForm.subcategory_id.value;
-        url  = '{{route('index')}}/getItemFeature//' + subcategory_id;
+        var brand_id=document.clientForm.brand_id.value;
+        url  = '{{route('index')}}/getItemFeature//' + brand_id;
         http.open( "GET" ,url, true);
         http.onreadystatechange = displayItemFeature;
         http.send(null);
@@ -230,12 +230,16 @@
                                     <div class="form-style">
                                         <!--            <div class="form-element"><label>Stall</label></div>-->
 
-                                        <div class="form-element"><label>Item</label><select name="subcategory_id"
+                                        <div class="form-element"><label>Item</label><select name="brand_id"
                                                 onchange="selectItemFeature()" required>
                                                 <option value="-1">select</option>
-                                                @foreach ($subcats as $subcat)
+                                                @foreach (App\Brand::first()->get() as $brand)
 
-                                                <option value="{{$subcat->id}}">{{ $subcat->category()->first()->name }}- {{ $subcat->name }}</option>
+                                                <option value="{{$brand->id}}">
+
+                                                    {{ App\Category::where('id', App\Subcategory::where('id', $brand->Subcategory_id)->first()->Category_id)->first()->name }}->{{ App\Subcategory::where('id', $brand->Subcategory_id)->first()->name }}->>{{ $brand->name }}
+
+                                                </option>
 
                                                 @endforeach
                                             </select>

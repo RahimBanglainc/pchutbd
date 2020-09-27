@@ -20,8 +20,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $categorys = Brand::latest()->get();
-        return view('admin.brandcategory.index', compact('categorys'));
+        $brands = Brand::latest()->get();
+        return view('admin.brandcategory.index', compact('brands'));
     }
 
     /**
@@ -42,7 +42,38 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        $this->validate($request, [
+            'name' => 'required',
+            'Subcategory_id' => 'required',
+            'img' => 'required|image|mimes:jpeg,bmp,png,jpg,gif',
+        ]);
+        $img = $request->file('img');
+        $slug = Str::slug($request->name);
+        if(isset($img))
+        {
+            $currentDate = Carbon::now()->toDateString();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
+            if(!Storage::disk('public')->exists('brand'))
+            {
+                Storage::disk('public')->makeDirectory('brand');
+            }
+
+            $categoryImg = Image::make($img)->resize(100, 100)->save($imageName, 90);
+            Storage::disk('public')->put('brand/'.$imageName,$categoryImg);
+        }else{
+            $imageName = "default.png";
+        }
+
+        $category = new Brand();
+        $category->name = $request->name;
+        $category->slug = $slug;
+        $category->Subcategory_id = $request->Subcategory_id;
+        $category->status = 1;
+        $category->img = $imageName;
+        $category->save();
+
+        return redirect()->route('admin.brand.index');
     }
 
     /**
@@ -64,7 +95,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        return view('admin.brandcategory.edit', compact('brand'));
     }
 
     /**
@@ -76,7 +107,40 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'Subcategory_id' => 'required',
+        ]);
+        $img = $request->file('img');
+        $slug = Str::slug($request->name);
+        if(isset($img))
+        {
+            $currentDate = Carbon::now()->toDateString();
+            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$img->getClientOriginalExtension();
+            if(!Storage::disk('public')->exists('brand'))
+            {
+                Storage::disk('public')->makeDirectory('brand');
+            }
+
+            // delete old image here
+            if(Storage::disk('public')->exists('brand/'.$brand->img))
+            {
+                Storage::disk('public')->delete('brand/'.$brand->img);
+            }
+            $categoryImg = Image::make($img)->resize(500, 350)->save($imageName, 90);
+            Storage::disk('public')->put('brand/'.$imageName,$categoryImg);
+        }else{
+            $imageName = $brand->img;
+        }
+
+        $brand->name = $request->name;
+        $brand->slug = $slug;
+        $brand->Subcategory_id = $request->Subcategory_id;
+        $brand->status = 1;
+        $brand->img = $imageName;
+        $brand->save();
+
+        return redirect()->route('admin.brand.index');
     }
 
     /**
@@ -87,6 +151,16 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+
+        if(Storage::disk('local')->exists('category/'.$brand->img))
+        {
+            Storage::disk('local')->delete('category/'.$brand->img);
+        }
+
+        $brand->delete();
+
+        // Toastr::Success('category Delete Successfully');
+
+        return redirect()->route('admin.brand.index');
     }
 }

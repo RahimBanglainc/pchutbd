@@ -1,6 +1,6 @@
 @extends('layouts.storefront.layout')
 
-@section('title','List Of Online Stalls')
+@section('title','List Of Brand')
 
 
 
@@ -110,8 +110,11 @@
     <div class="row">
         <div class="twelve columns breadcum">
 
-            <a href="{{ route('index') }}" class="breadcum-link">Home</a><span> &nbsp;&gt;
-            </span><span class="breadcum-link-clk">{{ $category->name }}</span>
+                <a href="{{ route('index') }}" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span>
+                <a class="breadcum-link" href="{{route('cat.view', App\Category::where('id', $sub->Category_id)->first()->slug )}}">{{ App\Category::where('id', $sub->Category_id)->first()->name}}</a>
+                <span> &nbsp;&gt;&nbsp;</span>
+                <a class="breadcum-link-clk" href="#">{{ $sub->name }}</a>
+
 
         </div>
     </div>
@@ -266,14 +269,14 @@
             </div>
 
             <div class="row lmenu-sub-head m-bottom">
-                <label>{{ $category->name }} &gt;</label>
+                <label>{{ $sub->name }} &gt;</label>
             </div>
 
-            @foreach($subcategories as $sublist)
+            @foreach($brandcategories as $sublist)
 
                 <span class="filters box-menu-panel">
                     <label>
-                        <a href="{{ route('brandcat.view', $sublist->slug) }}">{{ $sublist->name }}
+                        <a href="{{ route('catitem.view', $sublist->slug) }}">{{ $sublist->name }}
                         </a>
                     </label>
                 </span>
@@ -300,7 +303,7 @@
 
 
                 <div class="row body-header">
-                    <h1>{{ $category->name }}</h1>
+                    <h1>{{ $sub->name }}</h1>
                 </div>
 
 
@@ -332,9 +335,9 @@
 
                 <div class="row">
 
-                    @foreach ($subcategories as $subcat)
+                    @foreach ($brandcategories as $subcat)
 
-                    <a href="{{route('brandcat.view', $subcat->slug)}}">
+                    <a href="{{route('catitem.view', $subcat->slug)}}">
                         <div class="box-menu">
                             <div class="box-menu-img">
                                 <img src="{{asset('/'.$subcat->img)}}">
@@ -343,7 +346,7 @@
                                 {{$subcat->name}}
                             </div>
                             <div class="box-menu-stat">
-                                total {{App\Item::where('subcategory_id', $subcat->id)->count()}} items
+                                total {{App\Brand::where('subcategory_id', $subcat->id)->count()}} items
                             </div>
                         </div>
                     </a>
@@ -355,13 +358,13 @@
 
 
                 <div class="q-first" style="margin-top:5em;">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u={{route('brandcat.view',$category->slug)}}"
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{route('catitem.view',$sub->slug)}}"
                         target="_blank">
                         <img alt="Share on Facebook" title="Share on Facebook"
                     src="{{asset('img/fb_share.jpg')}}">
                     </a>
                     <a target="_blank"
-                        href="http://twitter.com/home?status={{route('brandcat.view',$category->slug)}}"><img
+                        href="http://twitter.com/home?status={{route('catitem.view',$sub->slug)}}"><img
                             alt="Post on Twitter" title="Post on Twitter"
                             src="{{asset('img/twitter_share.jpg')}}"></a>
                 </div>

@@ -1,6 +1,6 @@
 @extends('layouts.admin.layout')
 
-@section('title','Edit SubCategory')
+@section('title','Edit Brand Category')
 
 @push('css')
 
@@ -21,7 +21,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">PCHUTBD</a></li>
-                    <li class="breadcrumb-item active">Edit Sub Category</li>
+                    <li class="breadcrumb-item active">Edit Brand Category</li>
                 </ol>
             </div>
 
@@ -30,21 +30,21 @@
 </div>
 <!-- end page title -->
 
-<form method="POST" action="{{ route('admin.subcategory.update', $category->id) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('admin.brand.update', $brand->id) }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="row">
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body" style="height:490px;">
-                    <h4 class="card-title">Edit SubCategory</h4>
+                    <h4 class="card-title">Edit Brand Category</h4>
                     <div>
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label">Category</label>
+                            <label class="col-md-3 col-form-label">SubCategory</label>
                             <div class="col-md-9">
-                                <select name="Category_id" class="form-control">
-                                <option value="{{$category->Category_id}}">{{App\Category::where('id',$category->Category_id)->first()->name}}</option>
-                                    @foreach ( App\Category::all() as $item)
+                                <select name="Subcategory_id" class="form-control">
+                                <option value="{{$brand->Subcategory_id}}">{{ App\Subcategory::where('id',$brand->Subcategory_id)->first()->name }}</option>
+                                    @foreach ( App\Subcategory::all() as $item)
 
                                 <option value="{{ $item->id }}">{{$item->name}}</option>
 
@@ -54,17 +54,16 @@
                             </div>
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" type="text" name="name" placeholder="Category Name" value="{{ $category->name }}" required>
+                            <input class="form-control" type="text" name="name" placeholder="Brand Category Name" value="{{ $brand->name }}" required>
                         </div>
                         <h4 class="card-title">Picture Upload</h4>
                         <p class="card-title-desc"> Upload 100x100 px</p>
                         <div class="col-md-6">
-                        <img class="img-thumbnail" alt="200x200" style="height:100px;" src="{{asset('/'.$category->img)}}" data-holder-rendered="true">
+                        <img class="img-thumbnail" alt="200x200" style="height:100px;" src="{{asset('/'.$brand->img)}}" data-holder-rendered="true">
                         </div>
                         <br>
                         <div class="custom-file">
-                            <input type="file" name="img" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose Image</label>
+                            <input type="file" name="img" class="form-control-file">
                         </div>
                         {{-- <br><br>
                         <div class="custom-control custom-switch mb-2" dir="ltr">
@@ -89,7 +88,7 @@
                 </div> --}}
                 <div class="card-body">
 
-                    <a href="{{route('admin.category.index')}}" class="btn btn-danger waves-effect waves-light">
+                    <a href="{{route('admin.brand.index')}}" class="btn btn-danger waves-effect waves-light">
                         Back
                     </a>
                     <button type="submit" class="btn btn-primary waves-effect waves-light">

@@ -76,7 +76,22 @@
                     @foreach(App\Subcategory::where('Category_id', $cat->id)->get() as $subcat)
 
                         <li>
-                            <a href="{{route('catitem.view', $subcat->slug)}}">{{$subcat->name}}</a>
+                            <a href="{{route('brandcat.view', $subcat->slug)}}">{{$subcat->name}} »</a>
+
+                            <ul class="sub-menu">
+
+                                @foreach(App\Brand::where('Subcategory_id', $subcat->id)->get() as $bsubcat)
+
+                                    <li>
+
+                                        <a href="{{route('catitem.view', $bsubcat->slug)}}">{{$bsubcat->name}}</a>
+
+
+                                    </li>
+
+                                @endforeach
+
+                            </ul>
                         </li>
 
                     @endforeach
