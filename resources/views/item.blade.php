@@ -109,7 +109,7 @@
     <div class="breadcum">
 
         <a href="{{ route('index') }}" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span>
-        <a class="breadcum-link" href="{{route('cat.view', App\Subcategory::where('id', $item->subcategory_id)->first()->slug )}}">{{ App\Subcategory::where('id', $item->subcategory_id)->first()->name}}</a>
+        <a class="breadcum-link" href="{{route('brandcat.view', App\Subcategory::where('id', $item->subcategory_id)->first()->slug )}}">{{ App\Subcategory::where('id', $item->subcategory_id)->first()->name}}</a>
         <span> &nbsp;&gt;&nbsp;</span>
         <a class="breadcum-link-clk" href="#">{{App\Brand::where('id', $item->brand_id)->first()->name}}</a>
 

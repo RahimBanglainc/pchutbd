@@ -96,7 +96,7 @@
                 @endif
             </small>
             </div>
-            <div class="card-body" style="color: white; font-size: 17px;">
+            <div class="card-body" style="color: Black; font-size: 17px;">
                 <div class="row">
                     <div class="col-lg-3">
                         <b>Stall Name:</b>

@@ -111,7 +111,7 @@
         <div class="twelve columns breadcum">
 
             <a href="{{ route('index') }}" class="breadcum-link">Home</a><span> &nbsp;&gt;&nbsp;</span>
-                <a class="breadcum-link" href="{{route('cat.view', App\Subcategory::where('id', $subcat->Subcategory_id)->first()->slug )}}">{{ App\Subcategory::where('id', $subcat->Subcategory_id)->first()->name}}</a>
+                <a class="breadcum-link" href="{{route('brandcat.view', App\Subcategory::where('id', $subcat->Subcategory_id)->first()->slug )}}">{{ App\Subcategory::where('id', $subcat->Subcategory_id)->first()->name}}</a>
                 <span> &nbsp;&gt;&nbsp;</span>
                 <a class="breadcum-link-clk" href="#">{{ $subcat->name }}</a>
         </div>
@@ -269,13 +269,27 @@
 
 
             <div class="row lmenu-head">
-                <a href="{{route('cat.view', App\Subcategory::where('id', $subcat->Subcategory_id)->first()->slug )}}">
+                <a href="{{route('brandcat.view', App\Subcategory::where('id', $subcat->Subcategory_id)->first()->slug )}}">
                     &lt;&lt; {{ App\Subcategory::where('id', $subcat->Subcategory_id)->first()->name}} </a>
             </div>
 
             <div class="row lmenu-sub-head m-bottom">
                 <label>{{$subcat->name}} &gt;</label>
             </div>
+            
+            
+            
+                   
+               <li id="nav" class="toggle accordion-toggle"> 
+                  <a class="menuv-link">Price Range</a>
+               </li>
+           
+            <ul class="menuv-submenuv accordion-content"> 
+             
+            <li><input type="checkbox" id="price" onclick="filterListing('printer',':1:10000','price','printer')" name="FeatureValue[]" value=":1:10000"><span class="menuv-filter-label">৳ 1-10000</span></li><li><input type="checkbox" id="price" onclick="filterListing('printer',':10001:20000','price','printer')" name="FeatureValue[]" value=":10001:20000"><span class="menuv-filter-label">৳ 10001-20000</span></li><li><input type="checkbox" id="price" onclick="filterListing('printer',':20001:30000','price','printer')" name="FeatureValue[]" value=":20001:30000"><span class="menuv-filter-label">৳ 20001-30000</span></li><li><input type="checkbox" id="price" onclick="filterListing('printer',':30001:40000','price','printer')" name="FeatureValue[]" value=":30001:40000"><span class="menuv-filter-label">৳ 30001-40000</span></li><li><input type="checkbox" id="price" onclick="filterListing('printer',':40001:50000','price','printer')" name="FeatureValue[]" value=":40001:50000"><span class="menuv-filter-label">৳ 40001-50000</span></li><li><input type="checkbox" id="price" onclick="filterListing('printer',':50000:0','price','printer')" name="FeatureValue[]" value=":50000:0"><span class="menuv-filter-label">Above ৳ 50000</span></li></ul>  
+            
+              
+
 
 
 

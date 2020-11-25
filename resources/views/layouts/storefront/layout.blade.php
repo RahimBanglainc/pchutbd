@@ -77,11 +77,40 @@
 
         @include('layouts.storefront.header')
 
-
-
-
+        @guest
 
         @yield('main')
+
+        @else
+
+@if (Auth::User()->is_seller == true)
+
+    @if (Auth::User()->stall()->first()->status == true)
+
+    @yield('main')
+
+    @else
+
+    <br><br>
+
+    <div class="form-style">
+
+        <b style="text-align: center; color: red;"> Your Account Is Disable.
+             Contact PcHutBD Team.
+        </b>
+
+    </div>
+
+    @endif
+
+@else
+
+@yield('main')
+
+@endif
+
+@endguest
+
 
 
 

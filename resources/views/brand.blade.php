@@ -304,8 +304,18 @@
 
                 <div class="row body-header">
                     <h1>{{ $sub->name }}</h1>
+                    
                 </div>
-
+                
+                
+                
+                <div class="row"> 
+              
+       <li id="nav" class="toggle accordion-toggle"> 
+          
+          <a class="menuv-link">Brand</a>
+       </li>
+     
 
                 <div class="row">
                     <div id="responsive">
